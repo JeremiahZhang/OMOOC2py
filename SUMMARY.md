@@ -36,7 +36,6 @@
 		-  [Trek07 慢下来了](2nDev/week06_thought.md)
 	- [StarTrek08 日志交互移动版](2nDev/week07_qpy.md)
 - [星际大会](3rDemo/README.md)
-		
 - [Renew Mind in Galaxy](4Learn/README.md)
 	- [Star 開智编程入门体验](4Learn/2015-9-26-HiddenMission.md)
 	- [Star Renewminding](4Learn/0wd4-OpenCourse-Note.md)
