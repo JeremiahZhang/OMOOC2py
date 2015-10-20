@@ -1,5 +1,8 @@
 # week_1 日志交互系统
 
+- [Latest code](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py0w/0wex0/main.py)
+- [使用说明](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py0w/README.md)
+
 ## 背景 ##
 
 第一周的任务：交互-101
