@@ -1,7 +1,7 @@
 # Summary
 - [教学反转](0MOOC/README.md)
 	- [Windows Setting](0MOOC/win7.md)
-	- [Learn Git](0MOOC/learngit.md)
+	- [Git](0MOOC/learngit.md)
 	- [windows setting](0MOOC/win7.md)
 	- [Gitbook](0MOOC/gitbook.md)
 	- [ST2与Py环境配置](0MOOC/SubPy.md)

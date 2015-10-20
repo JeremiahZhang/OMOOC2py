@@ -1,229 +1,189 @@
 # Learn Git #
 
-- 1-version control
-- 2-历史版本
-	- 版本回退
-- 3-设置版本标签
-- 4-小技巧：设置alias
-- 5-撤销本地修改(before staging)
-- 6-撤销已添加到缓存区的修改（before commit）
-- 7-撤销commit到远程库（git revert）
-- 8-git pull将远程库拉到本地
-- 9-删除远程库 git remote rm 
-- 10-git clone < git url > 思想clone之意 就已明了
+- Version Control 版本控制
+- Git
+	- git basic 3大区
+	- 配置工具
+	- 本地与远程库联通
+- 常用命令
+	+ 版本回溯
+	+ Tag标签 commit
+	+ branch 分支
+- 小技巧
 
-## 1-Push a new local repo to Github ##
+## Version Control ##
 
-已经有一个origin repo了，现在新建一个新的local repo（用以记录机器学习的学习历程），然后推送到github上：
+- 什么是[版本控制](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control)
 
-- 创建版本库
-	- 在自己的电脑文件夹中新建了my machine learning journey的文件夹
-	- 然后直接git init here
-	- git init
-	- 添加readme文件和机器学习的文件夹
+> -  Version control is a system that records changes to a file or set of files over time so that you can recall specific versions later. 
+
+版本控制是记录文件内容变化的系统 可以帮助我在将来某一天都能查看以前某个文件某个版本的修订情况
+
+- 举个例子 
+	- 从2015年9月1日开始 我每天写硕士论文 直到今天 嗯 我是在word中写的
+	- 每一天写完一点 我都保存好了 但是还是在原来的文件在保存的 直接`ctrl+s`
+	- 假如我想知道我每天写的不用内容 我就得每日都另存为`ctrl+shift+s`一个版本 并命名时间2015-09-30版什么的 这样30天下来 我就有30个不同版本的硕士论文 查看我每一天所写的内容
+	- 但有了版本控制系统 我只要用几个简单的命令 就可以记录那30个不同的论文版本 并且最终的文件 还是只有1个而已 我想回溯到30天内任何一天的写作内容 都可以 
+
+以上只是一个简单的例子 
+版本控制还有很多有用之处呢
+
+----------
+
+## Git ##
+
+- 什么是[Git](https://git-scm.com/)
+> Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency
+
+Git是一个免费且开源的[分布式版本控制系统](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control#Distributed-Version-Control-Systems) 
+
+![分布式版本控制](https://git-scm.com/book/en/v2/book/01-introduction/images/distributed.png)
+
+如图 分布式版本控制系统中 服务器中的文件库(远程库)如同"大树树根"一样 树枝A和B(本地电脑A-B)可以从"树根"获取远程库内容 并在本地修改之后 再次传输给“树根” 而A-B可以同时对同一个文件库中的内容进行操作 A-B也可以进行互相协作
+
+### Git Basic ###
+
+3大区
+
+- 工作区 working directory 
+	- 你可以认为是 本地仓库 Local Repository
+	- 也是-本地目录-本地文件夹 
+	- 在其中可进行操作：如我在一个文件夹中建立一个md文档等等
+- 暂存区 staging area
+	- 这个区 可以看作是一个虚拟区 
+- .git directory (Remote Reposiroty 远程仓库)
+	- 代表着 [Github](https://github.com/) 远程仓库
+
+### 配置工具 ###
+
+- 注册github
+	- 用户名
+	- 邮箱地址
+
+首先下载Git全平台版 [http://git-scm.com](http://git-scm.com) 
+
+- 配置所有本地仓库的用户信息 (相当于配置确认你本地计算的用户ID 可以与远程仓库进行联通)
+	- `$ git config --global username`
+	- `$ git config --global email_address`
+	- 说明 
+		+ username 是 我在github上注册的 用户名
+		+ email_address 是 我在github注册 用户名 时的 邮箱地址
+- 这样设置好 我就可以和Github 远程库 进行自由联通了 怎么联通 请继续看
+
+### 本地与远程库联通 ###
+
+- 创建远程库 gopython
+	- creat a new repo 新建完库之后 注意出现的代码 尤其是ssh连接
+	- copy the SSH of the new repo 也可以使用其url 后面会使用
+- 在本地文件夹中创建一个新的仓库
+	+ 我在D盘中创建一个文件夹名为 gopython
+	+ 我右击gopython文件夹名 再点击`git bash here` 我就对gopython文件夹进行git bash 命令行操作了
+	+ `$ git init` git 默认此时branch为master
+	+ 在【gopython文件夹】中添加 README.md和 SUMMARY.md 文件
 - 远程仓库设置
-	- creat a new repo
-	- copy the SSH of the new repo
-	- git add --a
-	- git commit -m "add new repo"
-	- git remote add learnml <-my SSH clone URL add->
-	- git push -u learnml master
+	- `git add --a`
+	- `git commit -m "1st commit"`
+	- `git remote add name [the gopyhon SSH 或url 任选一]`注意`[]`不需要的 `name` 自定义远程库的名字
+	- `git push -u name master` 将远程库内容
 
 ----------
 
-## 2-git 基础 ##
+## 常用命令 ##
+1-代码库clone到本地文件目录
 
-- working directory：工作区，本地目录，你可以对里面的文件进行操作
-- staging area
-- .git directory（Repository）
+	git clone {remote ssh or http link}
+2-在本地目录添加远程库
 
-we need to know that：
+	git remote add remote_name {remote ssh or http link}
+3-将远程库文件pull到本地
 
-- changes, not files
-	- **Git works with changes, not files**. so when I modify the file in the working directory and git add this file，this modifier will be add to the staging area. After that I use the "git commit" to commit this change to repository.
-	- SO use "git add" to track the changes, and then git commit to repo.
-- **History** 历史
-	- git log
-	- git log --pretty=oneline: 用一行来显示git 快照下来的commit历史或版本历史
-	- git reflog 
-	- git log --pretty=oneline --max-count=2 : 显示最开始的两个
-	- git log --pretty=oneline --since='5 minutes ago'
-	- git log --pretty=oneline --until='5 minutes ago'
-	- git log --pretty=oneline --author=<your name>
-	- git log --pretty=oneline --all
-	- git log --all --pretty=format:'%h %cd %s (%an)' --since='7 days ago'：查看最近一周的修改变化。”
-	- git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short：以另一种显示方式来呈现
-- **版本回退**
-	- git log or git reflog
-	- git reset --hard <使用git log or git reflog中的hash值 前7位就可以了> 
-	- cat <filename> :来显示文件内容
+	git pull remote_name {remote ssh or http link}
+4-本地新增or修改的文件添加到working dir
 
-> note 在unix 和mac os中版本回退的命令与window的是同的
+	git add --a #添加所有
+5-添加之后 需要commit到staging area 暂存区
 
-----------
+	git commit -m "simple tag this commit"
+6-推送到github
 
-## 3-Tagging Version ##
+	git push remote_name {remote ssh or http link}
+7-查看Local repo所有变化修改
+	
+	git status
+8-查看远程库
 
-- 给commit的版本贴个标签tag：**git tag v1**
-- 使用tag name来check out 回退：**git checkout v1^**
-- 查看使用的标签 **git tag**
-- 查看标签列表 **git hist master --all**
+	git remote
+	git remote rm remote_name # 删除远程库
 
-> Learn how to tag commits with names for future reference
+### 版本回溯 ###
+1-查看版本历史
+	
+	git log
+	git log --pretty=oneline # 用一行来显示git 快照下来的commit历史或版本历史
 
-### 实践 ###
+2-版本回退
 
-- 我新建了一个hello.md文件，并添加内容为【# Hello world】
-- **git add** 之后
-- **git commit** 之后
-- **git tag v1**
-- **git checkout v1^**
-- **cat hello.md** 之后显示
- 
-		cat：hello.md: No such file or directory
+	git reflog # git log
+	git reset --hard {使用git log or git reflog中的hash值 前7位}
+3-查看所有commit历史
 
-> - 也就是说 git tag v1 是将commit的快照下的那个版本打上标签v1，便于以后回退
-> - 那么 v1^ （或v1~1）是表示的是 v1上一个版本或上一代
+	git hist master --all
 
-- **git checkout v1** 之后
-- **cat hello.md** 之后 我的文件又回来了，真的太棒了
+### Tag 标签 commit ###
 
-		# Hello world
+1-给刚commit的版本贴个标签 tag：好记 
 
-- git tag 查看所使用的 tag
-- git hist master --all
+	git commit -m ""
+	git tag v1
+	git checkout v1 # 直接使用tag回退 v1^的话 表示上一个版本 commit
+2-查看所有标签
+	
+	git tag
 
-> So cool, I can see the tag.
+### git branch ###
+1-**查看**所有本地repo中所有分支 默认为master
 
-----------
+	git branch
+2-**创建分支**
+	
+	git branch {branch_name}
+创建分支后 HEAD(相当于一个指针) 就指向正在工作的本体分支了 branch_name的分支
+3-HEAD 指针回到原来的master分支
 
+	git checkout master
+4-**新建并切换到分支** branch_test
 
-## 4-小技巧 ##
-
-- alias：修改git普通命令，使用别名在.gitconfig中修改如，使用起来更方便
-	- co = checkout
-  	- ci = commit
-  	- st = status
-  	- br = branch
-  	- hist = log --pretty=oneline
-  	- type = cat-file -t
-  	- dump = cat-file -p
-  	- rf = reflog
+	git checkout -b branch_test
+5-**合并分支** 与master合并
+	
+	git checkout master
+	git merge branch_test
+6-**删除分支**
+	
+	git branch -d branch_test # 合并好之后 branch_test分支可以删除了
 
 ----------
 
-## 5-撤销本地修改undoing local changes(before staging) ##
+## 小技巧 ##
 
-> - Learn how to revert changes in the working directory. 
-> - 若我本地工作目录中修改了文件hello.md, 但是我并没有提交add 到缓存区中，更没有commit到远程库中，那么我该如何回退或撤销？
-> - git checkout <file-name>
+文件目录中 修改.git/config中的命令**绰号** 如
 
-- 我在hello.md文件中添加了 
-	-  I want to learn how to revert changes in the working directory.
- 
-				# Hello world
-
-				- I want to learn how to revert changes in the working directory.
- 
-- 确定上一次的提交是在master上
-	- git checkout master
-	- 这个使用使得我之前commit的撤回了，回退到我上上会的版本处
-		- 比如最近的版本是 v1
-		- 使用上面的命令后，回到了上上个版本v1^处
-- git status
-	- 提示我修改了hello.md文件，但是没有add 和commit
-- git checkout hello.md
-- git status
-- cat hello.md 之后就只剩下了如下内容，说明我撤销了最近一次的本地修改
-
-		# Hello world
-
-
-> It is so cool. I love Git.
+	[alias]
+		co = checkout
+		ci = commit -m
+		st = status
+		br = branch
+		pu = push origin master
+		pl = pull
+		ad = add --a
+		hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+		type = cat-file -t
+		dump = cat-file -p
+		rf = reflog
+设置好之后 `git st` 就代表 `git status` 
 
 ----------
 
-## 6-撤销已添加到缓存区的修改 ##
+10/20/2015 
 
-> Learn how to revert changes that have been staged.
 
-- **git reset HEAD <file-name>**
-- git checkout <file-name> 用来撤销工作区文件修改
-
-修改的文件，已经git add 添加到缓存区，但是没有commit到远程库repo，如何撤销本次的添加到缓存区呢？
-
-- 简单修改文件hello.md，内容如下
-			
-		# Hello world
-		- I want to learn how to revert changes in the working directory. Got it.
-		- Undoing staged changes(before committing)
-- git add hello.md
-	- 将文件添加到了缓存区
-	- 但是没有 commit
-- cat hello.md
-	- 查看文件内容
-- git status
-	- 可以发现提示 **modified hello.md 一行** 是蓝色的，说明已经将文件添加到缓存区
-- git reset HEAD hello.md
-	- 撤销本次add添加到缓存区
-	- 【note】:reset命令不会修改工作目录中的文件内容
-- git status
-	- 发现此时 **modified hello.md 一行** 是红色的，说明已经撤销了git add(上传到缓存区)
-- cat hello.md
-	- 文件内容没有改变
-- git checkout hello.md
-	- 此时就撤销了在工作目录中hello.md内容的修改
-- cat hello.md
-		
-		# Hello world
-		- I want to learn how to revert changes in the working directory. Got it.
-
-回到了修改前状态。
-
-> It is so cool. I love Git.
-
-### 问题来了 ###
-
-- 那么我该如何再回到我修改后的状态呢？
-	- 因为本次我没有commit
-	- 不可使用版本回退
-	- git log 后没有hash值所以不可使用 git reset --hard <前7位hash值，但不包括挂号>
-
-----------
-
-## 7-Undoing commit changes ##
-
-- git add <file-name>
-- git commit -m "..."
-- git revert HEAD
-
-> 学习在commit之后，撤销此次的commit。
-> but 在window中出现vim底层界面。
-
-## 8-git pull ##
-
-- 问题：我在远程库repo中进行了文件的修改，与我本地目录中的文件出现了不同
-- git push 提示不成功，需要git pull
-- then 操作
-	- git remote add learnml ../...git 【这个之前设置过了就不用再设置了】
-	- git branch --track learnml master
-	- git pull learnml master
-
-> 这个流程过程和git push 正好可逆。
-> - git push 之前先要 add 与commit
-> - git pull 之前，先要将分支track一下
-
-## 9-git remote rm * ##
-
-远程库重名了 或需要删除 用此命令  
-注意 git branch -d <branchname> 是删除branch分支的 
-不要混淆
-
-10/8/2015 
-
-----------
-
-## 进展 ##
-
-- 1-8 与开课前就已经学习 并创建 
-- 带`*`的是增补  10/8/2015 雷雨增补 
