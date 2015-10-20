@@ -12,6 +12,8 @@
 		- [从源开始](1sTry/0wd1-reflection.md)
 		- [Sth New](1sTry/0wd2-New-things-to-learn.md)
 		- [苟日新](1sTry/0wd3-step-by-step-4_7-8.md)
+- [Learn by Doing](1tDoing/README.md)
+	- [Python Package Install](1tDoing/MoudleInstall.md)
 - [迭代作品](2nDev/README.md)
 	- [week_1_交互](2nDev/week01_interact.md)
 - [人生首秀](3rDemo/README.md)
