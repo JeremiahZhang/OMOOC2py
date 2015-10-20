@@ -25,8 +25,14 @@
 [如何成为一名黑客](http://translations.readthedocs.org/en/latest/hacker_howto.html#id3)
 > 你必须建立对于自己学习能力的信念——就算你掌握的知识不足以解决当前的问题，如果你从问题的一小部分下手并从中学习，你将学到足够的知识用来解决下一部分——以此类推，直到整个问题都被你解决为止。
 
+[The Glider: A Universal Hacker Emblem ](http://www.catb.org/~esr/hacker-emblem/)
 
-Transferd From [Python Beginner Guide For Leiyu](https://jeremiahzhang.gitbooks.io/pybeginner/content/)
+![Glider](http://www.catb.org/~esr/hacker-emblem/glider.png)
+
+----------
+
+## Renew ##
+Transfered From [Python Beginner Guide For Leiyu](https://jeremiahzhang.gitbooks.io/pybeginner/content/)
 
 10/20/2015 Transfered 
 
