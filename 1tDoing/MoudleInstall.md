@@ -16,6 +16,9 @@
 
 ## 安装 ##
 
+### 方案-0 Pip install ###
+	pip install package_name
+
 ### 方案-1 ###
 
 在[PyPI](https://pypi.python.org/pypi)下载对应的Package 一般package 有说明怎么安装 安装说明来也可以  
@@ -26,19 +29,37 @@
 - 使用Python安装 (window Powershell中)
 
 		C:\temp\twill-1.8.0
+		python setup.py build
 		python setup.py install
 可以成功安装
 
+在使用Twill过程发现
+
+	ImportError: No module named lxml
+缺少 `lxml` module 安装 Package [lxml](https://pypi.python.org/pypi?%3Aaction=search&term=lxml&submit=search)使用babun安装
+
+	pip install lxml 
+执行 `from twill.commands import *`提示缺少requests模块 No module named requests go on
+
+	pip install requests
+执行 又提示
+	
+	cssselect seems not to be installed. See http://packages.python.org/cssselect/
+继续
+
+	pip instal cssselect
+总算完工
+	
 ### 方案-2 ###
 
 若在PyPI中的package有安装说明 就直接用command line安装
 
 ## 总 ##
 
-- 需求外部 python package
+- 需求外部 python package babun中 直接`pip install`
 - 直接从PyPI中寻找Package
 	- 若直接有安装说明 就用cmd line命令安装
 - 下载压缩文件 解压 
-- 安装 window shell中 `python setup.py install` 安装
+- 安装 window shell中 安装
 
 10/20/2015 10:06:09 PM
