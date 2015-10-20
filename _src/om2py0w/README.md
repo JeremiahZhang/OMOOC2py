@@ -1,5 +1,9 @@
 # OMOOC.py 周任务代码试作
 
+- 系统 win7
+- 命令行使用Powershell工具
+- python version 2.7.8
+
 ## 0w 日记交互系统
 
 - py 调用

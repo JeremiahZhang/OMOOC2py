@@ -84,7 +84,8 @@ Git是一个免费且开源的[分布式版本控制系统](https://git-scm.com/
 	- `git add --a`
 	- `git commit -m "1st commit"`
 	- `git remote add name [the gopyhon SSH 或url 任选一]`注意`[]`不需要的 `name` 自定义远程库的名字
-	- `git push -u name master` 将远程库内容
+	- `git pull name [the gopyhon SSH 或url 任选一]` # 现将github上远程库拉到本地 才能推送 
+	- `git push -u name master` 推送到.git 远程库
 
 ----------
 
@@ -161,6 +162,13 @@ Git是一个免费且开源的[分布式版本控制系统](https://git-scm.com/
 6-**删除分支**
 	
 	git branch -d branch_test # 合并好之后 branch_test分支可以删除了
+
+#### 分支管理 ####
+
+	git branch # 产看当前所以分支
+	git branch -v # 查看各个分支最后一次commit对象信息
+	git branch --merged	# 已合并分支
+	git branch --no-merged # 尚未合并分支
 
 ----------
 
