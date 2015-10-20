@@ -1,0 +1,3 @@
+this is file to test string and find "\n"
+
+2015-10-20 11:29:11
