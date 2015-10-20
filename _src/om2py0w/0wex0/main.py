@@ -14,6 +14,8 @@ def main():
         print words,
     print "\n"
     
+    read_diary()
+    
     script_statement = """ # 脚本说明：
 
     1.这是每日日志书写脚本
@@ -26,7 +28,6 @@ def main():
     
     print(script_statement.encode(sys.stdout.encoding) + "\n")
     
-    read_diary()
     write_diary()
 
 def read_diary():
@@ -36,7 +37,7 @@ def read_diary():
     for file in glob.glob("*.txt"):
         print(file)
         file_content = open(file, "r")
-        print file_content.read()
+        print file_content.read() + "\n"
 
 def write_diary():
     done = False
