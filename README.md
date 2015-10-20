@@ -12,8 +12,9 @@
 ## 作者 
 
 - [入学三问](https://github.com/JeremiahZhang/gopython/blob/master/PY-StarTrek-Prepare/2015-9-10-T2-%E5%85%A5%E5%AD%A6%E4%B8%89%E9%97%AE.md)  
-- [雷雨Jeremiah](http://weibo.com/1784386944/profile?topnav=1&wvr=6)
-- 个人成长博客 [Renew Mind](http://jeremiahzhang.github.io/)
+- 新浪微博:[@雷雨Jeremiah](http://weibo.com/1784386944/profile?topnav=1&wvr=6)
+- Github:[@JeremyZhang](https://github.com/JeremiahZhang)
+- 个人博客:[Renew Mind](http://jeremiahzhang.github.io/)
 
 
 ## 目标
