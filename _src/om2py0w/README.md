@@ -2,7 +2,7 @@
 
 - 系统 win7
 - 命令行使用Powershell工具
-- python version 2.7.8
+- python version 2.7.10
 
 ## 0w 日记交互系统
 
@@ -23,3 +23,5 @@
 		+ shell中打开文件 `cat diary_name.txt` 会打印日志内容
 	+ 演示  
 	![演示](https://raw.githubusercontent.com/JeremiahZhang/pybeginner/master/_image/05_readme_pre.JPG)
+- [更新](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py0w/0wex0/diary_beta_2.py)
+- [开发日志](https://jeremiahzhang.gitbooks.io/omooc2py/content/2nDev/week01_interact.html)
