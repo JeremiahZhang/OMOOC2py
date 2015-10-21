@@ -11,5 +11,13 @@
 	- 嵌套 注意主次 加()
 		- 矩阵表示 提取
 		- zip()
+- PS `lambda` expression 相当于 一个函数
 
-[代码1wd3]()
+> the expression lambda arguments: expression yields a function object. 
+
+	lambda_expr     ::=  "lambda" [parameter_list]: expression
+
+	def name(arguments):
+    	return expression
+
+[代码1wd3](https://github.com/JeremiahZhang/OMOOC2py/tree/master/_src/om2py1w/1wd3)
