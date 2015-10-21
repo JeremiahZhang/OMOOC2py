@@ -81,9 +81,29 @@ print filter(g, range(2, 25))
 
 print type(range(2,5))
 
+print '*'*30
+print "map(function, sequence)"
+def cube(x): return x*x*x
 
+a = map(cube, range(1, 11))
+print a
 
+print '*'*30
+print "reduce(function, sequence)"
 
+def add(x,y): return x+y
 
+b = reduce(add, range(1, 11))
+print b
 
+print '*'*30
+print "a third argument can be passed to indicate the starting value"
 
+def sum(seq):
+    def add(x,y): return x+y
+    return reduce(add, seq, 1)
+
+c = sum(range(1, 11))
+print c
+d = sum([])
+print d
