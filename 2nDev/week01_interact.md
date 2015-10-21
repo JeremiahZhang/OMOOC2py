@@ -1,6 +1,7 @@
 # week_1 日志交互系统
 
-- [Latest code](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py0w/0wex0/main.py)
+- [Diary_1.0](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py0w/0wex0/main.py)
+- [Diary_2.0](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py0w/0wex0/diary_beta_2.py)
 - [使用说明](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py0w/README.md)
 
 ## 背景 ##
@@ -244,6 +245,22 @@ win pshell 中调用 `python main.py 我 爱 Python`
 
 果效：
 ![diarylog](https://raw.githubusercontent.com/JeremiahZhang/pybeginner/master/_image/03_all_done.JPG)
+
+## 更新 ##
+
+- Diary_1.0 将以上个部分整合 并用function来调用 其中各个子功能
+	- read_diary()
+	- write_diary()
+- Diary_2.0 将脚本说明 使用 a multi-line docstring 形式
+
+		def my_function()
+			"""Do nothing, but document it.
+			
+			No, really, it doesn't do anything.
+			"""
+			pass
+
+			print my_function.__doc__
 
 ----------
 
