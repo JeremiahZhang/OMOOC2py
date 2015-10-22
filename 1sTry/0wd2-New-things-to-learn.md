@@ -55,12 +55,12 @@
 
 ## Next##
 
-- [] dictionary dive in 官方help and [问题](http://stackoverflow.com/questions/17677523/python-keyword-output-interpretation)
-- [] 4.7.3 Arbitrary Argument Lists
-- [] 4.7.4 Unpacking Argument Lists
-- [] 4.7.5. Lambda Expressions
-- [] 4.7.6. Documentation Strings
-- [] 4.8 Intermezzo: Coding Style
+- [x] dictionary dive in 官方help and [问题](http://stackoverflow.com/questions/17677523/python-keyword-output-interpretation)
+- [x] 4.7.3 Arbitrary Argument Lists
+- [x] 4.7.4 Unpacking Argument Lists
+- [x] 4.7.5. Lambda Expressions
+- [x] 4.7.6. Documentation Strings
+- [x] 4.8 Intermezzo: Coding Style
 
 ----------
 

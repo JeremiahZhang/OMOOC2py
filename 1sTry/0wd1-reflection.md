@@ -15,13 +15,13 @@
 	+ 挑战级别2颗星 和昨天的那个 show me the code 0000 题相比
 	+ 大多数在那42行代码中运行到了 只是在填充数 构建python结构框架
 	+ 接下来  
-		- [] py tutorial
+		- [x] py tutorial
 			- [x] statements `if` `for` `break` `continue` `pass`
 			- [x] `else` clauses On Loops 
 			- [x] `range()` function
-			- [] `def` function
+			- [x] `def` function
 				- argument
-			- [] coding style
+			- [x] coding style
 		- [] 完成简单工程行为
 
 代码：[https://github.com/JeremiahZhang/pybeginner/tree/master/_src/om2py0w/0wex2](https://github.com/JeremiahZhang/pybeginner/tree/master/_src/om2py0w/0wex2)
