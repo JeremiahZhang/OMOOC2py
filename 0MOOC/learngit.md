@@ -10,6 +10,7 @@
 	+ Tag标签 commit
 	+ branch 分支
 - 小技巧
+- Quick setup from Github
 
 ## Version Control ##
 
@@ -192,6 +193,29 @@ Git是一个免费且开源的[分布式版本控制系统](https://git-scm.com/
 
 ----------
 
-10/20/2015 
+## Quick setup from Github ##
+
+> create a new repository on the command line
+
+    echo # test >> README.md
+    git init
+    git add README.md
+    git commit -m "first commit"
+    git remote add origin git@github.com:JeremiahZhang/test.git
+    git push -u origin master
+
+> push an existing repository from the command line
+
+    git remote add origin git@github.com:JeremiahZhang/test.git
+    git push -u origin master
+ 
+> import code from another repository
+
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+
+当在Github上创建好一个Repo 就有4个提示 视而不见的后果就会造成很多弯路 花很多笨功夫 之前学习的时候 看这别人的教程 却忽略元知识 笨功夫啊
+
+10/20/2015   
+10/22/2015
 
 
