@@ -1,5 +1,6 @@
 # Summary
 - [教学反转](0MOOC/README.md)
+	- [开智编程入门体验](0MOOC/2015-9-26-HiddenMission.md)
 	- [Windows Setting](0MOOC/win7.md)
 	- [Git](0MOOC/learngit.md)
 	- [windows setting](0MOOC/win7.md)
