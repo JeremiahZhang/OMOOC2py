@@ -32,7 +32,7 @@
 
 ### **实践-1 自动打开浏览器 进行google搜索** ###
 
-代码： go_google.py
+代码： [go_google.py](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py1w/1wd5autologin/go_google.py)
 
 		# -*- coding: utf-8 _*-
 		from selenium import webdriver
@@ -70,7 +70,7 @@ OK 这个你可以拓展下
 
 ### 实践-2 登录facebook ###
 
-代码：go_facebook.py
+代码：[go_facebook.py](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py1w/1wd5autologin/go_facebook.py)
 
     # -*- coding: utf-8 _*-
 	from selenium import webdriver  			# 导入模块 
@@ -165,7 +165,7 @@ shell 执行
 	
 改 password_field = driver.find_element_by_id("pwd")
 
-经过修改之后 代码在此 go_wechat.py （只要修改一下你的账户与密码）执行 可自动登录 
+经过修改之后 你可以参见代码 [go_wechat.py](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py1w/1wd5autologin/go_wechat.py)（只要修改一下你的账户与密码）执行 可自动登录 
  
 这回你只要用shell调用 go_wechat.py脚本就可以自动微信公众号了 再也不用每次都要输入密码了 真cool
 
