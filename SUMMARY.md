@@ -14,6 +14,7 @@
 		- [Sth New](1sTry/0wd2-New-things-to-learn.md)
 		- [苟日新](1sTry/0wd3-step-by-step-4_7-8.md)
 	- [week_1](1sTry/week_1.md)
+		- [Google Search](1sTry/1wd5_go_google.md)
 - [Learn by Doing](1tDoing/README.md)
 	- [Python Package Install](1tDoing/MoudleInstall.md)
 	- [自动登录网页](1tDoing/01Gowechat.md)

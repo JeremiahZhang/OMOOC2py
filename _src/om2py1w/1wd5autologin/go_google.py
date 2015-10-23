@@ -3,7 +3,11 @@ import sys
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-print """ Example 1:
+reload(sys) # must reload
+sys.setdefaultencoding('utf-8') # default encoding
+
+
+print """ Explain:
     ==========
     
     * open a new Firefox browser
@@ -14,16 +18,15 @@ print """ Example 1:
 """
 your_keywords = sys.argv[1:]
 
-browser = webdriver.Firefox()             # open your firefox browser
+browser = webdriver.Firefox()
 
-browser.get("http://www.google.com")      # go to google webpage
-assert 'Google' in browser.title          # confirm that title has “Google” word in it
+browser.get("http://www.google.com")
 
-search_elem = browser.find_element_by_name('q')  # name = "q" is in the search field of the google webpage source code
+search_elem = browser.find_element_by_name('q')
 
 for keywords in your_keywords:
     search_elem.send_keys(keywords + " ")
 
-search_elem.send_keys(Keys.RETURN)    # search keyword Keys.RETURN like keyboard enter or Go
+search_elem.send_keys(Keys.RETURN)
 
 print "Mission Completed!"

@@ -77,7 +77,55 @@ shell调用：
 
 1.自动打开firefox浏览器  
 2.自动进入 www.google.com  
-3.自动搜索 关键字 `python` `tutorial`
+3.自动搜索 关键字 `python` `tutorial`  
+如图：
+
+### 2.中文关键字搜索 ###
+1.**问题：**直接调用脚本
+
+	python go_google.py 编程 教程
+出错 原因 编码问题
+
+	UnicodeDecodeError: 'utf8' codec can't decode byte 0xbd in position 0: invalid start byte
+2.方案1：你可以全部使用UTF-8编码 之前在完成第一周任务-小小交互系统的时候 就已经知道了吧 [week_1_日记交互系统](https://jeremiahzhang.gitbooks.io/omooc2py/content/2nDev/week01_interact.html) 添加 
+
+	# -*- coding: utf-8 -*-
+	import sys
+	reload(sys) # 必须 reload
+	sys.setdefaultencoding('utf-8') # 默认编码
+使用utf8 can't decode
+
+	UnicodeDecodeError: 'utf8' codec can't decode byte 0xb1 in position 0: invalid start byte
+3.**分析**：`for keywords in your_keywords:`中的 `keywords`的类型是 str 但是 `0bx1` 这种格式的  
+search 调试 修改 
+
+`search_elem.send_keys(keywords + " ")` 这部分 猜测其中 `keywords` 编码出现问题 尝试
+
+	search_elem.send_keys(unicode(keywords) + " ")
+	search_elem.send_keys(keywords.decode("utf-8") + " ")
+	search_elem.send_keys(keywords.encode(sys.stdout.encoding) + " ")
+	search_elem.send_keys(keywords.decode("utf-8") + " ")
+	search_elem.send_keys(keywords.decode() + " ")
+	search_elem.send_keys(unicode(keywords, "ISO-8859-1").encode("utf-8") + " ")
+各种编码试过 都出现 同上的 `UnicodeDecodeError`   
+你不要再花笨功夫了 好好去理解编码的问题吧...
+
+有点累了 你要 KEEP CALM AND GO SLEEPING byebye
+
+10/23/2015 9:33:41 PM
+
+
+	
+	
+
+	
+
+	
+
+	
+
+	
+
 
 
 

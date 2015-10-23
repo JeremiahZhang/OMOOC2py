@@ -11,4 +11,5 @@ print (sys.argv[0]) # str
 your_keywords = sys.argv[1:]
 
 for keywords in your_keywords:
+    print type(keywords)
     print keywords
