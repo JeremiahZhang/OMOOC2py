@@ -4,4 +4,4 @@ import sys
 keywords = sys.argv[1:]
 print type(keywords)  # list
 
-print type(keywords[0]) # str
+print (sys.argv[0]) # str
