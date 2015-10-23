@@ -5,10 +5,14 @@
 - 实际需求：微信公众号网页每次登录需要密码 没有记住密码功能
 - 想着写个脚本 调用 可自动登录
 
+----------
+
 ## 想法 ##
 
 - 1.open the website through webbrowser like FireFox and Chrome
 - 2.input user_name and password in python script to login the website
+
+----------
 
 ## 尝试 ##
 
@@ -22,6 +26,8 @@
 	- then re-search got this [https://www.google.co.jp/search?q=open+browser+auto+login+python&ie=utf-8&oe=utf-8&gws_rd=cr&ei=U-EoVuTWJ4PpmAXo3IOADg](https://www.google.co.jp/search?q=open+browser+auto+login+python&ie=utf-8&oe=utf-8&gws_rd=cr&ei=U-EoVuTWJ4PpmAXo3IOADg)
 	- got Selenium Client Driver [http://selenium-python.readthedocs.org/installation.html](http://selenium-python.readthedocs.org/installation.html)
 		- [PiPY](https://pypi.python.org/pypi/selenium)
+
+----------
 
 ## 探索-开始挖硒 ##
 
@@ -97,7 +103,7 @@ shell 执行
 	python go_facebook.py
 效果：  
 1- 打开Firefox并   
-2- 转到Fackbook页面 
+2- 转到Fackbook页面   
 3- 自动登录 facebook
 
 ### 实践3-登录微信公众号 ###
@@ -147,33 +153,44 @@ shell 执行
                             </div>
                         </form>
                     </div>
-其中 账户输入栏 部分源码：
+其中 `账户输入栏` 部分源码：
 
-	<div class="login_input">
-         <i class="icon_login un"> </i>
+	<div class="login_input">  
+         <i class="icon_login un"> </i>  
          <input type="text" placeholder="邮箱/微信号/QQ号" id="account" name="account">
    	</div>
 其中 id="account"
-所以 改 email_field = driver.find_element_by_id("account")
+所以 改为 `email_field = driver.find_element_by_id("account")`
 
-同理 密码输入栏 部分源码：
+同理 `密码输入栏` 部分源码：
 
 	<div class="login_input">
          <i class="icon_login pwd"> </i>
          <input type="password" placeholder="密码" id="pwd" name="password" >
     </div>
 	
-改 password_field = driver.find_element_by_id("pwd")
+改为 `password_field = driver.find_element_by_id("pwd")`
 
 经过修改之后 你可以参见代码 [go_wechat.py](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py1w/1wd5autologin/go_wechat.py)（只要修改一下你的账户与密码）执行 可自动登录 
  
 这回你只要用shell调用 go_wechat.py脚本就可以自动微信公众号了 再也不用每次都要输入密码了 真cool
 
+----------
+
+## 拓展
+
+- 你可以改为其他浏览器 selenium.WebDirver 支持 Firefox Chrome Ie and Remote
+	- Currently supported WebDriver implementations are Firefox, Chrome, Ie and Remote
+	- IE就算了吧 你尽量使用开源的
+- 登入任何一个你想自动登入的网页 
+
+----------
+
 ## 总 
 
-- 发现了真的什么是笨功夫了 在最初探索的时候 在twill上 因为没有认真看文档 漏了一个关键 就直接白花了近2个小时的时间
-- 想法 尽量用英文 然后关键字 search
-- 还可以继续 比如登入芝麻星
+- 你有没有发现什么是笨功夫了么？ 你在最初探索的时候 在twill上 因为没有认真看文档 漏了一个关键 就直接白花了近2个小时的时间 折腾在各种英文文档中
+- 你的想法 尽量用英文 然后关键字 google search
+- 你是不是还可以继续 比如登入芝麻星
 	- 登录芝麻星 [http://beta.iomooc.com/](http://beta.iomooc.com/) 也是够烦的了
 		+ 连接github 每次都显示白板 + 一行代码 然后刷新才能登录
 	- 嗯 这回可以自动登录了
@@ -183,5 +200,7 @@ shell 执行
 		- 自动连接github
 		- 登入
 		- 这个你该如何解决呢？
+
+# (￣▽￣) #
 
 10/23/2015 
