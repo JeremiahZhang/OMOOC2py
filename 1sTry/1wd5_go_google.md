@@ -79,6 +79,7 @@ shell调用：
 2.自动进入 www.google.com  
 3.自动搜索 关键字 `python` `tutorial`  
 如图：
+![](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/google.JPG)
 
 ### 2.中文关键字搜索 ###
 1.**问题：**直接调用脚本
