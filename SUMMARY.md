@@ -15,6 +15,7 @@
 	- [week_1](1sTry/week_1.md)
 - [Learn by Doing](1tDoing/README.md)
 	- [Python Package Install](1tDoing/MoudleInstall.md)
+	- [自动登录网页](1tDoing/01Gowechat.md)
 - [迭代作品](2nDev/README.md)
 	- [week_1_交互](2nDev/week01_interact.md)
 - [人生首秀](3rDemo/README.md)
