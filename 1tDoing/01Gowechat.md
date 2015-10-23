@@ -40,7 +40,7 @@
 
 代码： [go_google.py](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py1w/1wd5autologin/go_google.py)
 
-		# -*- coding: utf-8 _*-
+		# -*- coding: utf-8 -*-
 		from selenium import webdriver
 		from selenium.webdriver.common.keys import Keys
 
@@ -78,7 +78,7 @@ OK 这个你可以拓展下
 
 代码：[go_facebook.py](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py1w/1wd5autologin/go_facebook.py)
 
-    # -*- coding: utf-8 _*-
+    # -*- coding: utf-8 -*-
 	from selenium import webdriver  			# 导入模块 
 	from selenium.webdriver.support import ui
 	from selenium.webdriver.common.keys import Keys
