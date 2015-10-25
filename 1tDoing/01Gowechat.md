@@ -196,11 +196,19 @@ shell 执行
 	- 嗯 这回可以自动登录了
 		- 这个已经解决 你只要注册账户
 		- 简单修改脚本并调用
-	- 如何不注册账户
+	- [x] 你已经完成了芝麻星的自动登录 代码[go_openmind.py]() 脚本完成 稍作简单修改
+		- 修改网址
+		- 修改用户名与密码
+		- 增加寻找 login 按钮 然后 `enter` 如下
+
+				login_field = driver.find_element_by_id("login")
+				login_field.send_keys(Keys.RETURN)
+ 	- 如何不注册账户
 		- 自动连接github
 		- 登入
 		- 这个你该如何解决呢？
 
 # (￣▽￣) #
 
-10/23/2015 
+10/23/2015  
+10/25/2015 5:22:21 PM 增加 go_openmind.py 自动登录芝麻星代码 
