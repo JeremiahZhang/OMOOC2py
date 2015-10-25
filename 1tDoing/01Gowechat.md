@@ -181,7 +181,7 @@ shell 执行
 1：注册邮箱 登录 可行  
 2：连接github登录 可行
 
-#### 方式 1 ####
+#### 方式 1 通过注册邮箱 密码####
 这一种方式和上面`实践-3 登录微信公众号`类似 只需要修改 邮箱 密码
 
 - 查找[芝麻星网页](http://www.iomooc.com)源代码的登录email区域 id="email" 然后使用一下代码所定 
@@ -199,7 +199,7 @@ shell 执行
 	- 打开芝麻星网页
 	- 自动登录 KO
 
-#### 方式 2 ####
+#### 方式 2 通过Github####
 你刚开始以为只要锁定芝麻星网页上Github button 那个按钮就行了 然后你查看芝麻星网页源代码的Github button的部分 发现是一个herf 超链接 是这样的
 
 	<div class="am-btn-group">
@@ -225,31 +225,23 @@ ok 你知道要怎么锁定了
 
 		github_login_button = driver.find_element_by_link_text("GitHub")
 		github_login_button.send_keys(Keys.RETURN)
-- 然后你运行发现 网页跳到了github的登录页 然后你想 这个不就是还是重复类似登录微信公众号的部分嘛 嗯 然后你查看了github登录页源代码 进行锁定 email 与password栏 代码
+- 然后你运行发现 网页跳到了github的登录页 
+
+	![](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/gitbublogin.JPG)
+- 然后你想 这个不就是还是重复类似登录微信公众号的部分嘛 嗯 然后你查看了github登录页源代码 进行锁定 email 与password栏 代码
 
 		# in github sign in
 		email_field = driver.find_element_by_id("login_field")
-		email_field.send_keys("balabalabala@gmail.com") 	# user_email
+		email_field.send_keys("balabalabala@gmail.com") 	# user_email_address
 
 		password_field = driver.find_element_by_id("password")
 		password_field.send_keys("babalabala") 			# your password
 		password_field.send_keys(Keys.RETURN)
-- 这样 你完成了 iomooc.py 脚本 并成功使用github账户登录芝麻星系统 调用脚本 你会
+- 这样 你完成了 [iomooc.py](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py1w/1wd5autologin/iomooc.py) 脚本 并成功使用github账户登录芝麻星系统 调用脚本 你会
 	- 自动打开火狐浏览器
 	- 打开芝麻星网页
 	- 自动连接Github 并登录github
-	- 成功登录芝麻星网页
-
-
-	
-
-
-	
-
-		
-
-###  ###
-
+	- 成功登录芝麻星网页 So Cool
 
 ----------
 
@@ -285,6 +277,7 @@ ok 你知道要怎么锁定了
 		- 登入
 		- 这个你该如何解决呢？
 		- [x] 这个你也进过探索之后完成了
+- 代码在此[https://github.com/JeremiahZhang/OMOOC2py/tree/master/_src/om2py1w/1wd5autologin](https://github.com/JeremiahZhang/OMOOC2py/tree/master/_src/om2py1w/1wd5autologin)
 
 # (￣▽￣) #
 
