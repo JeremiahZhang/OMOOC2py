@@ -23,4 +23,4 @@ password_field = driver.find_element_by_id("password")
 password_field.send_keys("balabala") # your password
 password_field.send_keys(Keys.RETURN)
 
-print "Mission Completed! Write your new article.-->"
+print "Mission Completed! Go Openmind and then Renew Mind!--->"
