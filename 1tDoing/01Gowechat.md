@@ -278,6 +278,8 @@ ok 你知道要怎么锁定了
 		- 这个你该如何解决呢？
 		- [x] 这个你也进过探索之后完成了
 - 代码在此[https://github.com/JeremiahZhang/OMOOC2py/tree/master/_src/om2py1w/1wd5autologin](https://github.com/JeremiahZhang/OMOOC2py/tree/master/_src/om2py1w/1wd5autologin)
+	- 可以将以上代码写成函数形式or模块
+	- 然后建议新脚本 进行交互 确定登录哪一个常用网页 KO
 
 # (￣▽￣) #
 
