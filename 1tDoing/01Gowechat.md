@@ -196,7 +196,7 @@ shell 执行
 	- 嗯 这回可以自动登录了
 		- 这个已经解决 你只要注册账户
 		- 简单修改脚本并调用
-	- [x] 你已经完成了芝麻星的自动登录 代码[go_openmind.py]() 脚本完成 稍作简单修改
+	- [x] 你已经完成了芝麻星的自动登录 代码[go_openmind.py](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py1w/1wd5autologin/go_openmind.py) 脚本完成 稍作简单修改
 		- 修改网址
 		- 修改用户名与密码
 		- 增加寻找 login 按钮 然后 `enter` 如下
