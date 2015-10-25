@@ -175,6 +175,82 @@ shell 执行
  
 这回你只要用shell调用 go_wechat.py脚本就可以自动微信公众号了 再也不用每次都要输入密码了 真cool
 
+### 实践-4 登录芝麻星 ###
+
+你尝试了两种登录方式   
+1：注册邮箱 登录 可行  
+2：连接github登录 可行
+
+#### 方式 1 ####
+这一种方式和上面`实践-3 登录微信公众号`类似 只需要修改 邮箱 密码
+
+- 查找[芝麻星网页](http://www.iomooc.com)源代码的登录email区域 id="email" 然后使用一下代码所定 
+
+		email_field = driver.find_element_by_id("email")
+- 查找密码区域 id="password" 然后使用一下代码锁定
+
+		password_field = driver.find_element_by_id("password")
+- 你以为以上执行好之后 就可以了 孰不知 直接在密码行回车是无法登录芝麻星的 所以你有查找并锁定`登录`button的 id="login" 然后使用代码
+
+		login_field = driver.find_element_by_id("login")
+		login_field.send_keys(Keys.RETURN) # 相当于 点击 登录button 了 
+- 通过以上的尝试 你使用win 的powershell 调用代码 [go_openmind.py](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py1w/1wd5autologin/go_openmind.py) 然后成功了 Cool
+	- 自动打开火狐浏览器
+	- 打开芝麻星网页
+	- 自动登录 KO
+
+#### 方式 2 ####
+你刚开始以为只要锁定芝麻星网页上Github button 那个按钮就行了 然后你查看芝麻星网页源代码的Github button的部分 发现是一个herf 超链接 是这样的
+
+	<div class="am-btn-group">
+                <a href="/users/github/login" class="am-btn am-btn-primary am-btn-sm"><i
+                        class="am-icon-github am-icon-sm"></i> GitHub </a>
+    </div>
+
+嗯 你回去看selenium源文档[4.4. Locating Hyperlinks by Link Text](http://selenium-python.readthedocs.org/locating-elements.html#locating-hyperlinks-by-link-text) 部分 锁定link的教程
+
+	<html>
+ 		<body>
+  			<p>Are you sure you want to do this?</p>
+  			<a href="continue.html">Continue</a>
+  			<a href="cancel.html">Cancel</a>
+		</body>
+	<html>
+
+	continue_link = driver.find_element_by_link_text('Continue')
+	continue_link = driver.find_element_by_partial_link_text('Conti')
+ok 你知道要怎么锁定了
+
+- 添加锁定github button 并点击 代码：
+
+		github_login_button = driver.find_element_by_link_text("GitHub")
+		github_login_button.send_keys(Keys.RETURN)
+- 然后你运行发现 网页跳到了github的登录页 然后你想 这个不就是还是重复类似登录微信公众号的部分嘛 嗯 然后你查看了github登录页源代码 进行锁定 email 与password栏 代码
+
+		# in github sign in
+		email_field = driver.find_element_by_id("login_field")
+		email_field.send_keys("balabalabala@gmail.com") 	# user_email
+
+		password_field = driver.find_element_by_id("password")
+		password_field.send_keys("babalabala") 			# your password
+		password_field.send_keys(Keys.RETURN)
+- 这样 你完成了 iomooc.py 脚本 并成功使用github账户登录芝麻星系统 调用脚本 你会
+	- 自动打开火狐浏览器
+	- 打开芝麻星网页
+	- 自动连接Github 并登录github
+	- 成功登录芝麻星网页
+
+
+	
+
+
+	
+
+		
+
+###  ###
+
+
 ----------
 
 ## 拓展
@@ -182,7 +258,7 @@ shell 执行
 - 你可以改为其他浏览器 selenium.WebDirver 支持 Firefox Chrome Ie and Remote
 	- Currently supported WebDriver implementations are Firefox, Chrome, Ie and Remote
 	- IE就算了吧 你尽量使用开源的
-- 登入任何一个你想自动登入的网页 
+- 登入任何一个你想自动登入的网页
 
 ----------
 
@@ -203,11 +279,12 @@ shell 执行
 
 				login_field = driver.find_element_by_id("login")
 				login_field.send_keys(Keys.RETURN)
-
- 	- 如何不注册账户
+		
+	- 如何不注册账户
 		- 自动连接github
 		- 登入
 		- 这个你该如何解决呢？
+		- [x] 这个你也进过探索之后完成了
 
 # (￣▽￣) #
 
