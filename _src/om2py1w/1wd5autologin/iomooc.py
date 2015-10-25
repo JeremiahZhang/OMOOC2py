@@ -17,10 +17,10 @@ github_login_button.send_keys(Keys.RETURN)
 
 # in github sign in
 email_field = driver.find_element_by_id("login_field")
-email_field.send_keys("zhangleisuda@gmail.com") # user_email
+email_field.send_keys("balabala@email.com") # user_email
 
 password_field = driver.find_element_by_id("password")
-password_field.send_keys("focusonstudy@4") # your password
+password_field.send_keys("balabala") # your password
 password_field.send_keys(Keys.RETURN)
 
 print "Mission Completed! Write your new article.-->"
