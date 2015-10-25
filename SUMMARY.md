@@ -23,6 +23,7 @@
 - [人生首秀](3rDemo/README.md)
 - [人如何学习的](4Learn/README.md)
 	- [Renewminding](4Learn/0wd4-OpenCourse-Note.md)
+	- [警惕-笨功夫](4Learn/2wd0_stupidtime.md)
 - [代码 (_src)](_src/README.md)
 - [素材 (draft)](draft/README.md)
   + [教程该怎么写](draft/how2tutorial.md)
