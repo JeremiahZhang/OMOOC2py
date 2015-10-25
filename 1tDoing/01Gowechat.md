@@ -203,6 +203,7 @@ shell 执行
 
 				login_field = driver.find_element_by_id("login")
 				login_field.send_keys(Keys.RETURN)
+
  	- 如何不注册账户
 		- 自动连接github
 		- 登入
