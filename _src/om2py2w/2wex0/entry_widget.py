@@ -11,8 +11,11 @@ def callback():
     print content.get()
     e.delete(0, END)
     
-input_button = Button(master, text="input", width=10, command=callback)
+input_button = Button(master, text="Enter", width=10, command=callback)
 input_button.pack()
+
+quit_buttion = Button(master, text="Quit", fg="red", width=10, command=master.quit)
+quit_buttion.pack()
 
 mainloop()
 
