@@ -28,6 +28,9 @@ root.mainloop() # start
 root.destroy() # optional it explicitly destroys the main window
 # when the event loop is terminated. 
 
+self.button = Button(frame, {"text": "QUIT", "fg": "red", "command": frame.quit})
+self.button.pack({"side": LEFT})
+
 """The mainloop call enters the Tk event loop, 
 in which the application will stay 
 until the quit method is called 
