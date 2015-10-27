@@ -3,10 +3,23 @@ from Tkinter import *
 
 master = Tk()
 
-e = Entry(master)
+def makeentry(parent, caption, width=None, **options):
+    Label(parent, text=caption).pack(side=LEFT)
+    entry = Entry(parent, **options)
+    if width:
+        entry.config(width=width)
+    entry.pack(side=LEFT)
+    return entry
+
+user = makeentry(master, "User Name:", 10)
+password = makeentry(master, "password:", 10, show="*")
+
+mainloop()
+
+"""e = Entry(master)
 e.pack()
 
-# e.focus_set()
+e.focus_set()
 
 def callback():
     print e.get()
@@ -14,7 +27,7 @@ def callback():
 b = Button(master, text="get", width=10, command=callback)
 b.pack()
 
-mainloop()
+mainloop()"""
 
 """
 your_words = StringVar()
@@ -26,9 +39,3 @@ s = your_words.get()
 
 mainloop()
 """
-
-
-e = Entry(master, width=50)
-e.pack()
-
-text = e.get()
