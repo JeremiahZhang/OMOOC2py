@@ -3,14 +3,19 @@ from Tkinter import *
 
 master = Tk()
 
-"""content = StringVar()
+content = StringVar()
 e = Entry(master, textvariable=content)
 e.pack()
 
-text = content.get()
-content.set(text)
+def callback():
+    print content.get()
+    e.delete(0, END)
+    
+input_button = Button(master, text="input", width=10, command=callback)
+input_button.pack()
 
-mainloop()"""
+mainloop()
+
 
 # user and password
 """def makeentry(parent, caption, width=None, **options):
@@ -38,6 +43,7 @@ b = Button(master, text="get", width=10, command=callback)
 b.pack()
 
 mainloop()"""
+
 
 """
 your_words = StringVar()
