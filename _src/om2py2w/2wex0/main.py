@@ -10,7 +10,7 @@ def main():
             frame = Frame(master)
             frame.pack()
             
-    
+# GUI 标题
     my_diary_app = App()
     my_diary_app.master.title("Writing for Loving, Learning and Sharing")
     my_diary_app.master.maxsize(1000,400)
