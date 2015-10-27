@@ -3,6 +3,15 @@ from Tkinter import *
 
 master = Tk()
 
+"""content = StringVar()
+e = Entry(master, textvariable=content)
+e.pack()
+
+text = content.get()
+content.set(text)
+
+mainloop()"""
+
 # user and password
 """def makeentry(parent, caption, width=None, **options):
     Label(parent, text=caption).pack(side=LEFT)
