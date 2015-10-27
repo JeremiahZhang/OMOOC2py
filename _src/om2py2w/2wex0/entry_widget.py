@@ -3,7 +3,8 @@ from Tkinter import *
 
 master = Tk()
 
-def makeentry(parent, caption, width=None, **options):
+# user and password
+"""def makeentry(parent, caption, width=None, **options):
     Label(parent, text=caption).pack(side=LEFT)
     entry = Entry(parent, **options)
     if width:
@@ -14,7 +15,7 @@ def makeentry(parent, caption, width=None, **options):
 user = makeentry(master, "User Name:", 10)
 password = makeentry(master, "password:", 10, show="*")
 
-mainloop()
+mainloop()"""
 
 """e = Entry(master)
 e.pack()
