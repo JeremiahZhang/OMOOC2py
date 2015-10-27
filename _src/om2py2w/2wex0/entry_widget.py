@@ -3,12 +3,12 @@ from Tkinter import *
 
 master = Tk()
 
-e = Entry(master)
-e.pack()
+your_words = StringVar()
+your_diary_text = Entry(master, textvariable=your_words)
+your_diary_text.pack()
 
-e.delete(0, END)
-e.insert(0, "a default value")
-
+your_words.set("Welcome! Please write!")
+s = your_words.get()
 mainloop()
 
 e.focus_set()
