@@ -2,9 +2,11 @@
 from Tkinter import *
 import sys, os, glob
 
+
 master = Tk()
 # use list box to print the past logs
 past_logs = Listbox(master, width=100, height=20)
+
 past_logs.pack()
 
 past_logs.insert(END, "Here is your past logs:--->")
@@ -19,6 +21,7 @@ def read_diary():
         past_logs.insert(END, "Log_content:---> " + file_content.read() + "\n")
         file_content.close()
 
+# read_diary()
 read_diary()
 
 mainloop()
