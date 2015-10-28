@@ -15,6 +15,7 @@ diary_write_entry.pack
 
 def write_diary():
     diary_name_content = StringVar()
+    Label(master, text="Diary Name->").pack(side=TOP)
     diary_name_content_entry = Entry(master, textvariable=diary_name_content)
     diary_name_content_entry.pack()
     
@@ -22,6 +23,7 @@ def write_diary():
     diary_writer = open(diary_name, "w")
     
     diary_content = StringVar()
+    Label(master, text="Write Words->").pack(side=TOP)
     diary_content_entry = Entry(master, textvariable=diary_content)
     diary_content_entry.pack()
 
