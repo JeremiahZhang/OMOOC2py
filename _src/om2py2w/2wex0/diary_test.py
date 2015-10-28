@@ -9,6 +9,9 @@ frame.master.title("Writing for Loving, Learning and Sharing")
 # frame.master.maxsize(1000,400)  # set the size
 frame.pack()
 
+statement = Label(master, text="Dear Friend! Welcome!")
+statement.pack(side=TOP, fill=X)
+
 # 打印先前的日志 使用 Text widget
 scrollbar = Scrollbar(master, orient=VERTICAL)
 past_logs = Text(master, width=100, height=20, 
