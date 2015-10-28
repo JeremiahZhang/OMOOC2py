@@ -32,8 +32,12 @@ def write_diary():
     diary_writer.close()
 
 def read_diary():
+    scrollbar = Scrollbar(master, orient=VERTICAL)
+    past_logs = Text(master, width=100, height=20, 
+        yscrollcommand=scrollbar.set)
+    scrollbar.config(command=past_logs.yview)
+    scrollbar.pack(side=RIGHT, fill=Y)
 
-    past_logs = Text(master, width=100, height=20)
     past_logs.pack()
     past_logs.insert(END, "Here is your past logs:--->")
 
