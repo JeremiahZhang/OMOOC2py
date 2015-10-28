@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from Tkinter import *
 import os
+import tkSimpleDialog
 
 # refer to http://effbot.org/tkinterbook/tkinter-standard-dialogs.htm
 
@@ -35,7 +36,7 @@ class Dialog(Toplevel):
         
         self.buttonbox()
         
-        self.grab_set()
+        self.grab_set() # 解决 主窗口与对话窗口的混乱
         
         if not self.initial_focus:
             self.initial_focus = self
@@ -92,24 +93,25 @@ class Dialog(Toplevel):
     def apply(self):
         pass # override
 
-"""class MyDialog:
-
-    def __init__(self, parent):
-        top = self.top = Toplevel(parent)
-        
-        Label(top, text="Value").pack()
-        
-        self.e = Entry(top)
-        self.e.pack(padx=5)
-        
-        b = Button(top, text="OK", command=self.ok)
-        b.pack(pady=5)
+class MyDialog(tkSimpleDialog.Dialog):
     
-    def ok(self):
+    def body(self, master):
         
-        print "value is", self.e.get()
+        Label(master, text="First:").grid(row=0)
+        Label(master, text="Second:").grid(row=1)
         
-        self.top.destroy()
+        self.e1 = Entry(master)
+        self.e2 = Entry(master)
+        
+        self.e1.grid(row=0, column=1)
+        self.e2.grid(row=1, column=1)
+        
+        return self.e1
+
+    def apply(self):
+        first = int(self.e1.get())
+        second = int(self.e2.get())
+        print first, second
 
 root = Tk()
 Button(root, text="Hello!").pack()
@@ -117,4 +119,4 @@ root.update()
 
 d = MyDialog(root)
 
-root.wait_window(d.top)"""
+print d.result
