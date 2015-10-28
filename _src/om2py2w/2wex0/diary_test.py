@@ -2,31 +2,6 @@
 from Tkinter import *
 import sys, os, glob
 
-master = Tk()
-
-frame = Frame(master)
-frame.master.title("Writing for Loving, Learning and Sharing")
-# frame.master.maxsize(1000,400)  # set the size
-frame.pack()
-
-menu = Menu(master)
-master.config(menu=menu)
-
-filemenu = Menu(menu)
-menu.add_cascade(label="file", menu=filemenu)
-filemenu.add_command(label="PastLogs", command=read_diary)
-filemenu.add_command(label="New", command=....)
-filemenu.add_separator()
-filemenu.add_command(label="Exit", command=....)
-
-helpmenu = Menu(menu)
-menu_add_cascade(label="Help",menu=helpmenu)
-helpmenu.add_command(label="Guide", command=....)
-
-
-statement = Label(master, text="Dear Friend! Welcome!")
-statement.pack(side=TOP, fill=X)
-
 def write_diary():
     # 输入文字部分 使用entry
     diary_name_content = StringVar()
@@ -36,8 +11,8 @@ def write_diary():
 
     diary_content = StringVar()
     Label(master, text="Write Words->").pack(side=TOP)
-    diary_content_entry = Entry(master, textvariable=diary_content)
-    diary_content_entry.pack()
+    diary_content_text = Text(master, textvariable=diary_content)
+    diary_content_text.pack()
 
     diary_name = diary_name_content.get() + ".txt"
     diary_writer = open(diary_name, "w")
@@ -66,13 +41,44 @@ def read_diary():
         past_logs.insert(END, "Log_content:---> " + file_content.read() + "\n \n")
         file_content.close()
 
-quit_button = Button(master, text="Quit", fg="red", width=10, command=master.quit)
+def cancel():
+    master.quit()
+
+def readme():
+    pass
+
+master = Tk()
+
+frame = Frame(master)
+frame.master.title("Writing for Loving, Learning and Sharing")
+# frame.master.maxsize(1000,400)  # set the size
+frame.pack()
+
+menu = Menu(master)
+master.config(menu=menu)
+
+filemenu = Menu(menu)
+menu.add_cascade(label="file", menu=filemenu)
+filemenu.add_command(label="PastLogs", command=read_diary)
+filemenu.add_command(label="New", command=write_diary)
+filemenu.add_separator()
+filemenu.add_command(label="Exit", command=cancel)
+
+helpmenu = Menu(menu)
+menu.add_cascade(label="Help",menu=helpmenu)
+helpmenu.add_command(label="Guide", command=readme)
+
+
+statement = Label(master, text="Dear Friend! Welcome!")
+statement.pack(side=TOP, fill=X)
+
+"""quit_button = Button(master, text="Quit", fg="red", width=10, command=master.quit)
 quit_button.pack()
 
 past_logs_button = Button(master, text="PrintLogs", fg="blue", width=10, command=read_diary)
 past_logs_button.pack()
 
 write_button = Button(master, text="Write", width=10, command=write_diary)
-write_button.pack()
+write_button.pack()"""
 
 mainloop()
