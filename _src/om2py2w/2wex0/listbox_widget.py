@@ -14,9 +14,9 @@ def read_diary():
     os.chdir(current_dir)
     
     for file in glob.glob("*.txt"):
-        past_logs.insert(END, "Log_name: "+ file)
+        past_logs.insert(END, "Log_name:--->" + file)
         file_content = open(file, "r")
-        past_logs.insert(END, "Log_content: " + file_content.read() + "\n")
+        past_logs.insert(END, "Log_content:---> " + file_content.read() + "\n")
         file_content.close()
 
 read_diary()
