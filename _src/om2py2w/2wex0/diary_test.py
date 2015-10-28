@@ -25,6 +25,7 @@ def write_diary():
     diary_writer = open(diary_name, "w")
 
     diary_writer.write(diary_content.get())
+    diary_content_entry.delete(0,END)
     diary_writer.close()
 
 def read_diary():
