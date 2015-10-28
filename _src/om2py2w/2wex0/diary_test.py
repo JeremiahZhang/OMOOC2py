@@ -55,21 +55,6 @@ frame1.master.title("Writing for Loving, Learning and Sharing")
 # frame.master.maxsize(1000,400)  # set the size
 frame1.pack()
 
-menu = Menu(frame1)
-master.config(menu=menu)
-
-filemenu = Menu(frame1)
-menu.add_cascade(label="file", menu=filemenu)
-filemenu.add_command(label="PastLogs", command=read_diary)
-filemenu.add_command(label="New", command=write_diary)
-filemenu.add_separator()
-filemenu.add_command(label="Exit", command=cancel)
-
-helpmenu = Menu(frame1)
-menu.add_cascade(label="Help", menu=helpmenu)
-helpmenu.add_command(label="Guide", command=readme)
-
-
 statement = Label(frame1, text="Dear Friend! Welcome!")
 statement.pack(side=TOP, fill=X)
 
@@ -83,3 +68,19 @@ write_button = Button(master, text="Write", width=10, command=write_diary)
 write_button.pack()"""
 
 mainloop()
+
+"""
+menu = Menu(frame1)
+master.config(menu=menu)
+
+filemenu = Menu(frame1)
+menu.add_cascade(label="file", menu=filemenu)
+filemenu.add_command(label="PastLogs", command=read_diary)
+filemenu.add_command(label="New", command=write_diary)
+filemenu.add_separator()
+filemenu.add_command(label="Exit", command=cancel)
+
+helpmenu = Menu(frame1)
+menu.add_cascade(label="Help", menu=helpmenu)
+helpmenu.add_command(label="Guide", command=readme)
+"""
