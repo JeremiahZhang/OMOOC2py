@@ -19,6 +19,9 @@ Label(master, text="Write Words->").pack(side=TOP)
 diary_content_entry = Entry(master, textvariable=diary_content)
 diary_content_entry.pack()
 
+# past_logs_text = Text(master)
+# past_logs_text.pack()
+
 def write_diary():
 
     diary_name = diary_name_content.get() + ".txt"
@@ -30,7 +33,7 @@ def write_diary():
 
 def read_diary():
 
-    past_logs = Listbox(master, width=100, height=20)
+    past_logs = Text(master, width=100, height=20)
     past_logs.pack()
     past_logs.insert(END, "Here is your past logs:--->")
 

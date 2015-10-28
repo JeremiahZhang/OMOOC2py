@@ -1,1 +1,30 @@
 yes just test
+
+When you first create the listbox, it is empty. The first thing to do is usually to insert one or more lines of text. The insert method takes an index and a string to insert. The index is usually an item number (0 for the first item in the list), but you can also use some special indexes, including ACTIVE, which refers to the “active” item (set when you click on an item, or by the arrow keys), and END, which is used to append items to the list.
+
+from Tkinter import *
+
+master = Tk()
+
+listbox = Listbox(master)
+listbox.pack()
+
+listbox.insert(END, "a list entry")
+
+for item in ["one", "two", "three", "four"]:
+    listbox.insert(END, item)
+
+mainloop()
+
+To remove items from the list, use the delete method. The most common operation is to delete all items in the list (something you often need to do when updating the list).
+
+listbox.delete(0, END)
+listbox.insert(END, newitem)
+
+You can also delete individual items. In the following example, a separate button is used to delete the ACTIVE item from a list.
+
+lb = Listbox(master)
+b = Button(master, text="Delete",
+           command=lambda lb=lb: lb.delete(ANCHOR))
+
+The listbox offers four different selection modes through the selectmode option. These are SINGLE (just a single choice), BROWSE (same, but the selection can be moved using the mouse), MULTIPLE (multiple item can be choosen, by clicking at them one at a time), or EXTENDED (multiple ranges of items can be chosen, using the Shift and Control keyboard modifiers). The default is BROWSE. Use MULTIPLE to get “checklist” behavior, and EXTENDED when the user would usually pick only one item, but sometimes would like to select one or more ranges of items.
