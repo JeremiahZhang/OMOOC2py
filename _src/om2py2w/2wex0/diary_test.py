@@ -6,7 +6,7 @@ master = Tk()
 
 frame = Frame(master)
 frame.master.title("Writing for Loving, Learning and Sharing")
-frame.master.maxsize(500,200)  # set the size
+frame.master.maxsize(1000,400)  # set the size
 frame.pack()
 
 diary_name_content = StringVar()
@@ -48,7 +48,7 @@ quit_button.pack(side=BOTTOM)
 past_logs_button = Button(master, text="PrintLogs", fg="blue", width=10, command=read_diary)
 past_logs_button.pack(side=BOTTOM)
 
-# write_button = Button(master, text="Write", width=10, command=write_diary)
-# write_button.pack(side=BOTTOM)
+write_button = Button(master, text="Write", width=10, command=write_diary)
+write_button.pack(side=BOTTOM)
 
 mainloop()
