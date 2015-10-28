@@ -3,7 +3,7 @@ from Tkinter import *
 import sys, os, glob
 
 def write_diary():
-    # 输入文字部分 使用entry
+    # 输入文字部分 
     diary_name_content = StringVar()
     Label(master, text="Diary Name->").pack(side=TOP)
     diary_name_content_entry = Entry(master, textvariable=diary_name_content)
@@ -11,14 +11,13 @@ def write_diary():
 
     diary_content = StringVar()
     Label(master, text="Write Words->").pack(side=TOP)
-    diary_content_text = Text(master, textvariable=diary_content)
+    diary_content_text = Text(master)
     diary_content_text.pack()
 
     diary_name = diary_name_content.get() + ".txt"
     diary_writer = open(diary_name, "w")
 
     diary_writer.write(diary_content.get())
-    diary_content_entry.delete(0,END)
     diary_writer.close()
 
 def read_diary():
@@ -49,27 +48,29 @@ def readme():
 
 master = Tk()
 
-frame = Frame(master)
-frame.master.title("Writing for Loving, Learning and Sharing")
-# frame.master.maxsize(1000,400)  # set the size
-frame.pack()
+master.geometry("1000x400")
 
-menu = Menu(master)
+frame1 = Frame(master)
+frame1.master.title("Writing for Loving, Learning and Sharing")
+# frame.master.maxsize(1000,400)  # set the size
+frame1.pack()
+
+menu = Menu(frame1)
 master.config(menu=menu)
 
-filemenu = Menu(menu)
+filemenu = Menu(frame1)
 menu.add_cascade(label="file", menu=filemenu)
 filemenu.add_command(label="PastLogs", command=read_diary)
 filemenu.add_command(label="New", command=write_diary)
 filemenu.add_separator()
 filemenu.add_command(label="Exit", command=cancel)
 
-helpmenu = Menu(menu)
-menu.add_cascade(label="Help",menu=helpmenu)
+helpmenu = Menu(frame1)
+menu.add_cascade(label="Help", menu=helpmenu)
 helpmenu.add_command(label="Guide", command=readme)
 
 
-statement = Label(master, text="Dear Friend! Welcome!")
+statement = Label(frame1, text="Dear Friend! Welcome!")
 statement.pack(side=TOP, fill=X)
 
 """quit_button = Button(master, text="Quit", fg="red", width=10, command=master.quit)
