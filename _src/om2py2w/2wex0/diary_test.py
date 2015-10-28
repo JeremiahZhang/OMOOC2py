@@ -25,7 +25,9 @@ def read_diary():
         file_content.close()
 
 past_logs_button = Button(master, text="PrintLogs", fg="blue", width=10, command=read_diary)
-past_logs_button.pack()
+past_logs_button.pack(side=TOP)
 
+quit_button = Button(master, text="Quit", fg="red", width=10, command=master.quit)
+quit_button.pack(side=TOP)
 
 mainloop()
