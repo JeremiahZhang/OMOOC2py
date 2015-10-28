@@ -2,72 +2,89 @@
 from Tkinter import *
 import sys, os, glob
 
-def write_diary():
-    # 输入文字部分 
-    diary_name_content = StringVar()
-    Label(master, text="Diary Name->").pack(side=TOP)
-    diary_name_content_entry = Entry(master, textvariable=diary_name_content)
-    diary_name_content_entry.pack()
-
-    diary_content = StringVar()
-    Label(master, text="Write Words->").pack(side=TOP)
-    diary_content_text = Text(master)
-    diary_content_text.pack()
-
-    diary_name = diary_name_content.get() + ".txt"
-    diary_writer = open(diary_name, "w")
-
-    diary_writer.write(diary_content.get())
-    diary_writer.close()
-
-def read_diary():
-    # 打印先前的日志 使用 Text widget
-    scrollbar = Scrollbar(master, orient=VERTICAL)
-    past_logs = Text(master, width=100, height=20, 
-        yscrollcommand=scrollbar.set)
-    scrollbar.config(command=past_logs.yview)
-    scrollbar.pack(side=RIGHT, fill=Y)
-
-    past_logs.pack()
-    past_logs.insert(END, "Here is your past logs:--->" + "\n")
-
-    current_dir = os.getcwd() # 打印之前日志
-    os.chdir(current_dir)
+class Application(Frame):
     
-    for file in glob.glob("*.txt"):
-        past_logs.insert(END, "Log_name:--->" + file + "\n")
-        file_content = open(file, "r")
-        past_logs.insert(END, "Log_content:---> " + file_content.read() + "\n \n")
-        file_content.close()
+    def __init__(self, master):
+        Frame.__init__(self, master)
+        self.pack()
+        self.createWidgets()
 
-def cancel():
-    master.quit()
+    def write_log(self):
 
-def readme():
-    pass
+        self.past_logs.pack_forget()
+        self.past_logs.pack_forget()
 
-master = Tk()
+        name = self.log_name.get() + ".txt"
+        log_writer = open(name, "w")
 
-master.geometry("1000x400")
+        log_writer.write(diary_content.get())
+        log_writer.close()
 
-frame1 = Frame(master)
-frame1.master.title("Writing for Loving, Learning and Sharing")
-# frame.master.maxsize(1000,400)  # set the size
-frame1.pack()
+    def print_log(self):
 
-statement = Label(frame1, text="Dear Friend! Welcome!")
-statement.pack(side=TOP, fill=X)
+        self.log_name_entry.pack_forget()
+        self.log_content_text.pack_forget()
 
-"""quit_button = Button(master, text="Quit", fg="red", width=10, command=master.quit)
-quit_button.pack()
+        self.past_logs.insert(END, "Here is your past logs:--->" + "\n")
 
-past_logs_button = Button(master, text="PrintLogs", fg="blue", width=10, command=read_diary)
-past_logs_button.pack()
+        current_dir = os.getcwd()       # print past logs
+        os.chdir(current_dir)
+    
+        for file in glob.glob("*.txt"):
+            self.past_logs.insert(END, "Log_name:--->" + file + "\n")
+            file_content = open(file, "r")
+            self.past_logs.insert(END, "Log_content:---> " + file_content.read() + "\n \n")
+            file_content.close()
 
-write_button = Button(master, text="Write", width=10, command=write_diary)
-write_button.pack()"""
+    def createWidgets(self):
 
-mainloop()
+        self.scrollbar = Scrollbar(self, orient=VERTICAL) # scroll bar
+        self.past_logs = Text(self, width=100, height=20, 
+            yscrollcommand=self.scrollbar.set)              # past logs
+        self.scrollbar.config(command=self.past_logs.yview)
+
+        self.scrollbar.pack(side=RIGHT, fill=Y)
+        self.past_logs.pack()
+        
+        self.log_name = StringVar()
+        Label(self, text="Diary Name->").pack(side=TOP)
+        self.log_name_entry = Entry(self, textvariable=self.log_name) # here input your diary name
+        self.log_name_entry.pack()
+
+        self.log_content = StringVar()
+        Label(self, text="Write Words->").pack(side=TOP)
+        self.log_content_text = Text(self)                            # input your words
+        self.log_content_text.pack()
+
+        self.print_button = Button(self, text="Print", width=10, command=self.print_log)
+        self.print_button.pack()
+
+        self.write_button = Button(self, text="Write", width=10, command=self.write_log)
+        self.write_button.pack()
+
+        self.quit_button = Button(self, text="Quit", fg="red", width=10, command=self.cancel)
+        self.quit_button.pack()
+
+
+    def cancel(self):
+        self.quit()
+
+    def readme():
+        pass
+
+def main():
+
+    master = Tk()
+    master.title("Diary App")
+    
+    statement = Label(master, text="Dear Friend! Welcome!")
+    statement.pack(side=TOP, fill=X)
+
+    app = Application(master)
+    app.mainloop()
+
+if __name__ == '__main__':
+    main()
 
 """
 menu = Menu(frame1)
