@@ -12,18 +12,28 @@ class Application(Frame):
     def write_log(self):
 
         self.past_logs.pack_forget()
-        self.past_logs.pack_forget()
+        self.scrollbar.pack_forget()
 
+        self.log_name = StringVar()
+        Label(self, text="Diary Name->").pack(side=TOP)
+        self.name_entry = Entry(self, textvariable=self.log_name) # here input your diary name
+        self.name_entry.pack()
+
+        Label(self, text="Write Words->").pack(side=TOP)
+        self.log_content = StringVar()
+        self.content_entry = Entry(self, width=100, textvariable=self.log_content)                            # input your words
+        self.content_entry.pack()
+
+    def save(self):
         name = self.log_name.get() + ".txt"
         log_writer = open(name, "w")
 
-        log_writer.write(diary_content.get())
+        log_writer.write(self.log_content.get())
         log_writer.close()
 
     def print_log(self):
 
-        self.log_name_entry.pack_forget()
-        self.log_content_text.pack_forget()
+        self.past_logs.pack()
 
         self.past_logs.insert(END, "Here is your past logs:--->" + "\n")
 
@@ -45,22 +55,15 @@ class Application(Frame):
 
         self.scrollbar.pack(side=RIGHT, fill=Y)
         self.past_logs.pack()
-        
-        self.log_name = StringVar()
-        Label(self, text="Diary Name->").pack(side=TOP)
-        self.log_name_entry = Entry(self, textvariable=self.log_name) # here input your diary name
-        self.log_name_entry.pack()
-
-        self.log_content = StringVar()
-        Label(self, text="Write Words->").pack(side=TOP)
-        self.log_content_text = Text(self)                            # input your words
-        self.log_content_text.pack()
-
-        self.print_button = Button(self, text="Print", width=10, command=self.print_log)
+        # buttons
+        self.print_button = Button(self, text="PrintLogs", width=10, command=self.print_log)
         self.print_button.pack()
 
         self.write_button = Button(self, text="Write", width=10, command=self.write_log)
         self.write_button.pack()
+        
+        self.save_button = Button(self, text="Save", width=10, command=self.save)
+        self.save_button.pack()
 
         self.quit_button = Button(self, text="Quit", fg="red", width=10, command=self.cancel)
         self.quit_button.pack()
