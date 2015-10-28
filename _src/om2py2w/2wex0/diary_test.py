@@ -9,17 +9,23 @@ frame.master.title("Writing for Loving, Learning and Sharing")
 # frame.master.maxsize(1000,400)  # set the size
 frame.pack()
 
+menu = Menu(master)
+master.config(menu=menu)
+
+filemenu = Menu(menu)
+menu.add_cascade(label="file", menu=filemenu)
+filemenu.add_command(label="PastLogs", command=read_diary)
+filemenu.add_command(label="New", command=....)
+filemenu.add_separator()
+filemenu.add_command(label="Exit", command=....)
+
+helpmenu = Menu(menu)
+menu_add_cascade(label="Help",menu=helpmenu)
+helpmenu.add_command(label="Guide", command=....)
+
+
 statement = Label(master, text="Dear Friend! Welcome!")
 statement.pack(side=TOP, fill=X)
-
-# 打印先前的日志 使用 Text widget
-scrollbar = Scrollbar(master, orient=VERTICAL)
-past_logs = Text(master, width=100, height=20, 
-    yscrollcommand=scrollbar.set)
-scrollbar.config(command=past_logs.yview)
-scrollbar.pack(side=RIGHT, fill=Y)
-
-past_logs.pack()
 
 def write_diary():
     # 输入文字部分 使用entry
@@ -41,7 +47,14 @@ def write_diary():
     diary_writer.close()
 
 def read_diary():
+    # 打印先前的日志 使用 Text widget
+    scrollbar = Scrollbar(master, orient=VERTICAL)
+    past_logs = Text(master, width=100, height=20, 
+        yscrollcommand=scrollbar.set)
+    scrollbar.config(command=past_logs.yview)
+    scrollbar.pack(side=RIGHT, fill=Y)
 
+    past_logs.pack()
     past_logs.insert(END, "Here is your past logs:--->" + "\n")
 
     current_dir = os.getcwd() # 打印之前日志
