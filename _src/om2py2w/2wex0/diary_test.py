@@ -3,7 +3,7 @@ from Tkinter import *
 import sys, os, glob
 
 class Application(Frame):
-    
+
     def __init__(self, master):
         Frame.__init__(self, master)
         self.pack()
@@ -24,15 +24,18 @@ class Application(Frame):
         self.content_entry = Entry(self, width=100, textvariable=self.log_content)                            # input your words
         self.content_entry.pack()
 
-    def save(self):
+        # self.content_entry.bind("<Return>", self.save)
+        # self.content_entry.focus_set()
+
+    def save(self, event):
         name = self.log_name.get() + ".txt"
-        log_writer = open(name, "w")
+        log_writer = open(name, "a+")
 
         log_writer.write(self.log_content.get())
         log_writer.close()
 
     def print_log(self):
-
+        self.scrollbar.pack()
         self.past_logs.pack()
 
         self.past_logs.insert(END, "Here is your past logs:--->" + "\n")
@@ -42,7 +45,7 @@ class Application(Frame):
     
         for file in glob.glob("*.txt"):
             self.past_logs.insert(END, "Log_name:--->" + file + "\n")
-            file_content = open(file, "r")
+            file_content = open(file, "r+")
             self.past_logs.insert(END, "Log_content:---> " + file_content.read() + "\n \n")
             file_content.close()
 
