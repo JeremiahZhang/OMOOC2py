@@ -2,10 +2,15 @@
 from Tkinter import *
 import sys, os, glob
 
+
 class Application(Frame):
 
     def __init__(self, master):
         Frame.__init__(self, master)
+
+        self.readme_Tag    = False
+        self.printLogs_Tag = False
+
         self.pack()
         self.createMenus(master)
 
@@ -21,6 +26,11 @@ class Application(Frame):
         self.scrollbar.config(command=self.text.yview)
 
     def printLogs(self):
+
+        self.printLogs_Tag = True
+
+        if self.readme_Tag:
+            self.text1.pack_forget()
 
         self.createScrollbar()
         self.createText()
@@ -38,8 +48,12 @@ class Application(Frame):
 
     def newLog(self):
 
-        self.text.pack_forget()
-        self.scrollbar.pack_forget()
+        if self.readme_Tag:
+            self.text1.pack_forget()
+
+        if self.printLogs_Tag:
+            self.text.pack_forget()
+            self.scrollbar.pack_forget()
 
         self.createScrollbar()
         self.createText()
@@ -92,9 +106,20 @@ class Application(Frame):
     def cancel(self):
         self.destroy()
 
+    def readme(self):
+        self.readme_Tag = True
+        self.text1= Text(self, height=1000, width=400)
 
-    def readme():
-        pass
+        help ="""
+        1-Please click PastLogs Menu in the filemenu to see the logs you have wrote.
+        2-Then Click the New Menu in the filemenu to write your new log
+        3-Please Click the Save Menu if Want to save your log which you have just worte
+        4-Exit menu to exit
+        5-Guide menu in the Help Menu to read the Diary Guide
+        """
+        self.text1.insert(END, help, "color")
+
+        self.text1.pack()
 
 def main():
 
