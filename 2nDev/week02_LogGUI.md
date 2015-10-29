@@ -65,6 +65,16 @@
 
 以上像个结合使用 就可以将 widget 消除 重新载入你想要的 widget 再进行交互
 
+### GUI 界面 ###
+
+![](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/Gui.JPG)
+
+- `PastLogs` 打印过去日志
+- `New` 新建日志
+- `Save` 保存日志
+- `Exit` 退出 GUI 
+- `Help` 帮助文档
+
 ----------
 
 ## 总 ##
@@ -75,5 +85,6 @@
 ----------
 
 # (￣▽￣) #
-
-10/29/2015 6:08:05 PM 
+ 
+10/29/2015 6:08:05 PM   
+10/29/2015 6:18:54 PM  mod
