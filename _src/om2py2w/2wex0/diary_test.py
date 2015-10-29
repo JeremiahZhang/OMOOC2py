@@ -73,11 +73,13 @@ class Application(Frame):
         self.log_name = Entry(top)
         self.log_name.focus_force()
         self.log_name.grid(row=0, column=1)
+        
+        self.log_name.bind("<Return>", self.ok)
 
         b = Button(top, text="OK", command=self.ok)
         b.grid(row=1)
     
-    def ok(self):
+    def ok(self, event):
         self.name = self.log_name.get() + ".txt"
         self.content = self.text.get("1.0", END)
         self.top.destroy()
@@ -113,7 +115,13 @@ class Application(Frame):
         self.destroy()
 
     def readme(self):
+
+        if self.newLog_Tag:
+            self.text.pack_forget()
+            self.scrollbar.pack_forget()
+
         self.readme_Tag = True
+
         self.text1= Text(self, height=1000, width=400)
 
         help ="""
