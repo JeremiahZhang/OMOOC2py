@@ -2,6 +2,8 @@
 from Tkinter import *
 import sys, os, glob
 
+reload(sys)
+sys.setdefaultencoding('utf-8') # encoding Chinese 
 
 class Application(Frame):
 
@@ -76,11 +78,8 @@ class Application(Frame):
         
         self.log_name.bind("<Return>", self.ok)
 
-        b = Button(top, text="OK", command=self.ok)
-        b.grid(row=1)
-    
     def ok(self, event):
-        self.name = self.log_name.get() + ".txt"
+        self.name = self.log_name.get().encode(sys.stdout.encoding) + ".txt"
         self.content = self.text.get("1.0", END)
         self.top.destroy()
 
