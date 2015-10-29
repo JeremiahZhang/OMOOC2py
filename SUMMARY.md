@@ -20,6 +20,7 @@
 	- [自动登录网页-如芝麻星](1tDoing/01Gowechat.md)
 - [迭代作品](2nDev/README.md)
 	- [week01_日记交互系统](2nDev/week01_interact.md)
+	- [week02_日志交互GUI](2nDev/week02_LogGUI.md)
 - [人生首秀](3rDemo/README.md)
 - [人如何学习的](4Learn/README.md)
 	- [Renewminding](4Learn/0wd4-OpenCourse-Note.md)
