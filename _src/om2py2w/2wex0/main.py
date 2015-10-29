@@ -148,27 +148,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-"""
-
-"""
-
-"""        self.scrollbar = Scrollbar(self, orient=VERTICAL) # scroll bar
-        self.past_logs = Text(self, width=100, height=20, 
-            yscrollcommand=self.scrollbar.set)              # past logs
-        self.scrollbar.config(command=self.past_logs.yview)
-
-        self.scrollbar.pack(side=RIGHT, fill=Y)
-        self.past_logs.pack()
-        # buttons
-        self.print_button = Button(self, text="PrintLogs", width=10, command=self.print_log)
-        self.print_button.pack()
-
-        self.write_button = Button(self, text="Write", width=10, command=self.write_log)
-        self.write_button.pack()
-        
-        self.save_button = Button(self, text="Save", width=10, command=self.save)
-        self.save_button.pack()
-
-        self.quit_button = Button(self, text="Quit", fg="red", width=10, command=self.cancel)
-        self.quit_button.pack()"""
