@@ -79,7 +79,7 @@ class Application(Frame):
         self.log_name.bind("<Return>", self.ok)
 
     def ok(self, event):
-        self.name = self.log_name.get().encode(sys.stdout.encoding) + ".txt"
+        self.name = self.log_name.get().encode(sys.stdin.encoding) + ".txt"
         self.content = self.text.get("1.0", END)
         self.top.destroy()
 
