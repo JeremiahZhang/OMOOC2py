@@ -7,7 +7,7 @@ class Application(Frame):
     def __init__(self, master):
         Frame.__init__(self, master)
         self.pack()
-        self.createWidgets(master)
+        self.createMenus(master)
 
     def write_log(self):
 
@@ -34,9 +34,10 @@ class Application(Frame):
         log_writer.write(self.log_content.get())
         log_writer.close()
 
-    def print_log(self):
-        self.scrollbar.pack()
-        self.past_logs.pack()
+    def printLogs(self):
+
+        self.createScrollbar()
+        self.createText()
 
         self.past_logs.insert(END, "Here is your past logs:--->" + "\n")
 
@@ -49,22 +50,24 @@ class Application(Frame):
             self.past_logs.insert(END, "Log_content:---> " + file_content.read() + "\n \n")
             file_content.close()
 
-    def createWidgets(self, master):
+    def createScrollbar(self):
+        self.scrollbar = Scrollbar(self, orient=VERTICAL)
+        self.scrollbar.pack(side=RIGHT, fill=Y)
 
-        self.scrollbar = Scrollbar(self, orient=VERTICAL) # scroll bar
+    def createText(self):
         self.past_logs = Text(self, width=100, height=20, 
-            yscrollcommand=self.scrollbar.set)              # past logs
+            yscrollcommand=self.scrollbar.set)
+        self.past_logs.pack()
         self.scrollbar.config(command=self.past_logs.yview)
 
-        self.scrollbar.pack(side=RIGHT, fill=Y)
-        self.past_logs.pack()
+    def createMenus(self, master):
 
         self.menu = Menu(self)
         master.config(menu=self.menu)
 
         self.filemenu = Menu(self)
         self.menu.add_cascade(label="file", menu=self.filemenu)
-        self.filemenu.add_command(label="PastLogs", command=self.print_log)
+        self.filemenu.add_command(label="PastLogs", command=self.printLogs)
         self.filemenu.add_command(label="New", command=self.write_log)
         self.filemenu.add_separator()
         self.filemenu.add_command(label="Exit", command=self.cancel)
@@ -83,6 +86,7 @@ def main():
 
     master = Tk()
     master.title("Diary App")
+    master.geometry("1000x400")
     
     statement = Label(master, text="Dear Friend! Welcome!")
     statement.pack(side=TOP, fill=X)
