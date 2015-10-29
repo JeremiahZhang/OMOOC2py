@@ -10,6 +10,7 @@ class Application(Frame):
 
         self.readme_Tag    = False
         self.printLogs_Tag = False
+        self.newLog_Tag = False
 
         self.pack()
         self.createMenus(master)
@@ -23,6 +24,7 @@ class Application(Frame):
             yscrollcommand=self.scrollbar.set)
         self.text.focus_force() #  keybord 光标在Text上
         self.text.pack()
+        self.text.delete(1.0, END)
         self.scrollbar.config(command=self.text.yview)
 
     def printLogs(self):
@@ -31,6 +33,9 @@ class Application(Frame):
 
         if self.readme_Tag:
             self.text1.pack_forget()
+        if self.newLog_Tag:
+            self.text.pack_forget()
+            self.scrollbar.pack_forget()
 
         self.createScrollbar()
         self.createText()
@@ -48,6 +53,7 @@ class Application(Frame):
 
     def newLog(self):
 
+        self.newLog_Tag = True
         if self.readme_Tag:
             self.text1.pack_forget()
 
