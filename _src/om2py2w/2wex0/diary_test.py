@@ -59,6 +59,7 @@ class Application(Frame):
     
     def ok(self):
         self.name = self.log_name.get() + ".txt"
+        self.content = self.text.get("1.0", END)
         self.top.destroy()
 
     def save(self):
@@ -68,7 +69,6 @@ class Application(Frame):
 
         log_writer = open(self.name, "a+")
 
-        self.content = self.text.get(1.0, END)
         log_writer.write(self.content)
         log_writer.close()
 
@@ -91,6 +91,7 @@ class Application(Frame):
 
     def cancel(self):
         self.destroy()
+
 
     def readme():
         pass
