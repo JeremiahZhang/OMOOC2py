@@ -11,6 +11,7 @@
 	+ branch 分支
 - 小技巧
 - Quick setup from Github
+- SSH设置
 
 ## Version Control ##
 
@@ -215,7 +216,12 @@ You can initialize this repository with code from a Subversion, Mercurial, or TF
 
 当在Github上创建好一个Repo 就有4个提示 视而不见的后果就会造成很多弯路 花很多笨功夫 之前学习的时候 看这别人的教程 却忽略元知识 笨功夫啊
 
+## SSH设置
+[SSH设置参考](https://help.github.com/articles/generating-ssh-keys/) 
+可以使用SSH 主要是在Ubuntu上使用git碰到了SSH链接无法使用问题
+
+
 10/20/2015   
 10/22/2015
-
+星期五, 30. 十月 2015 07:20下午 
 
