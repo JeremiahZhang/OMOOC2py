@@ -64,8 +64,8 @@ Git是一个免费且开源的[分布式版本控制系统](https://git-scm.com/
 首先下载Git全平台版 [http://git-scm.com](http://git-scm.com) 
 
 - 配置所有本地仓库的用户信息 (相当于配置确认你本地计算的用户ID 可以与远程仓库进行联通)
-	- `$ git config --global username`
-	- `$ git config --global email_address`
+	- `$ git config --global user.name username`
+	- `$ git config --global email.address email_address`
 	- 说明 
 		+ username 是 我在github上注册的 用户名
 		+ email_address 是 我在github注册 用户名 时的 邮箱地址
