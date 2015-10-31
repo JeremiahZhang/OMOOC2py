@@ -26,11 +26,15 @@ def read_diary():
     current_dir = os.getcwd() # 打印之前日志
     os.chdir(current_dir)
 
+    filename_plus_content =""
+
     for file in glob.glob("*.log"):
-        print(file) # this is the file name
+        # print(file) # this is the file name
         file_content = open(file, "r")
-        print file_content.read() + "\n"
-        filename_plus_content = file + ": " + flie_content.read()
+        diary = file_content.read() + "\n"
+        filename_plus_content = filename_plus_content + file + "--->:" +diary
+        print filename_plus_content
+    return filename_plus_content
 
 
 
