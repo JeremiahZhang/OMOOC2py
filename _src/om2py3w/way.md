@@ -42,7 +42,6 @@
 Socket正如其英文原意那样，像一个多孔插座。一台主机犹如布满各种插座的房间，每个插座有一个编号，有的插座提供220伏交流电， 有的提供110伏交流电，有的则提供有线电视节目。 客户软件将插头插到不同编号的插座，就可以得到不同的服务
 
 ![socket 工作原理](http://c.hiphotos.baidu.com/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=17baf4c7d739b60059c307e588395e4f/d000baa1cd11728b45647b06cafcc3cec3fd2c4c.jpg) 
-OK 你居然使用了百度百科的。。。哈哈 能理解就行了
 
 - 常用函数
 	- 创建
@@ -63,17 +62,81 @@ OK 你居然使用了百度百科的。。。哈哈 能理解就行了
 	- 属于传输层
 > 使用UDP协议时 网络只是尽力而为地进行快速数据传输 不保证传输的可靠性
 
-- Python 实践
+###- Python 实践
+
+例子1：[Python doc Example](https://docs.python.org/2/library/socket.html?highlight=socket#example)   
+ex1_server.py
+
+	# coding=utf-8
+	# refet to https://docs.python.org/2/library/socket.html?highlight=socket#example
+	import socket
+
+	HOST = ''
+	PORT = 50007
+
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	s.bind((HOST, PORT))
+	s.listen(1)
+	conn, addr = s.accept()
+
+	print 'connected by', addr
+	while 1:
+    		data = conn.recv(1024)
+    		if not data: break
+    		conn.sendall(data)
+	conn.close()
+
+ex1_client.py
+
+	# coding=utf-8
+	import socket
+
+	HOST = 'daring.cwi.nl'# the remote host
+	PORT = 50007
+
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+	s.connect((HOST, PORT))
+	s.sendall('hello, world')
+	data = s.recv(1024)
+	s.close()
+	print "received", repr(data)
+1个 Terminal 中执行 python ex1_server.py 
+另一个 Terminal中执行 python ex1_client.py
+
+按照教程中的来 居然出错了 error
+
+	Traceback (most recent call last):
+ 	 File "ex1_client.py", line 8, in <module>
+    	s.connect((HOST, PORT))
+ 	 File "/usr/lib/python2.7/socket.py", line 228, in meth
+    	return getattr(self._sock,name)(*args)
+	socket.error: [Errno 110] Connection timed out
+链接超时 host的问题么？ 尝试修改host 与port
+
+	HOST = 'localhost'# the remote host
+	PORT = 8001
+OK 成功 
+执行 ex1_server.py的终端 打印 
+
+	connected by （addr地址）
+执行 ex1_client.py的终端 打印
+
+	received 'hello, world'
+
+恩 server 端 要：
+
+- 创建socket对象 调用socket函数
+	- socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+- bind 绑定 s.bind((HOST, PORT)) Host主机 于端口PORT
+- listen 监听 s.listen(backlog)  
 
 
 
-***
 
-## 2 消息接收
-- 什么是C/S架构系统
-- 如何追加 你的笔记系统功能？
-	- 发送中文 （你该如何发送中文）
-		- 连续发送中文 （好吧 这个你要解决）
+
+## 消息接收
+
+- 连续发送中文 （好吧 这个你要解决）
 	- 服务器要接收（你该如何让服务器接收呢？）
 	- 服务器接收到后 还要可以立即保存文件
 		- 服务器要接收
