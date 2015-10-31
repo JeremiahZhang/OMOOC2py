@@ -62,7 +62,7 @@ Socket正如其英文原意那样，像一个多孔插座。一台主机犹如�
 	- 属于传输层
 > 使用UDP协议时 网络只是尽力而为地进行快速数据传输 不保证传输的可靠性
 
-###- Python 实践
+###- Python 实践 1
 
 例子1：[Python doc Example](https://docs.python.org/2/library/socket.html?highlight=socket#example)   
 ex1_server.py
@@ -125,14 +125,96 @@ OK 成功
 
 恩 server 端 要：
 
-- 创建socket对象 调用socket函数
+- 1 创建socket对象 调用socket函数
 	- socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
-- bind 绑定 s.bind((HOST, PORT)) Host主机 于端口PORT
-- listen 监听 s.listen(backlog)  
+- 2 bind 绑定主机  s.bind((HOST, PORT)) Host主机 于端口PORT 
+- 3 listen 监听 s.listen(backlog)  # baclog 至少为1 多个 就是可以监听多个客户端
+- 4 服务器通过socket的accept method等待客户请求链接
+	- connection, address = socket.accept()
+	- accept() 返回tuple (connection, address)
+	- connection 表示socket 对象 服务器必须通过它与client通信
+	- address 表示客户端的Internet address
+- 5 处理：
+	- 服务器 和 客户端 通过send 和 recv 通信
+- 6 通信结束 使用 close方法 关闭 sock.close() or connection.close()
+
+恩 client 端编写要：
+
+- 1 创建socket对象 链接
+- 2 知道主机 地址 和 主机建立链接 
+	- sock.connect(host_address) # host_address = (HOST, PORT)
+- 3 处理：
+	- 通信 send 和 recv
+- 4 通信结束 sock.close() 关闭
+
+### 实践 客户端请求打印过去日志
+
+服务端：diary_serve.py:
+
+	# coding:utf-8
+	import socket
+	import jeremiah_diary
+
+	pastlog_keyword = "p"
+
+	# main
+	def main():
+    	# creat 创建
+    	sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    	host_address = ('localhost', 8001)
+    	# bind
+    	sock.bind(host_address)
+    	# listen
+    	sock.listen(3)
+
+    	# interact 交互
+
+    while True:
+        print "\n Now Please input"
+
+        connection, address = sock.accept()
+
+        data = connection.recv(1024)      # reveive message from client
+        print "You have received  message from {0}".format(data)
+
+        if data == "p":
+            past_logs = jeremiah_diary.read_diary()
+            connection.sendto(past_logs, address) # print past logs
+            # write new logs
+
+        connection.close()
+
+	if __name__ == '__main__':
+    	main()
+客户端：diary_client.py:
+
+	import socket
+
+	def HELP():
+    """ # Dear , Here is the Help Doc:
+
+        1 Input: p/past , print past logs
+    """
+
+	print HELP.__doc__
+
+	# Creat socket
+	sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+	host_address = ('localhost', 8001)
+	sock.connect(host_address) # 和server 建立联系 
+	# 交互
+	pastlog_keyword = raw_input("Wanna read past logs? Input p --->")
+	sock.sendto(pastlog_keyword, host_address)
+
+	back_message = sock.recv(1024)
+	print "Here is the past logs:---> \n" , back_message
+	sock.close()
+效果：
 
 
-
-
+***
 
 ## 消息接收
 
