@@ -1,4 +1,9 @@
+# 网络版的 极简日志交互
 
+你的环境：
+
+- 系统 Ubuntu 14.04 LTS
+- Python 2.7.10
 
 ## 1 原型
 - 网络开发 明确如何进行
@@ -6,6 +11,63 @@
 - 简单的UDP服务器/客户端 
 
 以上都是些什么啊？ 你完全摸不着头脑 
+
+###  尝试 探索 
+
+- 线索1  socket [python doc socket](https://docs.python.org/2/library/socket.html) 
+
+什么是 [networking interface](https://en.wikipedia.org/wiki/Network_interface)？
+
+> In computing, a network interface is a system's (software and/or hardware) interface between two pieces of equipment or protocol layers in a computer network.  
+
+> A network interface will usually have some form of network address.[1] This may consist of a node Id and a port number or may be a unique node Id in its own right.
+
+> Network interfaces provide standardized functions such as passing messages, connecting and disconnecting, etc.
+
+- 网络接口
+	- 计算机网络中 设备or协议层之间的接口 
+	- 有网络地址：节点id or port nubmer（类似电话号码么？）
+	- 提供标准函数：传输信息 连接 断连
+
+- [network socket](https://en.wikipedia.org/wiki/Network_socket) 
+	- 通讯endpoint
+	- 通讯 based on IP internet protocol
+
+> A network socket is an endpoint of an inter-process communication across a computer network. Today, most communication between computers is based on the Internet Protocol; therefore most network sockets are Internet sockets.
+
+那到底是什么是 [socket](http://baike.baidu.com/subview/13870/15994413.htm) ？
+
+> Socket的英文原义是“孔”或“插座”。作为BSD UNIX的进程通信机制，取后一种意思。通常也称作"套接字"，用于描述IP地址和端口，是一个通信链的句柄，可以用来实现不同虚拟机或不同计算机之间的通信。  
+在Internet上的主机一般运行了多个服务软件，同时提供几种服务。每种服务都打开一个Socket，并绑定到一个端口上，不同的端口对应于不同的服务。
+Socket正如其英文原意那样，像一个多孔插座。一台主机犹如布满各种插座的房间，每个插座有一个编号，有的插座提供220伏交流电， 有的提供110伏交流电，有的则提供有线电视节目。 客户软件将插头插到不同编号的插座，就可以得到不同的服务
+
+![socket 工作原理](http://c.hiphotos.baidu.com/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=17baf4c7d739b60059c307e588395e4f/d000baa1cd11728b45647b06cafcc3cec3fd2c4c.jpg) 
+OK 你居然使用了百度百科的。。。哈哈 能理解就行了
+
+- 常用函数
+	- 创建
+	- 绑定
+	- 接收
+	- 发送
+	- 接收连接请求
+
+就是用来 计算机之间 **通信** 的 然后你将本科的信息技术教程拿出来查看了 恩 你居然没有卖掉。。。
+
+- TCP/IP协议标准 
+	- 计算机网络中通信问题分为4层：[Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite) 
+		- 应用层 Application layer
+		- 传输层 Transport layer （包含UDP协议）规定怎样进行端-端的数据传输
+		- 网络互联层 Internet layer
+		- 网络接口 和 硬件层 Link layer
+- UDP协议 [User_Datagram_Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol) 
+	- 属于传输层
+> 使用UDP协议时 网络只是尽力而为地进行快速数据传输 不保证传输的可靠性
+
+- Python 实践
+
+
+
+***
 
 ## 2 消息接收
 - 什么是C/S架构系统
@@ -33,3 +95,4 @@
 	- 一启动 发送指令 请求服务器发送过来
 - 运行过程中 又反复获得 历史消息 可以吗？
 	- 你该如何实现呢？
+
