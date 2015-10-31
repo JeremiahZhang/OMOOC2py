@@ -212,7 +212,7 @@ OK 成功
 	print "Here is the past logs:---> \n" , back_message
 	sock.close()
 效果：
-
+![打印过去日志](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/try_pastlog.png  "pastlog_try")
 
 ***
 
