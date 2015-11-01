@@ -36,8 +36,6 @@ def read_diary():
         print filename_plus_content
     return filename_plus_content
 
-
-
 def write_diary():
     done = False
     textInput = ""
