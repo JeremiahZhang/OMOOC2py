@@ -240,7 +240,69 @@ jeremiah_diary.read_diary() 为你编写的jeremiah_diary.py脚本 内置函数 
 	- 接受 客户端 信息 中文
 	- 立即保存为文件
 	- 保存到服务端
-###尝试 1 
+###尝试 1 持续输入
+diary_server.py 部分修改
+
+    while True:
+        print "Please Wait:---> "
+
+        connection, address = sock.accept()
+
+        data = connection.recv(1024)      # reveive message from client
+        print "You have received  message from {0}".format(address)
+
+        if data == "p":
+            past_logs = jeremiah_diary.read_diary()
+            connection.sendto(past_logs, address) # print past logs
+        if data == "h":
+            help_doc = "balabala"
+            connection.sendto(help_doc, address)
+        else:
+            diary_name = "jeremiah_diary.log"
+            diary_writer = open(diary_name, "a+")
+            diary_writer.write(data)
+            back_message = "Continue to Write:--->"
+            connection.sendto(back_message, address)
+        # connection.close()
+
+if __name__ == '__main__':
+    main()
+
+diary_client.py 部分修改：
+
+	# Creat socket
+	sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+	host_address = ('localhost', 8001)
+	sock.connect(host_address)
+	# continue interact
+	done = False
+	while done==False:
+   		 pastlog_keyword = raw_input("Please write here Dear! --->")
+    		sock.sendto(pastlog_keyword, host_address)
+    		back_message = sock.recv(1024)
+    		print back_message
+
+	sock.close()
+出现问题：
+
+> Please write here Dear! --->this is right
+Continue to Write:--->
+Please write here Dear! --->ok
+Traceback (most recent call last):
+  File "diary_client.py", line 26, in <module>
+    sock.sendto(pastlog_keyword, host_address)
+socket.error: [Errno 32] Broken pipe
+
+在客户端第二次输入后 终端 出现 Broken pipe 的错误
+
+- 发现 建立socket中要使用 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)[通信SOCK_DGRAM](http://baike.baidu.com/view/4785427.htm) 原来这里建立socket的时候 就设定 通信协议 以及是IPv4还是v6的， 还有是TCP/IP 和UDP
+
+发现要使用UDP的 重新来过[参考tutorial](http://www.tutorialspoint.com/python/python_networking.htm) 你发现自己把TCP的和UDP的methond 混在一起了 ！！！
+原来以上都是在使用TCP协议的！！！
+
+- s.bind()
+
 
 
 ## 3 多个客户端

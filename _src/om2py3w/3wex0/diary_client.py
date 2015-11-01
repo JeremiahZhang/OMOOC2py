@@ -15,14 +15,16 @@ print HELP.__doc__
 # pastlog_keyword = "p"
 
 # Creat socket
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 host_address = ('localhost', 8001)
 sock.connect(host_address)
-#
-pastlog_keyword = raw_input("Wanna read past logs? Input p --->")
-sock.sendto(pastlog_keyword, host_address)
+# continue interact
+done = False
+while done==False:
+    pastlog_keyword = raw_input("Please write here Dear! --->")
+    sock.sendto(pastlog_keyword, host_address)
+    back_message = sock.recvform(1024)
+    print back_message
 
-back_message = sock.recv(1024)
-print "Here is the past logs:---> \n" , back_message
 sock.close()

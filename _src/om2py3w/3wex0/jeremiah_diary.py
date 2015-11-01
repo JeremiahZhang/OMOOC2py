@@ -32,8 +32,8 @@ def read_diary():
         # print(file) # this is the file name
         file_content = open(file, "r")
         diary = file_content.read() + "\n"
-        filename_plus_content = filename_plus_content + file + "--->:" +diary
-        print filename_plus_content
+        filename_plus_content = filename_plus_content + file + "--->: \n" +diary
+        # print filename_plus_content
     return filename_plus_content
 
 def write_diary():
