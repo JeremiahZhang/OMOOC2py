@@ -211,6 +211,22 @@ OK 成功
 	back_message = sock.recv(1024)
 	print "Here is the past logs:---> \n" , back_message
 	sock.close()
+jeremiah_diary.read_diary() 为你编写的jeremiah_diary.py脚本 内置函数 read_diary()
+
+	def read_diary():
+
+    current_dir = os.getcwd() # 打印之前日志
+    os.chdir(current_dir)
+
+    filename_plus_content =""
+
+    for file in glob.glob("*.log"):
+        # print(file) # this is the file name
+        file_content = open(file, "r")
+        diary = file_content.read() + "\n"
+        filename_plus_content = filename_plus_content + file + "--->:" +diary
+        print filename_plus_content
+    return filename_plus_content
 效果：
 ![打印过去日志](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/try_pastlog.png  "pastlog_try")
 

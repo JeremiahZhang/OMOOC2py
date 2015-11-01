@@ -12,18 +12,18 @@ def main():
     host_address = ('localhost', 8001)
     # bind
     sock.bind(host_address)
-    # listen
+    # listen max 3
     sock.listen(3)
 
     # interact
 
     while True:
-        print "\n Now Please input"
+        print "\n "
 
         connection, address = sock.accept()
 
         data = connection.recv(1024)      # reveive message from client
-        print "You have received  message from {0}".format(data)
+        print "You have received  message from {0}".format(address)
 
         if data == "p":
             past_logs = jeremiah_diary.read_diary()
