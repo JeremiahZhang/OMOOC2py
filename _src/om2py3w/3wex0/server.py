@@ -1,6 +1,17 @@
 # -*- coding: utf-8 -*-
 import socket
 import sys
+import jeremiah_diary
+
+def help():
+
+    """ # this is the help doc:
+
+                        1- read past logs?      enter:--->  p
+                        2- want leave ?          enter:--->  e
+                        3- help doc?               enter:--->  h
+
+    """
 
 HOST = ''   # Symbolic name meaning all available interfaces
 PORT = 8888 # Arbitrary non-privileged port
@@ -22,6 +33,22 @@ except socket.error, msg:
 
 print "socket bind complete"
 
+def responses():
+    if data =="e":
+        sys.exit()
+    elif data =="p":
+        reply = jeremiah_diary.read_diary()
+    elif data == "h":
+        reply = help.__doc__
+    else:
+        diary_name = "jeremiah_diary.log"
+        diary_writer = open(diary_name, "a+")
+        diary_writer.write(data + "\n")
+        diary_writer.close()
+        reply = "Continue to Write:--->"
+    return reply
+
+
 # communicate with the client
 while 1:
     # receive from client
@@ -29,12 +56,10 @@ while 1:
     data = d[0] # client message
     addr = d[1] # client address addr = (host, port)
 
-    if not data:
-        break
-
-    reply = "ok...--->" + data
+    reply=responses()
 
     s.sendto(reply, addr)
-    print "message[ " + addr[0] + ":" + str(addr[1]) + "] - " + data.strip()
+
+    print "message from [ " + addr[0] + ":" + str(addr[1]) + "] is --->" + data.strip()
 
 s.close()

@@ -313,6 +313,118 @@ To use nmap ncat use the "ncat" command.
 learn [ncat - Concatenate and redirect sockets
 ](http://manpages.ubuntu.com/manpages/trusty/man1/ncat.1.html) 
 
+参考学习 [programming-udp-sockets-in-python](http://www.binarytides.com/programming-udp-sockets-in-python/) 之后
+
+server.py:
+	# -*- coding: utf-8 -*-
+	import socket
+	import sys
+	import jeremiah_diary
+
+	def help():
+
+    	""" # this is the help doc:
+
+                        1- read past logs? enter:--->  p
+                        2- want leave ?enter:--->  e
+                        3- help doc?  enter:--->  h
+
+   	 """
+
+	HOST = ''   # Symbolic name meaning all available interfaces
+	PORT = 8888 # Arbitrary non-privileged port
+
+	# UDP SOCKET
+	try:
+    	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    	print "socket created! "
+	except socket.error, msg :
+    	print "failed to created socket. ERROR code : " + str(msg[0]) + " message " + msg
+    	sys.exit()
+
+	# bind socket to localhost and port
+	try:
+    	s.bind((HOST, PORT))
+	except socket.error, msg:
+    	print "bind failed. error code: " + str(msg[0]) + " message " + msg[1]
+    	sys.exit()
+
+	print "socket bind complete"
+
+	def responses():
+    	if data =="e":
+        	sys.exit()
+    	elif data =="p":
+       	 	reply = jeremiah_diary.read_diary()
+    	elif data == "h":
+       		 reply = help.__doc__
+   	 else:
+        	diary_name = "jeremiah_diary.log" # 写日志
+        	diary_writer = open(diary_name, "a+")
+        	diary_writer.write(data + "\n")
+        	diary_writer.close()
+        	reply = "Continue to Write:--->"
+    	return reply
+
+
+	# communicate with the client
+	while 1:
+   	 # receive from client
+    	d = s.recvfrom(1024)
+    	data = d[0] # client message
+    	addr = d[1] # client address addr = (host, port)
+
+    	reply=responses()
+
+    	s.sendto(reply, addr)
+
+    	print "message from [ " + addr[0] + ":" + str(addr[1]) + "] is --->" + data.strip()
+
+	s.close()
+
+client.py:
+
+	# -*- coding: utf-8 -*-
+	import socket
+	import sys
+
+	# create dgram udp socket
+	try:
+    	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+	except socket.error:
+    	print "Failed to create socket"
+    	sys.exit()
+
+	host = "localhost"
+	port = 8888
+
+	print "please enter h to see the help.-->"
+
+	while 1:
+    		msg = raw_input("Enter message to send: --->   ")
+
+    	try :
+       	 	# send the whole string
+        	s.sendto(msg, (host, port)) # send to serve
+
+        	# receive data from server
+        	d = s.recvfrom(1024)
+        	reply = d[0]
+        	addr = d[1]
+
+        	print "server reply: ---> " + reply
+
+    	except socket.error, msg:
+        	print "error code: " + str(msg[0]) + " message " + msg[1]
+        	sys.exit()
+
+这下 可以直接
+
+- 打印日志
+- 写日志了
+
+执行：
+
 
 
 
