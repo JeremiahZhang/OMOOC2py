@@ -301,7 +301,19 @@ socket.error: [Errno 32] Broken pipe
 发现要使用UDP的 重新来过[参考tutorial](http://www.tutorialspoint.com/python/python_networking.htm) 你发现自己把TCP的和UDP的methond 混在一起了 ！！！
 原来以上都是在使用TCP协议的！！！
 
-- s.bind()
+参考学习 [programming-udp-sockets-in-python](http://www.binarytides.com/programming-udp-sockets-in-python/) 
+
+需要安转 [netcat](https://nmap.org/ncat/) ubuntu install
+> Install on Ubuntu
+$ sudo apt-get install netcat-traditional netcat-openbsd nmap
+To use netcat-openbsd implementation use "nc" command.
+To use netcat-traditional implementation use "nc.traditional" command
+To use nmap ncat use the "ncat" command.
+
+learn [ncat - Concatenate and redirect sockets
+](http://manpages.ubuntu.com/manpages/trusty/man1/ncat.1.html) 
+
+
 
 
 

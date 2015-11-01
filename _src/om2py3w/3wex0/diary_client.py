@@ -24,7 +24,7 @@ done = False
 while done==False:
     pastlog_keyword = raw_input("Please write here Dear! --->")
     sock.sendto(pastlog_keyword, host_address)
-    back_message = sock.recvform(1024)
+    back_message = sock.recvfrom(1024)
     print back_message
 
 sock.close()
