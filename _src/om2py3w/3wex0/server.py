@@ -1,20 +1,40 @@
 # -*- coding: utf-8 -*-
-if __name__ == '__main__':
-    import socket
+import socket
+import sys
 
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.bind(('localhost', 8001))
-    sock.listen(5) # allow 5 clients to connect can be more
+HOST = ''   # Symbolic name meaning all available interfaces
+PORT = 8888 # Arbitrary non-privileged port
 
-    while True:
-        connection, address = sock.accept()
-        try:
-            connection.settimeout(5)
-            buf = connection.recv(1024)
-            if buf == '1':
-                connection.send("welcome to server!")
-            else:
-                connection.send('please go out!')
-        except socket.timeout:
-            print "time out"
-        connection.close()
+# UDP SOCKET
+try:
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    print "socket created! "
+except socket.error, msg :
+    print "failed to created socket. ERROR code : " + str(msg[0]) + " message " + msg
+    sys.exit()
+
+# bind socket to localhost and port
+try:
+    s.bind((HOST, PORT))
+except socket.error, msg:
+    print "bind failed. error code: " + str(msg[0]) + " message " + msg[1]
+    sys.exit()
+
+print "socket bind complete"
+
+# communicate with the client
+while 1:
+    # receive from client
+    d = s.recvfrom(1024)
+    data = d[0] # client message
+    addr = d[1] # client address addr = (host, port)
+
+    if not data:
+        break
+
+    reply = "ok...--->" + data
+
+    s.sendto(reply, addr)
+    print "message[ " + addr[0] + ":" + str(addr[1]) + "] - " + data.strip()
+
+s.close()
