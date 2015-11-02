@@ -447,11 +447,14 @@ client.py:
 
 如何 多个客户端发送消息给服务器呢? 想不到办法解决呀! (上面最 近的代码只能一次处理一个客户端的请求呀)
 
-- [ptyhon 网络编程](http://blog.csdn.net/dbanote/article/details/8856531) 提到类似问题 需要分叉 与 线程 需要使用 SocketServer [socketserver doc](https://docs.python.org/2.7/library/socketserver.html?highlight=socketserve) 相关模块
+- [ptyhon 网络编程](http://blog.csdn.net/dbanote/article/details/8856531) 提到类似问题 需要分叉 与 线程 需要使用 SocketServer [socketserve doc](https://docs.python.org/2.7/library/socketserver.html?highlight=socketserve) 相关模块
+好像又不用socket模块 如何解决呢? 之后再尝试吧  先解决 历史消息获取问题去
 
 ## 4 历史消息获取
 - 客户端一启动 如何获得服务端的历史消息？
 	- 一启动 发送指令 请求服务器发送过来
+	- 这个好解决 只要在 client.py中添加一个 打印过去日志的指令
 - 运行过程中 又反复获得 历史消息 可以吗？
 	- 你该如何实现呢？
+
 
