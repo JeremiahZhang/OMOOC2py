@@ -443,7 +443,11 @@ client.py:
 
 学习 [Tutorial on Network Programming with Python](http://www.mws.cz/files/PyNet.pdf)
 
-如何 多个客户端发送消息给服务器呢? 想不到办法解决呀! 
+- 尝试 在 服务器端 d = s.recvfrom(1024) 接受信息时候 启用 s.setblocking(0) 无效果
+
+如何 多个客户端发送消息给服务器呢? 想不到办法解决呀! (上面最 近的代码只能一次处理一个客户端的请求呀)
+
+- [ptyhon 网络编程](http://blog.csdn.net/dbanote/article/details/8856531) 提到类似问题 需要分叉 与 线程 需要使用 SocketServer [socketserver doc](https://docs.python.org/2.7/library/socketserver.html?highlight=socketserve) 相关模块
 
 ## 4 历史消息获取
 - 客户端一启动 如何获得服务端的历史消息？
