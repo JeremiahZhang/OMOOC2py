@@ -424,20 +424,26 @@ client.py:
 - 写日志了
 
 执行：
-
-
-
-
+![ ](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/netbeta1.png  "beta1.0")
 
 ## 3 多个客户端
 - 什么是客户端呀？
+	- 客户可以在客户端 向主机服务器发送消息
 - 和服务器有什么关系？
+	- 客户端发送 服务器确认 接受信息 反馈等
 - 多个客户端发送消息 给服务器 对服务器会有影响么？什么影响？
+	- 要排队么？
+	- 不知晓了
 - 多个客户端可以反复获得历史消息么？
 	- 历史消息 已经发送给服务器了
 	- 如何获得历史消息？
 		- 客户端要向服务器请求
 		- 服务器再发过来
+尝试 复制client.py的代码 修改 host参与 port 是不行的
+
+学习 [Tutorial on Network Programming with Python](http://www.mws.cz/files/PyNet.pdf)
+
+如何 多个客户端发送消息给服务器呢? 想不到办法解决呀! 
 
 ## 4 历史消息获取
 - 客户端一启动 如何获得服务端的历史消息？

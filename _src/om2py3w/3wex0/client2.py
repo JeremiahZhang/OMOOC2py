@@ -9,7 +9,7 @@ except socket.error:
     print "Failed to create socket"
     sys.exit()
 
-host = "localhost"
+host = "localhost02"
 port = 8888
 
 print "please enter h to see the help.-->"

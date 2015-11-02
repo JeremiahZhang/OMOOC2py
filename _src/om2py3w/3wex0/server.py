@@ -31,6 +31,7 @@ except socket.error, msg:
     print "bind failed. error code: " + str(msg[0]) + " message " + msg[1]
     sys.exit()
 
+
 print "socket bind complete"
 
 def responses():
@@ -48,11 +49,11 @@ def responses():
         reply = "Continue to Write:--->"
     return reply
 
-
 # communicate with the client
 while 1:
     # receive from client
     d = s.recvfrom(1024)
+
     data = d[0] # client message
     addr = d[1] # client address addr = (host, port)
 
