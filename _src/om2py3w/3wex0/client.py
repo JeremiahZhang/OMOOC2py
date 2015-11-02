@@ -22,6 +22,9 @@ while 1:
     print "Wanna help? Enter h"
     msg = raw_input("Enter message to send: --->   ")
 
+    if msg =="e":
+        sys.exit()
+
     try :
         # send the whole string
         s.sendto(msg, (host, port)) # send to serve
