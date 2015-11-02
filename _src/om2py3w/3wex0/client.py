@@ -12,9 +12,14 @@ except socket.error:
 host = "localhost"
 port = 8888
 
-print "please enter h to see the help.-->"
+# print past logs when start
+s.sendto("p", (host, port))
+d = s.recvfrom(1024)
+reply = d[0]
+print "Past logs: ---> \n" + reply
 
 while 1:
+    print "Wanna help? Enter h"
     msg = raw_input("Enter message to send: --->   ")
 
     try :
