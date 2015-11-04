@@ -274,8 +274,8 @@ diary_server.py 部分修改
             connection.sendto(back_message, address)
         # connection.close()
 
-if __name__ == '__main__':
-    main()
+	if __name__ == '__main__':
+    	main()
 
 diary_client.py 部分修改：
 
@@ -458,6 +458,9 @@ client.py:
 
 - [ptyhon 网络编程](http://blog.csdn.net/dbanote/article/details/8856531) 提到类似问题 需要分叉 与 线程 需要使用 SocketServer [socketserve doc](https://docs.python.org/2.7/library/socketserver.html?highlight=socketserve) 相关模块
 好像又不用socket模块 如何解决呢? 之后再尝试吧  先解决 历史消息获取问题去
+- 支持多个客户端同时进行笔记记录 还未实现 的继续探索
+	- 咦 你发现将client.py脚本 移动到另一个文件夹中 然后使用python调用 可以与服务器通信 这样
+	- 恩 同一个文件中的两个cilent是无法同时和server通信的 它们使用同一个port 所以无法同时通信
 
 ## 4 历史消息获取
 - 客户端一启动 如何获得服务端的历史消息？
@@ -475,15 +478,25 @@ client.py:
 		- 上面 程序 可以直接 按 p 打印过去日志了
 
 ## 总
-
-- 支持多个客户端同时进行笔记记录 还未实现 的继续探索
+- 在探索的过程中 解决问题的也就那几步
+	- 找到 socket UDP 基础模板 学习理解
+	- 类比 来解决自己问题
+- 在自个儿解决中 没有从解决问题中来学习
+	- 先去查了资料（比较杂）居然从 socket TCP开始了 无脑思考
+	-  然后开始编程
+- 其实应该
+	- 找到关键资料：如这里是 socket UDP编程 就锁定关键词
+	- 立即开始编程
+	- 在编程中 再去学习 相关内容
+- 恩 整理时候 直接用github commit的link 这样 就不用在这里一次次copy自己的代码了  
 
 记住:
 
 - 最小代价解决问题呀
+- 冷静 冷静 冷静 自个儿要有自个儿的节奏
 
-星期一, 02. 十一月 2015 09:42下午 
-
+星期一, 02. 十一月 2015 09:42下午  
+星期三, 04. 十一月 2015 08:12下午 修改
 
 
 
