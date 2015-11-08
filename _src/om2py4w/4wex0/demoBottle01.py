@@ -25,14 +25,15 @@ def input_diary():
         diary_name = 'Diary.log' # if not exist then creat
         diary_file = open(diary_name, 'a+')
         diary_file.write(diary_words + '\n')
-        new_content = diary_file.read()
         diary_file.close()
-        return template('write_words.tpl', content=new_content)
+        return template('write_words.tpl', content=diary_words)
+
     else:
         diary_name = 'Diary.log'
-        original_file = open(diary_name, 'r')
-        original_content = original_file.read()
-        original_file.close()
-        return template('write_words.tpl', content=original_content)
+        diary_file = open(diary_name, 'r')
+        diary_content = diary_file.read()
+        diary_file.close()
+        return template('write_words.tpl', content=diary_content)
 
-run(host='localhost', port=8010, debug=True, reloader=1) # switched debug off for publich applocations
+if __name__ == '__main__':
+    run(host='localhost', port=8010, debug=True, reloader=1) # switched debug off for publich applocations
