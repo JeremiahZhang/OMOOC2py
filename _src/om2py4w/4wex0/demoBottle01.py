@@ -1,5 +1,5 @@
 # coding=utf-8
-from bottle import route, run, static_file, template
+from bottle import route, run, request, template
 
 @route('/')  # here you can type http://localhost:8080 to see myDiary.log
 @route('/hello')
@@ -14,6 +14,14 @@ def hello():
             <li>Write</li>
         </ul>
     </body>"""
+
+@route('/read')
+def read_diary():
+    pass
+
+@route('/write')
+def write_diary():
+    return template('write_diary.tpl')
 
 @route('/static/<filename>') # without the line 4 you must type http://localhost:8080/static/myDiary.log to brower can see myDiary.log file
 def server_static(filename="myDiary.log"):
