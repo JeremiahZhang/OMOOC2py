@@ -6,3 +6,4 @@ def hello():
     return "Jeremiah Hello!"
 
 run(host='localhost', port=8080, debug=True)
+# switched debug off for publich applocations
