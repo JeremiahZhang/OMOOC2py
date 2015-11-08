@@ -75,7 +75,18 @@ def show_item(item):
 def help():
     return static_file('help.html', root='/path/to/file') # help.html file in the root path
 
+@route('/json<json:re:[0-9]+>')
+def show_json(json):
+    conn = sqlite3.connect('todo.db')
+    c = conn.cursor()
+    c.execute("SELECT task FROM todo WHERE id LIKE ?", (json))
+    result = c.fetchall()
+    c.close()
 
+    if not result:
+        return {'task': 'this item number doesnot exist!'}
+    else:
+        return {'task': result[0]}
 
 
 run(host='localhost', port=8090, debug=True, reloader=True)
