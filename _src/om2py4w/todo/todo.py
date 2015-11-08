@@ -44,7 +44,7 @@ def edit_item(no):
             status = 0
 
         conn = sqlite3.connect('todo.db')
-        c = conn.cursor()
+        c    = conn.cursor()
         c.execute("UPDATE todo SET task = ?, status = ? WHERE id LIKE ?", (edit, status, no))
         conn.commit()
 
@@ -52,10 +52,24 @@ def edit_item(no):
 
     else:
         conn = sqlite3.connect('todo.db')
-        c = conn.cursor()
+        c    = conn.cursor()
         c.execute("SELECT task FROM todo WHERE id LIKE ?", (str(no)))
         cur_data = c.fetchone()
 
         return template('edit_task.tpl', old=cur_data, no=no)
+
+@route('/item<item:re:[0-9]+>')
+def show_item(item):
+    conn = sqlite3.connect('todo.db')
+    c = conn.cursor()
+    c.execute("SELECT task FROM todo WHERE id LIKE ?", (item))
+    result = c.fetchall()
+    c.close()
+
+    if not result:
+        return "this item number does not exist!"
+    else:
+        return 'task: %s' % result[0]
+
 
 run(host='localhost', port=8090, debug=True, reloader=True)
