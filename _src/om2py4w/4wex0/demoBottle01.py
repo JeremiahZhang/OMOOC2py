@@ -1,5 +1,5 @@
 # coding=utf-8
-from bottle import route, run, request, template
+from bottle import *
 import sys
 
 @route('/')  # here you can type http://localhost:8080 to see myDiary.log
@@ -17,15 +17,20 @@ def hello():
         </ul>
     </body>"""
 
-@route('/write', method='GET')
-def write_diary():
-    if request.GET.get('save','').strip():
+@route('/write')
+def input_diary():
+    return template('write_words.tpl')
+
+"""@route('/write', method='GET')
+def write_diary_into_file():
+
         diary_words = request.GET.get('words','')
         diary_name = 'Diary.log' # if not exist then creat
         diary_file = open(diary_name, 'a+')
         diary_file.write(diary_words + '\n')
         diary_file.close()
-    else:
-        return template('write_words.tpl')
+
+        if diary_words:
+            return template('write_words.tpl')"""
 
 run(host='localhost', port=8010, debug=True, reloader=1) # switched debug off for publich applocations
