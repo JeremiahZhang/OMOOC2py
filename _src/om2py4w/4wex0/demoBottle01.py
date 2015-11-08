@@ -12,5 +12,5 @@ def server_static(filename="myDiary.log"):
 def hello(name="world"):
     return template('<b>Hello {{name}}</b>', name=name)
 
-run(host='localhost', port=8080, debug=True)
+run(host='localhost', port=8080, debug=True, reloader=True)
 # switched debug off for publich applocations

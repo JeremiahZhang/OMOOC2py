@@ -1,5 +1,5 @@
 import sqlite3
-from bottle import route, run, template, request, static_file
+from bottle import route, run, template, request, static_file, error
 
 @route('/todo')
 @route('/my_todo_list')
@@ -87,6 +87,14 @@ def show_json(json):
         return {'task': 'this item number doesnot exist!'}
     else:
         return {'task': result[0]}
+
+@error(403)
+def mistake403(code):
+    return 'This is something wrong!'
+
+@error(404)
+def mistake404(code):
+    return 'Sorry! Page does not exist!'
 
 
 run(host='localhost', port=8090, debug=True, reloader=True)
