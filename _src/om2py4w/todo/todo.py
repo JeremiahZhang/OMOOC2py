@@ -2,6 +2,7 @@ import sqlite3
 from bottle import route, run
 
 @route('/todo')
+@route('/my_todo_list')
 def todo_list():
     conn = sqlite3.connect("todo.db")
     c = conn.cursor()
@@ -9,4 +10,4 @@ def todo_list():
     result = c.fetchall()
     return str(result)
 
-run(host='localhost', port=8080, debug=True)
+run(host='localhost', port=8090, debug=True, reload=True)
