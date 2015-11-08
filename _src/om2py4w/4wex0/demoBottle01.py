@@ -17,9 +17,18 @@ def hello():
         </ul>
     </body>"""
 
-@route('/write')
+@route('/write', method="GET")
 def input_diary():
-    return template('write_words.tpl')
+
+    if request.GET.get('save','').strip():
+        diary_words = request.GET.get('words','').strip()
+        diary_name = 'Diary.log' # if not exist then creat
+        diary_file = open(diary_name, 'a+')
+        diary_file.write(diary_words + '\n')
+        diary_file.close()
+        return template('write_words.tpl')
+    else:
+        return template('write_words.tpl')
 
 """@route('/write', method='GET')
 def write_diary_into_file():
