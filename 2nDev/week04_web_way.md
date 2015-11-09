@@ -313,7 +313,7 @@ sudo apt-get install pycurl 也出错的
 	print (html_doc)
 
 得到：html
-。。。01
+![CLI01html](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/CLI01html.jpg) 。。。01
 
 ### 再次理解
 
@@ -335,7 +335,7 @@ sudo apt-get install pycurl 也出错的
 
 恩这样得到了所有text内容 
 
-。。。02
+![CLI02htmlcontent.jpg](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/CLI02htmlcontent.jpg) 
 
 但是 你只想要 textarea中的内容 怎么办
 修改为：
@@ -346,7 +346,7 @@ sudo apt-get install pycurl 也出错的
 
 恩 可以得到 textarea 中的所有内容 如下：
 
-。。。03
+。。。03![CLI03htmltextarea.jpg](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/CLI03htmltextarea.jpg) 
 
 在此抓取 text 就ok 了吧 get_text 但是 soup_textarea 是list 类型的 你先要提取str 恩 哈利路亚 尝试提取str之后 就不知道该怎么进行了
 
@@ -362,7 +362,7 @@ sudo apt-get install pycurl 也出错的
 
 这次遇到了 编码问题 print的结果是这样的：
 
-。。04
+![CLI04htmlencode.jpg](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/CLI04htmlencode.jpg) 
 
 结果输出的 unicode 对象了 
 查看 textarea_contents_str 的type 是 str 呀 编码头疼  先放一边 soup_textarea.content 有问题
@@ -375,8 +375,7 @@ sudo apt-get install pycurl 也出错的
 	print textarea_contents_str
 
 这下正常输出了 
-
-。。05
+![CLI05htmlprint.jpg](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/CLI05htmlprint.jpg) 
 
 ### 持续CLI写入
 
@@ -399,7 +398,7 @@ sudo apt-get install pycurl 也出错的
 
 结果失败：
 
-。。06 
+![CLI06sentdata.jpg](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/CLI06sentdata.jpg)
 
 检索 不到 然后 转 Requests 库了 [Requests](http://docs.python-requests.org/en/latest/index.html) 
 
@@ -428,7 +427,7 @@ install Requests
 	print textarea_contents_str
 
 效果同 
-。。05
+[CLI05htmlprint.jpg](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/CLI05htmlprint.jpg) 
 
 恩 简洁了些
 
@@ -443,7 +442,7 @@ post data: http://docs.python-requests.org/en/latest/user/quickstart/#more-compl
 
 出现与使用pycurl一样的 问题 
 
-。。06 
+![CLI06sentdata.jpg](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/CLI06sentdata.jpg)
 
 恩 是 html 格式的问题 OK 修改 write_words.tpl 正规一点：
 
@@ -530,7 +529,8 @@ post data: http://docs.python-requests.org/en/latest/user/quickstart/#more-compl
 	    main()
 	
 效果：(首先请运行 python webserver.py)
-。。07....
+
+![CLI07result.jpg](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/CLI07result.jpg) 
 
 ## 继续迭代
 
@@ -538,8 +538,20 @@ post data: http://docs.python-requests.org/en/latest/user/quickstart/#more-compl
 - [] 美化网页 使用 [bootstrap](http://getbootstrap.com/) 
 - [] 数据库使用
 
-星期一, 09. 十一月 2015 01:07
-星期一, 09. 十一月 2015 10:07
+## 总
+
+- 坑终于填好了
+- 没有最小代价解决问题 总是自己在琢磨 少了搜索 搜索也搜索不到 姿势不对么 不是
+
+## 代码：
+
+- [webserver.py](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py4w/4wex0/webserver.py)
+- [CLI.py](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py4w/4wex0/CLI.py)
+- [write_words.tpl](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py4w/4wex0/write_words.tpl)
+
+星期一, 09. 十一月 2015 01:07 AM
+星期一, 09. 十一月 2015 10:24下午 
+
 
 
 
