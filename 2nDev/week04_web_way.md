@@ -59,8 +59,7 @@
 - ST2中运行 恩 怎么运行 参考这篇[SubPy](https://jeremiahzhang.gitbooks.io/omooc2py/content/0MOOC/SubPy.html) 
 - 打开Firefox（你也可以用其他浏览器）键入 http://localhost:8010/ 就可以直接访你所建立的网页了
 - 效果：
-
-。。。
+![01webhello](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/01webhello.jpg) 
 
 ### 理解
 
@@ -126,9 +125,9 @@
 		- 返回 template 使用的是 new_task.tpl 模块
 		- new_task.tpl 模块 代码是 html 格式的 说明 返回的是html网页
 		- 在执行过程 中 你会发现 首先执行的是 else 中的 return template
-。。。
+![02webnewitemjpg](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/02webnewitemjpg.jpg) 
 		- 然后网页刷新 会执行 if 返回 return '<p>The new task was inserted into the database, the ID is %s</p>' % new_id 这个网页
-。。。
+![03webnewitemback2](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/03webnewitemback2.jpg) 
 - 这里用到了 method=‘GET’
 	- if request.GET.get('save','')  如果 retrun template网页中 点击了 save 恩 这个if条件就成立 然后就执行 写入数据 并执行 if条件下的 那个return 返回网页 
 	- 这说明 request.GET.get() 可以获取网页中的内容 主要是 <form>下的
@@ -182,7 +181,7 @@
 - firefox中键入：http://localhost:8010/write 就可以访问 web 了
 
 效果：
-。。。
+![04webserverresult](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/04webserverresult.jpg) 
 
 - 刚开始打印历史笔记
 - 然后输入笔记内容 打印上一次输入笔记内容 非全部历史内容 
@@ -253,6 +252,7 @@ def input_diary():
 - [] 美化网页 使用 [bootstrap](http://getbootstrap.com/) 
 - [] 数据库使用
 
+星期一, 09. 十一月 2015 01:07
 
 
 
