@@ -529,17 +529,17 @@ post data: http://docs.python-requests.org/en/latest/user/quickstart/#more-compl
 	if __name__ == '__main__':
 	    main()
 	
-
-
-
+效果：(首先请运行 python webserver.py)
+。。07....
 
 ## 继续迭代
 
-- [] CLI可以交互
+- [x] CLI可以交互
 - [] 美化网页 使用 [bootstrap](http://getbootstrap.com/) 
 - [] 数据库使用
 
 星期一, 09. 十一月 2015 01:07
+星期一, 09. 十一月 2015 10:07
 
 
 
