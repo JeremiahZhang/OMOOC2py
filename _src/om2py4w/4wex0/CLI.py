@@ -1,14 +1,11 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-import pycurl
-from StringIO import StringIO
+import requests
+from bs4 import BeautifulSoup
+import sys
 
-buffer = StringIO()
-c = pycurl.Curl()
-c.setopt(c.URL, 'http://localhost:8010/')
-c.setopt(c.WRITEDATA, buffer)
-c.perform()
-c.close()
-
-items = buffer.getvalue()
-print (items)
+html_doc = requests.get('http://localhost:8010/') # html_doc.text is the content of html
+soup = BeautifulSoup(html_doc.text, 'html.parser') # html
+soup_textarea = soup.textarea # TYPE is list
+textarea_contents_str = soup_textarea.contents[0]
+print textarea_contents_str
