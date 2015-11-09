@@ -2,7 +2,7 @@
 from bottle import *
 import sys
 
-@route('/')  # here you can type http://localhost:8080 to see myDiary.log
+@route('/')  # here you can type http://localhost:8010 to see myDiary.log
 @route('/hello')
 
 def hello():

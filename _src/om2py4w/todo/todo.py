@@ -17,6 +17,7 @@ def new_item():
 
     if request.GET.get('save','').strip():
 
+        save = request.GET.get('save','').strip()
         new = request.GET.get('task', '').strip()
         conn = sqlite3.connect('todo.db')
         c = conn.cursor()
@@ -27,7 +28,7 @@ def new_item():
         conn.commit()
         c.close()
 
-        return '<p>The new task was inserted into the database, the ID is %s</p>' % new_id
+        return '<p>The new task was inserted into the database, the ID is %s, save value is %s </p>' % (new_id, save)
     else:
         return template('new_task.tpl')
 
