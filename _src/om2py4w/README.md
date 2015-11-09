@@ -1,6 +1,4 @@
-# OMOOC.py 周任务代码试作
-
-## 4w
+# 4w 日志交互web版
 
 - python 运行：webserver.py
 - 浏览器 访问：http://localhost:8010/write
