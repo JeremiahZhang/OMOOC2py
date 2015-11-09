@@ -550,37 +550,4 @@ post data: http://docs.python-requests.org/en/latest/user/quickstart/#more-compl
 - [write_words.tpl](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py4w/4wex0/write_words.tpl)
 
 星期一, 09. 十一月 2015 01:07 AM
-星期一, 09. 十一月 2015 10:24下午 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
+星期一, 09. 十一月 2015 10:24下午
