@@ -233,6 +233,23 @@ def input_diary():
 	- 结果是 还是只能打印上一次的输入笔记
 	- 分析 恩 看来 diary_content 还只是局部变量 重新刷了网页之后 还是空了
 
+再次解决：
+
+- 重新打开文件读取 再输入好了
+- 恩 修改代码：
+	
+	    if request.GET.get('save','').strip():
+	        diary_words = request.GET.get('words','').strip()
+	        diary_name = 'Diary.log' # if not exist then creat
+	        diary_file = open(diary_name, 'a+')
+	        diary_file.write(diary_words + '\n') # write words your
+	        diary_file.close()
+	        diary_file = open(diary_name, 'r')
+	        diary_content = diary_file.read()
+	        diary_file.close()
+	        return template('write_words.tpl', content=diary_content) 
+
+这样就解决了历史输出 虽然看起来 不精简 但也算是解决问题了 GO 哈利路亚
 
 ***
 
