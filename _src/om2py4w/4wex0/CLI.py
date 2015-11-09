@@ -5,14 +5,13 @@ from bs4 import BeautifulSoup
 import sys
 
 def help():
-    """ # This is help doc:
+    """ # Welcome This is help doc:
 
     1. Quit Please Type : exit /q/quit/Q
     2. See Help Document Type: help/H/h/?
     3. See Diary Histroy Type: hist
 
-    Let's Start. GO
-    """
+    Let's Start. GO"""
 
 def hist_logs():
     html_doc = requests.get('http://localhost:8010/') # html_doc.text is the content of html
@@ -26,6 +25,8 @@ def input_logs(yourwords):
     requests.get('http://localhost:8010/write', params = data)
 
 def main():
+
+    print help.__doc__
 
     while True:
         yourwords = raw_input('Type your words--->$')
