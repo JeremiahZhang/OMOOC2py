@@ -430,7 +430,105 @@ install Requests
 效果同 
 。。05
 
-恩跟简洁了些
+恩 简洁了些
+
+post data: http://docs.python-requests.org/en/latest/user/quickstart/#more-complicated-post-requests
+
+如何将 input post 到 text中内？
+
+	postdata = {'words': 'write?'} # words 为html 中的 text name
+	r = requests.post('http://localhost:8010/write', data = postdata)
+	print r.url
+	print r.text
+
+出现与使用pycurl一样的 问题 
+
+。。06 
+
+恩 是 html 格式的问题 OK 修改 write_words.tpl 正规一点：
+
+	<!DOCTYPE >
+	<html>
+	    <body>
+	        <h1>Write new words into your diary.log:</h1>
+	        <form action="/write" method="get">
+	            <input type="text" size="100" maxlength="100" name="words" autofocus>
+	            <input type="submit" name="save" value="save">
+	        </form>
+	        <h1>  Darling!Here is your diary content!</h1>
+	        <textarea rows="30" cols="100">{{ content }}</textarea>
+	    </body>
+	</html>
+
+恩 好看一点是没有用的 在服务端 响应 哈利路亚
+
+	"GET /write?words=get+and+post&save=save HTTP/1.1"
+
+修改：
+
+	postdata = {'words': 'write?'， ‘save’: 'save'}
+
+还是不行 method 行不通
+
+	Method not allowed. # 去查看 method
+
+那倒是  
+
+	<form action="/write" method="get"> 
+
+中 method是 get 我使用我使用 request的post 行么？恩 换回 get尝试 [passing-parameters-in-urls](http://docs.python-requests.org/en/latest/user/quickstart/#passing-parameters-in-urls) 
+
+	postdata = {'words': 'write', 'save': 'save'}
+	r = requests.get('http://localhost:8010/write', params = postdata)
+	print (r.url)
+
+恩 这回可以了 打印的 url 为 http://localhost:8010/write?save=save&words=write 和网页端输入后一样
+
+整合一下 持续交互 看结果 CLI.py
+
+	#! /usr/bin/env python
+	# -*- coding: utf-8 -*-
+	import requests
+	from bs4 import BeautifulSoup
+	import sys
+	
+	def help():
+	    """ # This is help doc:
+	
+	    1. Quit Please Type : exit /q/quit/Q
+	    2. See Help Document Type: help/H/h/?
+	    3. See Diary Histroy Type: hist
+	
+	    Let's Start. GO"""
+	
+	def hist_logs():
+	    html_doc = requests.get('http://localhost:8010/') # html_doc.text is the content of html
+	    soup = BeautifulSoup(html_doc.text, 'html.parser') # html
+	    soup_textarea = soup.textarea # TYPE is list
+	    textarea_contents_str = soup_textarea.contents[0]
+	    print textarea_contents_str
+	
+	def input_logs(yourwords):
+	    data = {'words': yourwords, 'save': 'save'} # two input in write_words.tpl so you must add name='save' item
+	    requests.get('http://localhost:8010/write', params = data)
+	
+	def main():
+	
+	    while True:
+	        yourwords = raw_input('Type your words--->$')
+	
+	        if yourwords in {'exit', 'q', 'quit','Q'}:
+	            sys.exit()
+	        elif yourwords in {'help', 'H','h','?'}:
+	            print help.__doc__
+	        elif yourwords == 'hist':
+	            hist_logs()
+	        else:
+	            input_logs(yourwords) # write new diarys or logs
+	
+	if __name__ == '__main__':
+	    main()
+	
 
 
 
