@@ -532,6 +532,8 @@ post data: http://docs.python-requests.org/en/latest/user/quickstart/#more-compl
 
 ![CLI07result.jpg](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/CLI07result.jpg) 
 
+requests 可以解决了 那么 pycurl 类似 不过得用其GET 部分 恩 哈利路亚
+
 ## 继续迭代
 
 - [x] CLI可以交互
