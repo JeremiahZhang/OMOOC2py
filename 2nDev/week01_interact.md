@@ -219,6 +219,7 @@ help文档中 `time.gmtime` 使用UTC(世界标准时间)的时间
 		- "r" : 可读
 		- "w" : 可写
 		- "a" : append 附加在文件后面 
+	- 更多 参考[python-files-io](http://www.runoob.com/python/python-files-io.html) 
 	- 读取 `read()`
 
 代码：
