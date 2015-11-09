@@ -259,13 +259,43 @@ def input_diary():
 	- route 开路
 	- Request data
 	- 模板 template 使用 html 来建立网页
-- 不要纠结小细节 恩 Go
+- 不要纠结小细节 恩 Go 哈利路亚
 
 ***
 
 ## CLI 交互
 
-go check [curl doc](http://curl.haxx.se/) 
+- 理解 
+	- 网页已经打开 大妈演示的时候是 lynx localhost:port 的 相当于已经打开了浏览器访问
+	- 然后用命令行CLI进行 交互 python CLI.py
+- 恩 所以 这里 你只要再建立一个 CLI.py 就可以
+	- 恩 公开课的时候 大妈演示了 curl 基础使用
+	- 这里想必用curl
+	- go check [curl doc](http://curl.haxx.se/docs/manual.html)  锁定 post(http) 功能 和 curl -G
+
+> POST (HTTP)
+ It's easy to post data using curl. This is done using the -d <data>
+  option.  The post data must be urlencoded.
+
+curl -G localhost:8010 获取了网页的内容   
+在 终端上可以直接使用 但是用python 脚本 如何使用 尝试了 直接 
+content = curl -G localhost:8010 是不行的 语法错误 恩 说明 我还没有导入相关模块
+
+那么 使用什么 模块呢？ search [Python code like curl](http://stackoverflow.com/questions/3973223/python-code-like-curl)  go to [pycurl](http://pycurl.sourceforge.net/) 替代使用 [pycurl](http://pycurl.sourceforge.net/doc/index.html) 
+
+linux下 install pycurl 终于
+
+	sudo apt-get install python-pycurl
+
+按照网站：  
+pip install pycurl 粗错了
+sudo apt-get install pycurl 也出错的  
+下载压缩吧下来 python setup.py 也同样出错。。。
+晕呀晕呀
+
+
+
+
 
 ## 继续迭代
 
