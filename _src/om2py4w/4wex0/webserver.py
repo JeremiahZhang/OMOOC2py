@@ -2,21 +2,6 @@
 from bottle import *
 import sys
 
-@route('/')  # here you can type http://localhost:8010 to see myDiary.log
-@route('/hello')
-
-def hello():
-    return """
-    <body>
-        <h1>Dear Friend!</h1>
-        <p>This is Your Diary Web! have fun!</p>
-
-        <ul>
-            <li>Read</li>
-            <li>Write</li>
-        </ul>
-    </body>"""
-
 @route('/write', method="GET")
 def input_diary():
 
