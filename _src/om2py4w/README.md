@@ -26,3 +26,9 @@
 ## 教程
 
 - [教程](https://jeremiahzhang.gitbooks.io/omooc2py/content/2nDev/week04_web_way.html)
+
+## 代码
+
+- [webserver.py](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py4w/4wex0/webserver.py)
+- [CLI.py](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py4w/4wex0/CLI.py)
+- [write_words.tpl](https://github.com/JeremiahZhang/OMOOC2py/blob/master/_src/om2py4w/4wex0/write_words.tpl)
