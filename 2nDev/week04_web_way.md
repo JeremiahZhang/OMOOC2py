@@ -1,10 +1,11 @@
 # 日志交互 web版
 
 ## 开发环境
-	- Ubuntu14.04 LTS + 其自带终端
-	- SublimeText2 （ST2）
-	- Python 2.7.10
-	- Firefox 41.0.2 for Ubuntu
+
+- 	- Ubuntu14.04 LTS + 其自带终端
+- 	- SublimeText2 （ST2）
+- 	- Python 2.7.10
+- 	- Firefox 41.0.2 for Ubuntu
 
 ## Goal
 
@@ -293,6 +294,143 @@ sudo apt-get install pycurl 也出错的
 下载压缩吧下来 python setup.py 也同样出错。。。
 晕呀晕呀
 
+简单执行 CLI.py
+	
+	#! /usr/bin/env python
+	# -*- coding: utf-8 -*-
+	import pycurl
+	from StringIO import StringIO
+	import re
+	
+	buffer = StringIO()
+	c = pycurl.Curl()
+	c.setopt(c.URL, 'http://localhost:8010/')
+	c.setopt(c.WRITEDATA, buffer)
+	c.perform()
+	c.close()
+	
+	html_doc = buffer.getvalue()
+	print (html_doc)
+
+得到：html
+。。。01
+
+### 再次理解
+
+- pycurl可以将url中html中内容抓取下来
+- 再要从抓取的html内容中获取 日志内容 (解析HTML)
+- 写的话 就是将 input post 到 html 的textarea 中
+
+### 解析HLML
+
+- 使用 [BeautifulSoup/bs4](http://www.crummy.com/software/BeautifulSoup/#Download) 
+- 走 bs4文档 http://www.crummy.com/software/BeautifulSoup/bs4/doc/
+
+添加代码：
+	
+	from bs4 import BeautifulSoup
+	...
+	soup = BeautifulSoup(html_doc, 'html.parser')
+	print (soup.get_text())
+
+恩这样得到了所有text内容 
+
+。。。02
+
+但是 你只想要 textarea中的内容 怎么办
+修改为：
+
+	soup = BeautifulSoup(html_doc, 'html.parser')
+	soup_textarea = soup.find_all("textarea") # 这是list 类型的 
+	print (soup_textarea)
+
+恩 可以得到 textarea 中的所有内容 如下：
+
+。。。03
+
+在此抓取 text 就ok 了吧 get_text 但是 soup_textarea 是list 类型的 你先要提取str 恩 哈利路亚 尝试提取str之后 就不知道该怎么进行了
+
+	soup_textarea = soup.find_all("textarea")
+	soup_textarea_str = str(soup_textarea).strip('[]') # convert list to string
+
+再次尝试：
+
+	soup = BeautifulSoup(html_doc, 'html.parser')
+	soup_textarea = soup.textarea # TYPE is list
+	textarea_contents_str = str(soup_textarea.contents).strip('[]')
+	print textarea_contents_str
+
+这次遇到了 编码问题 print的结果是这样的：
+
+。。04
+
+结果输出的 unicode 对象了 
+查看 textarea_contents_str 的type 是 str 呀 编码头疼  先放一边 soup_textarea.content 有问题
+
+尝试解决：
+
+	soup = BeautifulSoup(html_doc, 'html.parser') # bs4的格式
+	soup_textarea = soup.textarea # TYPE is list
+	textarea_contents_str = soup_textarea.contents[0] # 这样的 类型<class 'bs4.element.NavigableString'>
+	print textarea_contents_str
+
+这下正常输出了 
+
+。。05
+
+### 持续CLI写入
+
+- raw_input 输入
+- 将输入的内容写入到网站 并返回CLI 这个是关键 如何进行呢？
+
+#### 尝试 1 继续使用pycurl
+
+还是使用pycurl：继续添加代码：
+
+	c = pycurl.Curl()
+	c.setopt(c.URL, 'http://localhost:8010/')
+	
+	post_data = {'field': 'message'}
+	postfields = urlencode(post_data)
+	c.setopt(c.POSTFIELDS, postfields)
+	
+	c.perform()
+	c.close()
+
+结果失败：
+
+。。06 
+
+检索 不到 然后 转 Requests 库了 [Requests](http://docs.python-requests.org/en/latest/index.html) 
+
+#### 尝试2 使用Requests
+
+install Requests
+
+	sudo apt-get install python-requests
+
+没事查看模块版本 python下
+
+	>>> import requests
+	>>> print (requests.__version__)
+	2.2.1
+
+修改CLI.py 为：
+
+	import requests
+	from bs4 import BeautifulSoup
+	import sys
+	
+	html_doc = requests.get('http://localhost:8010/') # html_doc.text is the content of html
+	soup = BeautifulSoup(html_doc.text, 'html.parser')
+	soup_textarea = soup.textarea # TYPE is list
+	textarea_contents_str = soup_textarea.contents[0]
+	print textarea_contents_str
+
+效果同 
+。。05
+
+恩跟简洁了些
 
 
 
