@@ -346,7 +346,7 @@ sudo apt-get install pycurl 也出错的
 
 恩 可以得到 textarea 中的所有内容 如下：
 
-。。。03![CLI03htmltextarea.jpg](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/CLI03htmltextarea.jpg) 
+![CLI03htmltextarea.jpg](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/CLI03htmltextarea.jpg) 
 
 在此抓取 text 就ok 了吧 get_text 但是 soup_textarea 是list 类型的 你先要提取str 恩 哈利路亚 尝试提取str之后 就不知道该怎么进行了
 
