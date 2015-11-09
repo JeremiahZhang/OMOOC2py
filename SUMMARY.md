@@ -23,6 +23,7 @@
 	- [week01_日记交互CLI](2nDev/week01_interact.md)
 	- [week02_日志交互GUI](2nDev/week02_LogGUI.md)
 	- [week03_日志交互NET版](2nDev/week03_net_way.md)
+	- [week04_日志交互NET版](2nDev/week04_web_way.md)
 - [人生首秀](3rDemo/README.md)
 - [如何学习](4Learn/README.md)
 	- [Renewminding](4Learn/0wd4-OpenCourse-Note.md)
