@@ -2,6 +2,7 @@
 from bottle import *
 import sys
 
+@route('/')
 @route('/write', method="GET")
 def input_diary():
 
@@ -11,7 +12,10 @@ def input_diary():
         diary_file = open(diary_name, 'a+')
         diary_file.write(diary_words + '\n') # write words your
         diary_file.close()
-        return template('write_words.tpl', content=diary_words)
+        diary_file = open(diary_name, 'r')
+        diary_content = diary_file.read()
+        diary_file.close()
+        return template('write_words.tpl', content=diary_content)
 
     else:
         diary_name = 'Diary.log'

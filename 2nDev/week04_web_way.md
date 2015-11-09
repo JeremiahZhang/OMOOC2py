@@ -246,6 +246,10 @@ def input_diary():
 
 ***
 
+## CLI 交互
+
+go check [curl doc](http://curl.haxx.se/) 
+
 ## 继续迭代
 
 - [] CLI可以交互
