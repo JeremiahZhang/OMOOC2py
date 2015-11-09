@@ -5,15 +5,13 @@ import sys
 @route('/write', method="GET")
 def input_diary():
 
-    diary_content = ''
     if request.GET.get('save','').strip():
         diary_words = request.GET.get('words','').strip()
         diary_name = 'Diary.log' # if not exist then creat
         diary_file = open(diary_name, 'a+')
         diary_file.write(diary_words + '\n') # write words your
         diary_file.close()
-        diary_content += diary_words
-        return template('write_words.tpl', content=diary_content)
+        return template('write_words.tpl', content=diary_words)
 
     else:
         diary_name = 'Diary.log'
