@@ -8,6 +8,7 @@
 	- [ST2与Py环境配置](0MOOC/SubPy.md)
 	- [双推](0MOOC/doublepush.md)
 	- [Transfer to Ubuntu](0MOOC/ubuntu.md)
+	- [Tmux Explore]((0MOOC/tmux.md))
 - [基础旋进](1sTry/README.md)
 	- [week_0](1sTry/week_0.md)
 		- [42行代码](1sTry/0wd0-task-42-code-fundamental-problem.md)
