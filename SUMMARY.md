@@ -17,6 +17,8 @@
 		- [苟日新](1sTry/0wd3-step-by-step-4_7-8.md)
 	- [week_1](1sTry/week_1.md)
 		- [Google Search](1sTry/1wd5_go_google.md)
+	- [week_4](1sTry/week_4.md)
+		- [Package Star](1sTry/packagestar.md)
 - [Learn by Doing](1tDoing/README.md)
 	- [Python Package Install](1tDoing/MoudleInstall.md)
 	- [自动登录网页-如芝麻星](1tDoing/01Gowechat.md)
