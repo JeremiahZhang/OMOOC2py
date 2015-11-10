@@ -80,7 +80,7 @@ What is a terminal multiplexer? It lets you switch easily between several progra
 	pgrep tmux # 这里键入之后 会显示一串数字 雷雨的是16469 然后使用下面一行命令 数字需要使用 pgrep tmux 获得的数字
 	/proc/16469/exe attach
 
-
+***
 
 ## 配置
 
@@ -118,7 +118,9 @@ What is a terminal multiplexer? It lets you switch easily between several progra
 
 	tmux
 
-进入 tmux window 001
+进入 tmux window
+
+![tmux001](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/Tmux_001.jpg) 
 
 ### 查看 keyboard shortcuts
 
@@ -127,7 +129,11 @@ What is a terminal multiplexer? It lets you switch easily between several progra
 - Control + a before any command
 - Ctrl + a then ？ # 查看 绑定的快捷键
 
-查看到了 bind key 002
+查看到了 bind key 
+
+![tmux002](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/Tmux_002.jpg) 
+
+***
 
 ## 体验
 
@@ -137,8 +143,9 @@ What is a terminal multiplexer? It lets you switch easily between several progra
 
 雷雨查看了配置的快捷键之后 尝试 分屏
 
-同时 Ctrl + a 然后 “ 分屏 如下 003
+同时 Ctrl + a 然后 “ 分屏 如下 
 
+![tmux003](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/Tmux_003.jpg) 
 
 现在 雷雨的光标在 下面 分割的一个 window 恩 如何回到上面的 window 呢
 
@@ -150,7 +157,9 @@ What is a terminal multiplexer? It lets you switch easily between several progra
 
 Ctrl a 然后 % 
 
-效果 004
+效果 
+
+![tmux004](https://raw.githubusercontent.com/JeremiahZhang/OMOOC2py/master/_image/Tmux_004.jpg) 
 
 雷雨看出 直接 在上面一个 window 中 水平分出了一个 window（原来是在光标所在的屏分出来的）
 
@@ -166,5 +175,14 @@ Ctrl a 然后 %
 
 Ctrl a 之后 ! (英文输入法下的哦)
 
+
+***
+
+## 总
+
+以上是雷雨 tmux 的初级体验 
+之后的tmux 需要更多的阅读官方doc
+
+星期二, 10. 十一月 2015 05:47下午 
 星期二, 10. 十一月 2015 05:40下午 
 
