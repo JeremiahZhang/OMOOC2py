@@ -19,6 +19,7 @@
 		- [Google Search](1sTry/1wd5_go_google.md)
 	- [week_4](1sTry/week_4.md)
 		- [Package Star](1sTry/packagestar.md)
+		- [Input and Output Star](1sTry/InOutputStar.md)
 - [Learn by Doing](1tDoing/README.md)
 	- [Python Package Install](1tDoing/MoudleInstall.md)
 	- [自动登录网页-如芝麻星](1tDoing/01Gowechat.md)
