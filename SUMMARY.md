@@ -1,15 +1,14 @@
 # Summary
-- [启航](0MOOC/README.md)
+- [启航准备](0MOOC/README.md)
 	- [系统设置](0MOOC/01_system.md)
-		- [Windows Setting](0MOOC/win7.md)
+		- [Windows Setting](0MOOC/01_01_win7.md)
 		- [Transfer to Ubuntu](0MOOC/ubuntu.md)
-	- [開发配置]
+	- [開发配置](0MOOC/02_config.md)
 		- [Git](0MOOC/learngit.md)
 		- [Gitbook](0MOOC/gitbook.md)
+		- [双推精简](0MOOC/doublepush.md)
 		- [ST2与Py环境配置](0MOOC/SubPy.md)
-		- [双推](0MOOC/doublepush.md)
-	
-	- [Tmux Explore](0MOOC/tmux.md)
+		- [Tmux Explore](0MOOC/tmux.md)
 - [航行日志](1sTry/README.md)
 	- [week_0](1sTry/week_0.md)
 		- [42行代码](1sTry/0wd0-task-42-code-fundamental-problem.md)
