@@ -1,0 +1,2 @@
+print ('I love '
+    'python')
