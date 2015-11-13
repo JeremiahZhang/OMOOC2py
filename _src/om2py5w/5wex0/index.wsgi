@@ -8,4 +8,4 @@ app = Bottle()
 def hello():
     return 'hello, jeremiah -Bottle demo'
 
-application = sae.creat_wsgi_app(app)
+application = sae.create_wsgi_app(app)
