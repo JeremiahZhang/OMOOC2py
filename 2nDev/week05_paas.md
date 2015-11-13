@@ -123,7 +123,11 @@
 
 同 3.1 出错情况 中的 index.wsgi代码 在本地环境开发中 使用 是可以的[commit](https://github.com/JeremiahZhang/OMOOC2py/commit/a476ca008ddc01bd38f2982ea4f48f40f2f6b438) 
 
-猜测 就是在SAE 云端的话 tpl 文件使用出问题了
+恩 删除 .tpl 这个后缀 就可以公网访问了   
+不过又出现 直接输入文字 enter 就出错了 （本地测试是没有错的）表示伤心
+
+看文档去 猜测是 def input_diary 与 tpl 文件的问题
+
 
 ### 3.3 极简日志的公网访问
 
