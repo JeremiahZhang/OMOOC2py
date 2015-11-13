@@ -19,3 +19,5 @@ git remote add sae https://git.sinacloud.com/jeremiahzhang
 git add .
 git commit -m 'beta 1.0 push'
 git push sae master:1 # 部署到sae版本1
+
+[git 设置 避免每次都要输入密码](https://help.github.com/articles/caching-your-github-password-in-git/) 
