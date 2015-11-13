@@ -6,6 +6,14 @@
 - KVDB 来收集 笔记 分类 管理 备份
 - CLI 统计 看看
 
+## 0 安装SAE
+
+- install sae (Ubuntu环境)
+
+	sudo pip install sae-python-dev
+
+其他 可参考 [SAE 安装](http://www.sinacloud.com/doc/sae/python/tools.html#id3) 
+
 ## 1 创建应用
 
 登录SAE，进入 [控制台-云应用SAE](http://sae.sina.com.cn/), 点击 创建新应用 ，创建一个新的应用jeremiahzhang, 开发语言选择Python
@@ -101,13 +109,17 @@
 
 好吧 是 index.wsgi 中自己代码的问题 所以雷雨重试了上面的[bottle 框架](http://www.sinacloud.com/doc/sae/python/tutorial.html#bottle)
 
-### 3.2 本地环境开发
+### 3.2 本地运行
 
 参考 http://www.sinacloud.com/doc/sae/python/tools.html#id2
+
+本地进行调试
 
 在 配置文件目录下(sae 文件目录) 终端中输入
 
 	dev_server.py
+
+浏览器键入 http://localhost:8080
 
 同 3.1 出错情况 中的 index.wsgi代码 在本地环境开发中 使用 是可以的[commit](https://github.com/JeremiahZhang/OMOOC2py/commit/a476ca008ddc01bd38f2982ea4f48f40f2f6b438) 
 
