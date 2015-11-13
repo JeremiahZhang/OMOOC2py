@@ -5,6 +5,6 @@ app = Bottle()
 
 @app.route('/')
 def index():
-    return template
+    return template('hello', hello='jeremiah go')
 
 application = sae.create_wsgi_app(app)
