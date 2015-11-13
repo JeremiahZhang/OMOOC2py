@@ -1,30 +1,23 @@
 # coding:utf-8
-from bottle import *
+VERSION = 'Jeremiah v15.11.13'
+from bottle import Bottle, request
 import sae
-import sys
+import urllib2 as urilib
 
 app = Bottle()
 
 @app.route('/')
-@app.route('/write', method='GET')
-def input_diary():
+def hello():
+    return ''' %s powered by Bottle and SAT !
+    usage:
+    $ curl -d 'uri=http://sina.com' 1.jeremiahzhang.sinaapp.com/write/
+        ''' % VERSION
 
-    if request.GET.get('save','').strip():
-        diary_words = request.GET.get('words','').strip()
-        diary_name = 'Diary.log' # if not exist then creat
-        diary_file = open(diary_name, 'a+')
-        diary_file.write(diary_words + '\n') # write words your
-        diary_file.close()
-        diary_file = open(diary_name, 'r')
-        diary_content = diary_file.read()
-        diary_file.close()
-        return template('write_words', content=diary_content)
-
-    else:
-        diary_name = 'Diary.log'
-        diary_file = open(diary_name, 'r')
-        diary_content = diary_file.read()
-        diary_file.close()
-        return template('write_words', content=diary_content)
+@app.route('/write', method='POST')
+def write():
+    uri = request.form.get('uri')
+    print uri
+    result = askCloud(APITYPE, uri)
+    return '/wirte %s' % result
 
 application = sae.create_wsgi_app(app)
