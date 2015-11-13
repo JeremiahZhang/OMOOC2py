@@ -38,10 +38,14 @@
 
 [SAE git 代码部署手册](http://www.sinacloud.com/doc/sae/tutorial/code-deploy.html#git) 
 
+在 SAE 云端 代码管理 部分 可以查看  应用仓库地址 这里使用Git版本控制 
+
+02 
+
 在 config.yaml 和 index.wsgi 所在文件目录(之前建立的sae文件目录)下 使用如下命令
 
 	git init
-	git remote add sae https://git.sinacloud.com/jeremiahzhang
+	git remote add sae https://git.sinacloud.com/jeremiahzhang  # 这里 jeremiahzhang 是 appname 应用名
 	git add .
 	git commit -m 'beta 1.0 push'  
 	git push sae master:2 # 部署到sae版本2
@@ -101,9 +105,13 @@
 
 参考 http://www.sinacloud.com/doc/sae/python/tools.html#id2
 
-同样 3.1 出错情况 中的 index.wsgi代码 在本地环境开发中 使用 是可以的[commit](https://github.com/JeremiahZhang/OMOOC2py/commit/a476ca008ddc01bd38f2982ea4f48f40f2f6b438) 
+在 配置文件目录下(sae 文件目录) 终端中输入
 
-猜测 就是在SAE 云端的话 tpl 文件使用问题了
+	dev_server.py
+
+同 3.1 出错情况 中的 index.wsgi代码 在本地环境开发中 使用 是可以的[commit](https://github.com/JeremiahZhang/OMOOC2py/commit/a476ca008ddc01bd38f2982ea4f48f40f2f6b438) 
+
+猜测 就是在SAE 云端的话 tpl 文件使用出问题了
 
 ### 3.3 极简日志的公网访问
 
