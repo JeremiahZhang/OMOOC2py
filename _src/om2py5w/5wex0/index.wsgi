@@ -12,5 +12,4 @@ def continu_write():
     content = request.forms.get('txtadd')
     return template('hello', hello='Haliluja Fancer', content=content)
 
-
 application = sae.create_wsgi_app(app)
