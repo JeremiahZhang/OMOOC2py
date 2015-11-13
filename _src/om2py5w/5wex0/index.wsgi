@@ -5,7 +5,8 @@ import sys
 
 app = Bottle()
 
-@app.route('/', method='GET')
+@app.route('/')
+@app.route('/write', method='GET')
 def input_diary():
 
     if request.GET.get('save','').strip():
