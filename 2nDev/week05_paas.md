@@ -1,8 +1,8 @@
 # 极简日志 公网版
 
-- python 应用在SAE上创建和部署
-- bottle 如何和SAE结合 实现4w功能
-- 实现公网访问
+- 极简日志实现公网访问(直接输入网址访问)
+	- python 应用在SAE上创建和部署
+	- bottle 如何和SAE结合 实现4w功能
 - KVDB 来收集 笔记 分类 管理 备份
 - CLI 统计 看看
 
@@ -48,7 +48,7 @@
 
 在 SAE 云端 代码管理 部分 可以查看  应用仓库地址 这里使用Git版本控制 
 
-02 
+![py5w02saegit](http://7xo9hk.com1.z0.glb.clouddn.com/py5w02saegit.jpg) 
 
 在 config.yaml 和 index.wsgi 所在文件目录(之前建立的sae文件目录)下 使用如下命令
 
@@ -68,11 +68,11 @@
 
 建立第二个版本 如图
 
-03
+![版本master:2](http://dn-jeremiahzhang.qbox.me/py5w03saegit02) 
 
 然后打开 http://jeremiahzhang.sinaapp.com/ 是可行的 之前的不可行
 
-04
+![error](http://dn-jeremiahzhang.qbox.me/py5w04sae.jpg) 
 
 ### 3.1 出错情况
 
@@ -109,6 +109,8 @@
 
 好吧 是 index.wsgi 中自己代码的问题 所以雷雨重试了上面的[bottle 框架](http://www.sinacloud.com/doc/sae/python/tutorial.html#bottle)
 
+KO 云端不能读取 那个日志文件呀 同本地不同哒
+
 ### 3.2 本地运行
 
 参考 http://www.sinacloud.com/doc/sae/python/tools.html#id2
@@ -126,10 +128,35 @@
 恩 删除 .tpl 这个后缀 就可以公网访问了   
 不过又出现 直接输入文字 enter 就出错了 （本地测试是没有错的）表示伤心
 
-看文档去 猜测是 核心代码 问题 恩 去修改
+看文档去 猜测是 核心代码 问题 恩 去修改 多坑 水
 
-### 3.3 极简日志的公网访问
+### 3.3 极简日志的公网访问 使用 KVDB
 
+想想 还是 SAE 云端读不了 log 文件的 恩这时就要使用 [kvdb](http://www.sinacloud.com/doc/sae/python/kvdb.html?ticket=4669740fb7c760d6d569da04fac5cb56947f8010#kvdb) 
 
-Friday, 13. November 2015 09:42PM  1st
+恩 早该知道 kvdb 使用呀 怎么现在才想起来呢
+
+然而 在kvdb 也是 来了个坑 
+
+走过大妈的 [大妈7-42](http://chaos2sae.readthedocs.org/en/latest/ch01/try.html#id10) 
+
+没看懂 哎呀 花了笨功夫 恩 花了时间 为什么没有解决 
+
+后来看了 Alan Lai 同学 的 kvdb 部分 恩 才明朗起来 [公网版日记系统](https://wp-lai.gitbooks.io/learn-python/content/1sTry/sae.html) 
+
+	kv = sae.kvdb.Client() # 这个设置好后 然后 kv.set add 什么的 之后 push 到云端 就直接是个数据库呀
+
+参考 Alan Lai 同学的代码 仿造 [修改代码](https://github.com/JeremiahZhang/OMOOC2py/commit/056718567b581607b20bc99305ebbf786e54b5c4?diff=split)
+
+然后push到sae 就ko 可以访问了
+
+### 3.4 kvdb 笔记 分类 管理 备份
+
+- [] 首先 字典无序 需要排序
+- [] 对笔记进行分类 tag标签 
+- [] KO 休息
+
+Friday, 13. November 2015 09:42PM  1st    
+Saturday, 14. November 2015 10:37PM 2try kvdb 公网访问
+
 

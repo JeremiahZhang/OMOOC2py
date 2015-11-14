@@ -1,6 +1,6 @@
 # Star 深呼吸-换换脑子
 
-![雷雨的自画像](http://7xo9hk.com1.z0.glb.clouddn.com/20151111自画像.jpg  "可以这样")
+![雷雨的自画像](http://dn-jeremiahzhang.qbox.me/20151111自画像.jpg  "可以这样")
 
 以上 雷雨的自画像
 

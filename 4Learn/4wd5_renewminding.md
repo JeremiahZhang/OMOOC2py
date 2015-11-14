@@ -84,7 +84,7 @@ KO just do it
 	- 雷雨得在自己的代码中 实践
 - 恩 附上雷雨学习 绘画的草图 雷雨的手
 
-![雷雨的手](http://7xo9hk.com1.z0.glb.clouddn.com/20151112hand.jpg)
+![雷雨的手](http://dn-jeremiahzhang.qbox.me/20151112hand.jpg)
 
 星期五, 13. 十一月 2015 09:57上午 2 tomatos
 星期五, 13. 十一月 2015 10:22上午 补图
