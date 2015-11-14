@@ -23,12 +23,7 @@ def write():
 @app.route('/', method='POST')
 def saveWrite():
 
-    log_time = time.ctime()
-    connect_str = '---> '
     content = request.forms.get('txtadd')
-    all_content = log_time + connect_str + content
-    saveIntoFile(all_content)
-
-    return template('hello', hello='Haliluja Fancer', content=all_content)
+    return template('hello', hello='Haliluja Fancer', content=content)
 
 application = sae.create_wsgi_app(app)
