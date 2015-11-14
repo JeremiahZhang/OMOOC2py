@@ -10,6 +10,7 @@
 		- [ST2与Py环境配置](0MOOC/02_04_SubPy.md)
 		- [Tmux Explore](0MOOC/02_05_tmux.md)
 		- [七牛云储](0MOOC/02_06_qiniu.md)
+		- [zsh](0MOOC/02_07_zsh.md)
 - [航行日志](1sTry/README.md)
 	- [week_0](1sTry/week_0.md)
 		- [42行代码](1sTry/0wd0-task-42-code-fundamental-problem.md)
