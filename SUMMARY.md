@@ -28,6 +28,7 @@
 	- [StarTrek03 日志交互GUI](2nDev/week02_LogGUI.md)
 	- [StarTrek04 日志交互NET版](2nDev/week03_net_way.md)
 	- [StarTrek05 日志交互WEB版](2nDev/week04_web_way.md)
+	- [StarTrek06 日志交互公网版](2nDEV/week05_paas.md)
 - [星际大会](3rDemo/README.md)
 - [Renew Mind in Galaxy](4Learn/README.md)
 	- [Star 開智编程入门体验](4Learn/2015-9-26-HiddenMission.md)
