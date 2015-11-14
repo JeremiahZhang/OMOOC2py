@@ -1,6 +1,7 @@
 # coding:utf-8
 from bottle import *
 import sae
+import time
 
 def saveIntoFile(log_content):
 
@@ -8,6 +9,10 @@ def saveIntoFile(log_content):
     log_file_obj = open(filename, 'a+')
     log_file_obj.write(log_content + '\n')
     log_file_obj.close()
+
+def addTime():
+    log_time = time.ctime()
+    return log_time
 
 app = Bottle()
 
@@ -17,8 +22,13 @@ def write():
 
 @app.route('/', method='POST')
 def saveWrite():
+
+    log_time = time.ctime()
+    connect_str = '---> '
     content = request.forms.get('txtadd')
-    saveIntoFile(content)
-    return template('hello', hello='Haliluja Fancer', content=content)
+    all_content = log_time + connect_str + content
+    saveIntoFile(all_content)
+
+    return template('hello', hello='Haliluja Fancer', content=all_content)
 
 application = sae.create_wsgi_app(app)
