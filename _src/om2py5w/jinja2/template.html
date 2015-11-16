@@ -10,14 +10,12 @@
     <li>{{n}}</li>
     {% endfor %}
   </ul>
+  <p>Same list with a filter: {{ my_list|join(', ') }}</p>
   <h3> This is the end of my child template</h3>
 
   {% block footer %}
   {{ super() }}
   {% endblock %}
-
-  {% block page %}{{title}}{% endblock %}
-  {% block title %}{{title}}{% endblock %}
 
   {% block heading %}
     {{ super() }}
