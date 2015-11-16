@@ -152,11 +152,15 @@ KO 云端不能读取 那个日志文件呀 同本地不同哒
 
 ### 3.4 kvdb 笔记 分类 管理 备份
 
-- [] 首先 字典无序 需要排序
+- [x] 网页 layout （使用jinja2）
+- [] 首先 字典无序 需要排序 
+	- 字典顺序 有点bug 得进行修改
 - [] 对笔记进行分类 tag标签 
 - [] KO 休息
 
 Friday, 13. November 2015 09:42PM  1st    
-Saturday, 14. November 2015 10:37PM 2try kvdb 公网访问
+Saturday, 14. November 2015 10:37PM 2try kvdb 公网访问    
+Monday, 16. November 2015 10:06PM  网页layout
+
 
 
