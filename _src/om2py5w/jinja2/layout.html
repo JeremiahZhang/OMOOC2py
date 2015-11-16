@@ -56,11 +56,13 @@
     <div class="container">
 
       {% block heading %}
-        <h2>{% block page %}{% endblock %} - Bottle Super Example</h2>
+        <h1>{% block page %}{% endblock %} - Bottle Super Example</h1>
       {% endblock %}
       <h2>This is part of my base template</h2>
       <br>
       {% block content %}{% endblock %}
+      <br>
+      {% block title %}{% endblock %}
       <br>
       <h2>This is part of my base template</h2>
       <br>

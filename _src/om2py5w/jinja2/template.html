@@ -11,11 +11,13 @@
     {% endfor %}
   </ul>
   <h3> This is the end of my child template</h3>
+
   {% block footer %}
   {{ super() }}
   {% endblock %}
 
-  {% block page %}Home{% endblock %}
+  {% block page %}{{name}}{% endblock %}
+  {% block title %}{{name}}{% endblock %}
 
   {% block heading %}
     {{ super() }}
