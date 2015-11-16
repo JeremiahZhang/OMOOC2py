@@ -12,6 +12,7 @@
   </ul>
   <p>Same list with a filter: {{ my_list|join(', ') }}</p>
   <h3> This is the end of my child template</h3>
+  <h4>Current date/time: {{ current_time | datetimefilter }}</h4>
 
   {% block footer %}
   {{ super() }}
