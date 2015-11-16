@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-        <title>Hallelujah</title>
+        <title>Haliluja</title>
     </head>
     <body>
         <h1>= {{hello}} =</h1>
@@ -10,11 +10,7 @@
             <input type="text" size="50" name="txtadd" autofocus>
             <input type="submit" name="save" value="save">
         </form>
-        %import time
-        %for row in log:
-            <div class=post>
-              <strong class=date>{{row['time']}}</strong><br>
-              {{!row['content'].replace('\n','<br/>')}}
-        %end
+        <h1> Here is the History</h1>
+        <textarea rows="18" cols="50">{{ content }}</textarea>
     </body>
 </html>
