@@ -25,14 +25,16 @@ def _save_to_kvdb(post):
 def _get_datainkvdb():
     results = []
     for item in kv.get_by_prefix('key'):
-        results.append(item[1]) # get key's value
-    return results
+        results.append(item[1])
+    # here results is list where dic live in [{'content': post, 'time':logtime}]
+    sort_results = sorted(results, key=lambda dict_value: dict_value['time'], reverse=True)
+    return sort_results
 
 app = Bottle()
 
 @app.route('/')
 def write():
-    mylog = _get_datainkvdb()   # get log history
+    mylog = _get_datainkvdb()       # get log history
     return template('write', hello='Hallelujah', log=mylog)
 
 @app.route('/', method='POST')
