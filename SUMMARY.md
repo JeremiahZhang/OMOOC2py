@@ -30,7 +30,9 @@
 	- [StarTrek05 日志交互WEB版](2nDev/week04_web_way.md)
 	- [StarTrek06 日志交互公网版](2nDev/week05_task.md)
 		- [Trek06 开发笔记](2nDev/week05_paas.md)
+		- [Trek06 搭建自己设想应用](2nDev/week05_idea.md)
 - [星际大会](3rDemo/README.md)
+		
 - [Renew Mind in Galaxy](4Learn/README.md)
 	- [Star 開智编程入门体验](4Learn/2015-9-26-HiddenMission.md)
 	- [Star Renewminding](4Learn/0wd4-OpenCourse-Note.md)
