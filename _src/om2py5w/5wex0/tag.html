@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block tag %}
+<form action="/" method="post" class="navbar-form navbar-left" role="write">
+    <div class="form-group">
+      <input type="text" size="60" name="addtag" class="form-control" placeholder="tag here" autofocus>
+    </div>
+    <button type="save" name="save" class="btn btn-default">Save</button>
+</form>
+{% endblock %}
+
+{% block welcome %}
+    <h1>Welcome to your diary!</h1>
+    <p>Tag first</p>
+{% endblock %}

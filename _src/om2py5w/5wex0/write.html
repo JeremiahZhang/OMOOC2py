@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block writelogs %}
+<form action="/" method="post" class="navbar-form navbar-left" role="write">
+    <div class="form-group">
+      <input type="text" size="60" name="addlogs" class="form-control" placeholder="write here" autofocus>
+    </div>
+    <button type="save" name="save" class="btn btn-default">Save</button>
+</form>
+{% endblock %}
+
+{% block showlogs %}
+    <h2>Log History</h2>
+    {% for mylog in log %}
+        <strong>{{mylog['content']}}</strong><br>
+        <p>{{mylog['time']}}</p><br>
+    {% endfor %}
+{% endblock %}

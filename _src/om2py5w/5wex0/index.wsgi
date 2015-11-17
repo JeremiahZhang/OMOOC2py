@@ -8,15 +8,16 @@ import sae
 import time
 import sae.kvdb
 import os
+import jinja2
 
 count = 0
 
 kv = sae.kvdb.Client()
 
 def _save_to_kvdb(post):
+
     global count
     count += 1
-
     logtime = time.ctime()
     key = 'key' + str(count)
     value = {'time':logtime, 'content':post}
@@ -32,16 +33,13 @@ def _get_datainkvdb():
 app = Bottle()
 
 @app.route('/')
-def write():
-    histlogs = _get_datainkvdb()
-    return jinja2_template('layout.html', log=histlogs)
+def tag():
+    return jinja2_template('tag.html')
 
 @app.route('/', method='POST')
-def saveWrite():
-
-    get_data = request.forms.get('addtext')
-    _save_to_kvdb(get_data)
-    newlog = _get_datainkvdb()
-    return template('layout.html', log=newlog)
+def get_tag():
+    get_tag = request.forms.get('addtag')
+    histlogs = _get_datainkvdb()
+    return jinja2_template('write.html', log=histlogs)
 
 application = sae.create_wsgi_app(app)
