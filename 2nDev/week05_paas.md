@@ -1,5 +1,16 @@
 # 极简日志 公网版
 
+开发环境:
+
+- 系统: Ubuntu14.04 LTS
+- shell: zsh
+- SublimeText3 （ST3）
+- Python 2.7.10
+- Firefox 41.0.2 for Ubuntu
+- Sina SAE
+
+分解任务:
+
 - 极简日志实现公网访问(直接输入网址访问)
 	- python 应用在SAE上创建和部署
 	- bottle 如何和SAE结合 实现4w功能
