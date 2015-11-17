@@ -68,7 +68,7 @@
 
 建立第二个版本 如图
 
-![版本master:2](http://dn-jeremiahzhang.qbox.me/py5w03saegit02) 
+![版本master:2](http://dn-jeremiahzhang.qbox.me/py5w03saegit02.jpg) 
 
 然后打开 http://jeremiahzhang.sinaapp.com/ 是可行的 之前的不可行
 
@@ -150,17 +150,52 @@ KO 云端不能读取 那个日志文件呀 同本地不同哒
 
 然后push到sae 就ko 可以访问了
 
-### 3.4 kvdb 笔记 分类 管理 备份
+### 3.4 改换使用Jinja2模板
+
+恩 对刚开始的 页面layout 感到不爽 想起上一周 Dama推荐 [jinja2](http://jinja.pocoo.org/docs/dev/) 模板 去学习了
+
+尝试一个案例 https://realpython.com/blog/python/primer-on-jinja-templating/ 虽然是和 flask 使用的 但是 也换用 bottle嘛 
+
+[代码迭代1](https://github.com/JeremiahZhang/OMOOC2py/commit/aaa13e25c5943586a3655eadf53d95f9f9151d53)
+[代码迭代7](https://github.com/JeremiahZhang/OMOOC2py/commit/4fee26bcd8ffeff6e0a2860c84920d68b45f16b8) 
+
+好像 没有抓住主要矛盾 去搞这个去了 哭
+
+学习 之后 使用模板 并进行开发
+
+- 刚开始 添加一个 html 模块 https://github.com/JeremiahZhang/OMOOC2py/commit/d8657cb0f20ee6c4342fad5406944344444cf215
+- 使用 tag write 子模块 
+	- [tag and write 子模块 commit](https://github.com/JeremiahZhang/OMOOC2py/commit/5a4703c0f30c398d056d37d1202700d23ef8667e) 
+
+最后 push 到 sae 的 git 库
+
+公网显示结果（地址: http://jeremiahzhang.sinaapp.com/）
+
+![公网版效果](http://7xo9hk.com1.z0.glb.clouddn.com/5w06taskfinish.jpg) 
+	
+本地运行显示结果(localhost:8080)
+	
+![本地运行结果](http://7xo9hk.com1.z0.glb.clouddn.com/5w07taskfinish.jpg) 
+
+## 后续迭代
 
 - [x] 网页 layout （使用jinja2）
-- [] 首先 字典无序 需要排序 
+- [x] 首先 字典无序 需要排序 
 	- 字典顺序 有点bug 得进行修改
-- [] 对笔记进行分类 tag标签 
-- [] KO 休息
+- [] 对笔记进行分类 tag标签 管理
+	- [x] 一开始就输入一次标签 然后 所有日志输入都是在标签下
+	- [] 但是如何将 上面的标签 和 日志进行关联 
+		- 尝试了 tag global 
+		- 关联 tag 出现了问题 主要想不出该如何匹配在一起
+- [] 问题 
+	- []http://jeremiahzhang.sinaapp.com/ 历史日志 不能全部显示 但是 本地测试 是可以的诺
+- [] kvdb 日志 数据备份处理
 
 Friday, 13. November 2015 09:42PM  1st    
 Saturday, 14. November 2015 10:37PM 2try kvdb 公网访问    
 Monday, 16. November 2015 10:06PM  网页layout
+Tuesday, 17. November 2015 05:18PM  3.4-迭代
+
 
 
 
