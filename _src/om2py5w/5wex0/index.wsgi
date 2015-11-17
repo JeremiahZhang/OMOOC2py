@@ -42,4 +42,11 @@ def get_tag():
     histlogs = _get_datainkvdb()
     return jinja2_template('write.html', log=histlogs)
 
+@app.route('/', method='POST')
+def write():
+    log_data = request.forms.get('addlogs')
+    _save_to_kvdb(log_data)
+    histlogs = _get_datainkvdb()
+    return jinja2_template('write.html', log=histlogs)
+
 application = sae.create_wsgi_app(app)
