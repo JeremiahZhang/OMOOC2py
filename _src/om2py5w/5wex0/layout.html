@@ -2,12 +2,13 @@
 <html>
   <head>
     <title>雷雨</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <style type="text/css">
       .container {
         max-width: 800px;
-        padding-top: 20px;
+        padding-top: 10px;
       }
       h2 {color: red;}
     </style>
@@ -16,32 +17,43 @@
     <nav class="navbar navbar-inverse" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/">Diary!</a>
+          <a class="navbar-brand" href="/">Logs</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <form class="navbar-form navbar-left" role="write">
+          <form action="/" method="post" class="navbar-form navbar-left" role="write">
             <div class="form-group">
-              <input type="text" size="60" class="form-control" placeholder="write" autofocus>
+              <input type="text" size="60" name="addtext" class="form-control" placeholder="write" autofocus>
             </div>
             <button type="submit" name="save" class="btn btn-default">Submit</button>
           </form>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li class="divider"></li>
-                <li><a href="http://jeremiahzhang.github.io/">Jeremiah's Blog</a></li>
-              </ul>
+
+          <div class="nav navbar-nav navbar-right hidden-xs">
+            <a href="https://github.com/RealPython" title="Github" target="_blank">
+              <i class="fa fa-github-square fa-4"></i>
+            </a>
+          </div>
+
+          <div class="nav navbar-nav navbar-right visible-xs-block">
+            <li>
+              <a href="https://github.com/jeremiahzhang">Github</a>
             </li>
-          </ul>
+            <li>
+              <a href="http://jeremiahzhang.github.io">Blog</a>
+            </li>
+          </div>
+
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+
     <div class="container">
-        <h3>Histort Logs</h3>
-      </div>
+        <h2>Log History</h2>
+        {% for mylog in log %}
+            <strong>{{mylog['content']}}</strong><br>
+            <p>{{mylog['time']}}</p><br>
+        {% endfor %}
     </div>
+
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   </body>
