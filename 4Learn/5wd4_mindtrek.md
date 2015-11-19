@@ -97,7 +97,7 @@
 	- 微观的可以那么小 却可如宇宙一样那么"大"   
 
 看这个Ubuntu背景 不要给自己设定任何界限
-![Ubuntu 背景](http://dn-jeremiahzhang.qbox.me/unveiseinubuntu.jpg) 
+![Ubuntu 背景](http://dn-jeremiahzhang.qbox.me/universinubuntu.jpg) 
 
 Thursday, 19. November 2015 02:55PM 
 
