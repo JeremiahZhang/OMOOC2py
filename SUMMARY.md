@@ -32,6 +32,7 @@
 		- [Trek06 开发笔记](2nDev/week05_paas.md)
 		- [Trek06 搭建自己设想应用](2nDev/week05_idea.md)
 		- [Trek06 本周感想](2nDev/week05_thought.md)
+	- [StarTrek07 日志交互 微信平台版](2nDev/week06_wechat.md)
 - [星际大会](3rDemo/README.md)
 		
 - [Renew Mind in Galaxy](4Learn/README.md)
