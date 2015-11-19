@@ -41,6 +41,7 @@
 	- [Star 破壁与坚持](4Learn/3wd3_monthreview.md)
 	- [Star 深呼吸-换换脑子](4Learn/4wd4_Rbrain.md)
 	- [Star 从行动开始](4Learn/4wd5_renewminding.md)
+	- [Star Upgrade](4Learn/5wd4_upgrade.md)
 - [代码 (_src)](_src/README.md)
 - [素材 (draft)](draft/README.md)
   + [教程该怎么写](draft/how2tutorial.md)
