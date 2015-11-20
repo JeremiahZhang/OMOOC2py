@@ -20,8 +20,37 @@
 
 同5w [日志交互公网版](https://jeremiahzhang.gitbooks.io/omooc2py/content/2nDev/week05_paas.html) 类似 建立SAE应用 自个儿建立的应用名为: beiyastudy 恩所以网域为: http://beiyastudy.sinaapp.com
 
+SAE 应用文件目录
+
+	/path/2/your/sae/
+		+ config.yaml		应用配置
+		+ index.wsgi 		应用根代码
+
+code here [代码](https://github.com/JeremiahZhang/OMOOC2py/commit/60b21f27c09f2302d06474ac1c833ddd87c6c9f1) 
+
+使用 git push 到 sae git 库
+ 
+部署效果 访问 http://beiyastudy.sinaapp.com/
+可以 日志中心 查看访问日志
+
+![访问日志](http://dn-jeremiahzhang.qbox.me/6w01sae.jpg) 
+
 #### 0.1.2 建立与微信对接
+
+进入微信公众号的开发者中心 进行配置:
+
+![服务器配置](http://dn-jeremiahzhang.qbox.me/6w02wechat.jpg) 
+
+- 出现 token 验证错误
+	- 搜索 到 [需要认证](http://www.cnblogs.com/txw1958/p/wechat-tutorial.html) 
+	- 好吧 果然 等待认证中
+
 
 ### 0.2 验证服务器有效性
 
-Thursday, 19. November 2015 10:04PM 大概理解任务内容 和简单分解 形成框架 0 初探微信接入 [github ci](https://github.com/JeremiahZhang/OMOOC2py/commit/65ab07f9eb8e77615c16ebcdcf113f45fe1131f3) 
+Thursday, 19. November 2015 10:04PM 大概理解任务内容 和简单分解 形成框架 0 初探微信接入 1.5h [github ci](https://github.com/JeremiahZhang/OMOOC2py/commit/65ab07f9eb8e77615c16ebcdcf113f45fe1131f3)    
+Friday, 20. November 2015 09:48PM  到验证错误 等待实名审核中 1h
+
+
+
+
