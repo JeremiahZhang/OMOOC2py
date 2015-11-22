@@ -26,9 +26,9 @@ def wechat_post():
     __MsgTpye = xml.findtext("MsgType")
     __Content = xml.findtext("Content")
     if "text" == __MsgTpye:
-        if "h" == __Content:
+        if "hi" == __Content:
             tStamp = time.time()
-            content = "Haliluya! Welcome!是也乎!"
+            content = "Haliluya! Welcome!是也乎!"      # parameters should be the same in CFG.TPL_TEXT
             print CFG.TPL_TEXT% locals()                    # in sae debug can print
             return CFG.TPL_TEXT% locals()                  # Use CFG in config.py, post to wechat
     # print xml.findtext("Content")
