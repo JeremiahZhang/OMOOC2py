@@ -127,9 +127,9 @@ SAE 和微信公众号 对接完成后 恩 用户发送信息 公众号没有结
 
 更改代码 获取 xml 中的 content内容 [commit 代码在此](https://github.com/JeremiahZhang/OMOOC2py/commit/e2c03aa0051b6124c414bcc910d222bba2a5ede2)
 
-恩 在 微信发送消息 h
+恩 在 微信发送消息 hi
 
-就可以在SAE中 得到发送消息 **h** 
+就可以在SAE中 得到发送消息 **hi** 
 
 ![hiXML获取](http://dn-jeremiahzhang.qbox.me/6w03test.jpg) 
 
@@ -155,13 +155,11 @@ SAE 和微信公众号 对接完成后 恩 用户发送信息 公众号没有结
 	
 	dev_server.py # 本地运行 然后
 
-	curl -d '[XML请求字串 http://localhost:8080/api/echo # XML请求字串 参考 日志中心 debug可以取得
-	
-【注意】不是 http://localhost:8080/api/echo/ 我在这里出错了 恩
+	curl -d '[XML请求字串 http://localhost:8080/api/echo/ # XML请求字串 参考 日志中心 debug可以取得
 
-![本地测试](http://dn-jeremiahzhang.qbox.me/6w00test.jpg) 
+![本地测试](http://dn-jeremiahzhang.qbox.me/6wd000test.jpg) 
 
-这样就不用每次都 push到 sae了 本地操作 可以节省时间那 恩
+这样就不用每次都 push到 sae了 本地操作 可以节省时间那 恩 但要注意在一个目录下 进行本地测试那 恩 看截图文件目录
 
 Thursday, 19. November 2015 10:04PM 大概理解任务内容 和简单分解 形成框架 0 初探微信接入 1.5h [github ci](https://github.com/JeremiahZhang/OMOOC2py/commit/65ab07f9eb8e77615c16ebcdcf113f45fe1131f3)    
 Friday, 20. November 2015 09:48PM  到验证错误 等待实名审核中 1h     
