@@ -2,6 +2,9 @@
 import sae
 from bottle import *
 from config import CFG
+
+import xml.etree.ElementTree as ET
+
 debug(True)
 APP = Bottle()
 
@@ -13,6 +16,8 @@ def echo_wechat():
     return request.query.echostr
 
 # message wechat
-@APP.post('/echo')
+@APP.post('/echo/')
 def wechat_post():
-    print request.forms.keys()
+    print request.forms.keys()[0]
+    # xml = etree.XML(request.forms.keys()[0])
+    # print xml.findtext("Content")
