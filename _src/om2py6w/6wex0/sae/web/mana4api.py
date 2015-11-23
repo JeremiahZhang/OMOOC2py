@@ -40,6 +40,15 @@ def wechat_post():
             content = "HalleluJa! Welcome!是也乎!"      # parameters should be the same in CFG.TPL_TEXT
             # print CFG.TPL_TEXT% locals()                    # in sae debug can print
             return CFG.TPL_TEXT% locals()                  # Use CFG in config.py, post to wechat
+        elif "l" == __Content:
+            content = "Would you like be my girlfriend? y or n?"
+            return CFG.TPL_TEXT% locals()
+        elif "y" == __Content:
+            content = ":-) Thank God\nI finally find you."
+            return CFG.TPL_TEXT% locals()
+        elif "n" == __Content:
+            content = ":-) Waiting you! :-) "
+            return CFG.TPL_TEXT% locals()
         elif "i" == __Content:
             uid = hashlib.sha1(toUser).hexdigest()      # add security
             print uid
