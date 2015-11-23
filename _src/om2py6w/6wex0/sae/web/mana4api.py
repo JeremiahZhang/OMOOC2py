@@ -47,6 +47,7 @@ def wechat_post():
             print usr
             if None == usr:
                 # 首次应答,没有建立档案
+                KV.set(uid, {'em':'address'})
                 content = "建立档案\n输入你的邮箱如\nem:foo@bar.com"
                 pass
             else: # have usr doc
@@ -61,15 +62,15 @@ def wechat_post():
         elif "em" in __Content.split(":"):
             uid = hashlib.sha1(toUser).hexdigest()
             usr = KV.get(uid)
+            print type(usr)
+            print usr
             print __Content[3:]
-            usr = __Content[3:]
+            usr['em'] = __Content[3:]
             KV.replace(uid, usr)
-            content = "你的邮箱: {}".format(usr)
+            content = "你的邮箱: {}".format(usr['em'])
             print CFG.TPL_TEXT% locals()
             return CFG.TPL_TEXT% locals()
 
     return None
-
-
 
     # print xml.findtext("Content")
