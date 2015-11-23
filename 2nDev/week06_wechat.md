@@ -161,11 +161,77 @@ SAE 和微信公众号 对接完成后 恩 用户发送信息 公众号没有结
 
 这样就不用每次都 push到 sae了 本地操作 可以节省时间那 恩 但要注意在一个目录下 进行本地测试那 恩 看截图文件目录
 
+***
+
+## 2 Dive in 自动应答 + KVDB
+
+### KVDB
+
+官方的文档[kvdb](http://www.sinacloud.com/doc/sae/python/kvdb.html)  介绍比较简单 如下实例
+
+	import sae.kvdb
+	kv = sae.kvdb.KVClient()
+	k = 'foo'
+	kv.set(k, 2) # k 是key 2 是value 恩 dict字典也可以做value
+	kv.delete(k)
+	
+	kv.add(k, 3)
+	kv.get(k)
+	
+	kv.replace(k, 4)
+	kv.get(k)
+	
+	print kv.get_info()
+
+
+上面 自动应答完成 那么就进一步探索 继续参考 开头dama的教程 [设计](https://chaos2wechat.readthedocs.org/en/latest/ch02/try.html#id14) 
+
+> -  关注者OpenID对一个公众号是唯一固定
+
+[修改代码1](https://github.com/JeremiahZhang/OMOOC2py/commit/77236587e1b33b841d893298bd105a78efa06856) 
+
+直接本地测试（当前文件所在目录）
+
+	$ dev_server.py –kvdb-file=mykv.db 
+
+【注意】 首先在当前文件目录下建立mykv.db 恩 可以 touch mykv.db 如果不建立 会报错 提示没有该文件
+
+恩 不懂 可以 如下 获取帮助
+
+	$ dev_server.py --help
+ 
+恩 可行 push 一次 但是dama的代码 要让人自己填补的  
+自己在本地测试的时候 出现过 address 被占用 就是参考 --help文档来解决的 重新启用新的 host 和 port 就搞定了 恩
+
+	$ dev_server.py --port=8000 --host=localhost --kvdb-file=mykv.db
+
+### 修补代码 理解
+
+这里主要是 
+
+	 if None == usr:
+                # 首次应答,没有建立档案
+                KV.set(uid, {'em':'address'})
+                content = "建立档案\n输入你的邮箱如\nem:foo@bar.com"
+
+在调试的时候 突然发现 恩 value 可以是字典的 然后才有 usr['em'] 修改和取值用呢
+
+[修改的代码](https://github.com/JeremiahZhang/OMOOC2py/commit/bc9d381262ff15f0c16a6928c8f131f36b6f2922)
+
+恩 后来 就再添加几行 恩 向一个姑娘表白了 恩恩 要勇敢 勇敢 勇敢
+
+[修改之表白代码](https://github.com/JeremiahZhang/OMOOC2py/commit/4dbcdca5e7103c5c30cadfe1d10fc58321f49139)
+
+好了 有了以上的基础 就可以实现 笔记的开发 了 只要再修改修改就可以了 恩
+
+### 3 微信公众版 日志交互
+
+
 Thursday, 19. November 2015 10:04PM 大概理解任务内容 和简单分解 形成框架 0 初探微信接入 1.5h [github ci](https://github.com/JeremiahZhang/OMOOC2py/commit/65ab07f9eb8e77615c16ebcdcf113f45fe1131f3)    
 Friday, 20. November 2015 09:48PM  到验证错误 等待实名审核中 1h     
 Saturday, 21. November 2015 10:47PM  1.5h 0.2 SAE与微信对接   
-Sunday, 22. November 2015 11:13PM  2h 输入 h 自动回复消息 后修改 本地测试部分
-
+Sunday, 22. November 2015 11:13PM  2h 输入 h 自动回复消息 后修改 本地测试部分  
+Tuesday, 24. November 2015 12:54AM  2h 第二部分 做事要专心 专心
 
 
 
