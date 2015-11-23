@@ -164,7 +164,7 @@ SAE 和微信公众号 对接完成后 恩 用户发送信息 公众号没有结
 Thursday, 19. November 2015 10:04PM 大概理解任务内容 和简单分解 形成框架 0 初探微信接入 1.5h [github ci](https://github.com/JeremiahZhang/OMOOC2py/commit/65ab07f9eb8e77615c16ebcdcf113f45fe1131f3)    
 Friday, 20. November 2015 09:48PM  到验证错误 等待实名审核中 1h     
 Saturday, 21. November 2015 10:47PM  1.5h 0.2 SAE与微信对接   
-Sunday, 22. November 2015 11:13PM  2h 输入 h 自动回复消息
+Sunday, 22. November 2015 11:13PM  2h 输入 h 自动回复消息 后修改 本地测试部分
 
 
 

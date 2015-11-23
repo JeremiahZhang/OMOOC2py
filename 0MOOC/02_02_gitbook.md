@@ -1,7 +1,6 @@
 # Gitbook
 
-*增补
-
+## what
 是什么
 
 > GitBook是一个基于 [Node.js](https://nodejs.org/en/) 的命令行工具，可使用 Github/Git 和 [Markdown](http://baike.baidu.com/view/2311114.htm) 来制作精美的电子书，GitBook 并非关于 Git 的教程。
@@ -12,6 +11,19 @@
 - 获得反馈
 - 可输出多种格式文件PDF epub mobi
 
+## install
+
+- Ubuntu14.04 折腾安装
+
+	sudo apt-get update
+	sudo apt-get install nodejs-legacy # 直接装nodejs会出现问题 但使用 $gitbook 时 error “/usr/bin/env: node: No such file or directory”
+	sudo apt-get install npm
+	sudo npm install -g gitbook-cli
+
+参考 
+
+- [Gitbook-cli](https://github.com/GitbookIO/gitbook-cli#how-to-install-it)  使用可以关注这个
+- [Gitbook 安装](http://cowmanchiang.me/gitbook/gitbook/contents/install.html) 
 
 ## 现象
 
