@@ -14,6 +14,14 @@ KV = sae.kvdb.KVClient()
 debug(True)
 APP = Bottle()
 
+def _help():
+    ''' # 是也乎, 俺是极简帮助文档:
+    - 1 查看俺 输入 h
+    - 2 想输入笔记 按这样的格式 {n:这是我的笔记}
+            注意 不包括{}
+    - 3 想看你输入的所有历史笔记 请输入 hist
+    '''
+
 """
 # test setting url in wechat API
 @APP.get('/echo')
@@ -37,16 +45,16 @@ def wechat_post():
 
     if "text" == __MsgTpye:
         if "h" == __Content:
-            content = "HalleluJa! Welcome!是也乎!"      # parameters should be the same in CFG.TPL_TEXT
+            content = _help.__doc__           # parameters should be the same in CFG.TPL_TEXT
             # print CFG.TPL_TEXT% locals()                    # in sae debug can print
             return CFG.TPL_TEXT% locals()                  # Use CFG in config.py, post to wechat
         elif "l" == __Content:
-            content = "Would you like be my girlfriend? y or n?"
+            content = "Would you like be my girlfriend? yes or no?"
             return CFG.TPL_TEXT% locals()
-        elif "y" == __Content:
+        elif "yes" == __Content:
             content = ":-) Thank God\nI finally find you."
             return CFG.TPL_TEXT% locals()
-        elif "n" == __Content:
+        elif "no" == __Content:
             content = ":-) Waiting you! :-) "
             return CFG.TPL_TEXT% locals()
         elif "i" == __Content:
@@ -56,30 +64,42 @@ def wechat_post():
             print usr
             if None == usr:
                 # 首次应答,没有建立档案
-                KV.set(uid, {'em':'address'})
-                content = "建立档案\n输入你的邮箱如\nem:foo@bar.com"
+                KV.set(uid, {'tag':'null', 'note':'null'})
+                content = "建立档案\n输入你的标签如\n tag:心情"
                 pass
             else: # have usr doc
-                if "em" in usr.keys():
+                if "tag" in usr.keys():
                     # have usr email
-                    content = "你的邮箱: {}".format(usr['em'])
+                    content = "你的标签: {}".format(usr['tag'])
                 else:
                     # there is no usr email
-                    content = "请输入你的邮箱如\nem:foo@bar.com"
+                    content = "请输入你的标签如\ntag:心情"
             print CFG.TPL_TEXT% locals()
             return CFG.TPL_TEXT% locals()
-        elif "em" in __Content.split(":"):
+        elif "tag" in __Content.split(":"):
             uid = hashlib.sha1(toUser).hexdigest()
             usr = KV.get(uid)
             print type(usr)
             print usr
             print __Content[3:]
-            usr['em'] = __Content[3:]
+            usr['tag'] = __Content[4:]
             KV.replace(uid, usr)
-            content = "你的邮箱: {}".format(usr['em'])
+            content = "你的标签: {}".format(usr['tag'])
             print CFG.TPL_TEXT% locals()
             return CFG.TPL_TEXT% locals()
-
+        elif "n" in __Content.split(":"):
+            uid = hashlib.sha1(toUser).hexdigest()
+            usr = KV.get(uid)
+            usr['note'] = __Content[2:]
+            KV.replace(uid, usr)
+            content = "已经存入:-)"
+            print CFG.TPL_TEXT% locals()
+            return CFG.TPL_TEXT% locals()
+        elif "hist" == __Content:
+            uid = hashlib.sha1(toUser).hexdigest()
+            usr = KV.get(uid)
+            content = usr['note']
+            return CFG.TPL_TEXT% locals()
     return None
 
     # print xml.findtext("Content")
