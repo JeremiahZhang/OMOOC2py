@@ -17,12 +17,11 @@ debug(True)
 APP = Bottle()
 
 def _help():
-    ''' # 是也乎, 俺是极简帮助文档:
-    - 1 查看俺 输入 h
-    - 2 想输入笔记 按这样的格式 {n:这是我的笔记}
-            注意 不包括{}
-    - 3 想看你输入的所有历史笔记 请输入 hist
-    '''
+    ''' 是也乎, 俺是 极简日志交互 帮助文档:
+    - 0 查看俺 输入 h
+    - 1 想输入笔记 按这样的格式 {n:这是我的笔记}
+    注意 不包括{}
+    - 2 想看你输入的所有历史笔记 请输入 hist'''
 
 def _save_note(userid, note):
     global count
@@ -68,39 +67,9 @@ def wechat_post():
         elif "no" == __Content:
             content = ":-) Waiting you! :-) "
             return CFG.TPL_TEXT% locals()
-        elif "i" == __Content:
-            uid = hashlib.sha1(toUser).hexdigest()      # add security
-            print uid
-            usr = KV.get(uid)
-            print type(usr)
-            if None == usr:
-                # 首次应答,没有建立档案
-                KV.set(uid, {'tag':'null', 'note':'null'})
-                content = "建立档案\n输入你的标签如\n tag:心情"
-            else: # have usr doc
-                if "tag" in usr.keys():
-                    # have usr email
-                    content = "你的标签: {}".format(usr['tag'])
-                else:
-                    # there is no usr email
-                    content = "请输入你的标签如\ntag:心情"
-            print CFG.TPL_TEXT% locals()
-            return CFG.TPL_TEXT% locals()
-        elif "tag" in __Content.split(":"):
-            uid = hashlib.sha1(toUser).hexdigest()
-            usr = KV.get(uid)
-            print type(usr)
-            print usr
-            print __Content[3:]
-            usr['tag'] = __Content[4:]
-            KV.replace(uid, usr)
-            content = "你的标签: {}".format(usr['tag'])
-            print CFG.TPL_TEXT% locals()
-            return CFG.TPL_TEXT% locals()
         elif "n" in __Content.split(":"):
             uid = hashlib.sha1(toUser).hexdigest()
             note_str = __Content[2:]
-
             _save_note(uid, note_str)
             content = "已经存入:-)"
             return CFG.TPL_TEXT% locals()
@@ -109,6 +78,9 @@ def wechat_post():
 
             content = _hist_note(uid)
 
+            return CFG.TPL_TEXT% locals()
+        else:
+            content = _help.__doc__
             return CFG.TPL_TEXT% locals()
     return None
 
