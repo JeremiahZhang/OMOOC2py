@@ -9,6 +9,8 @@ import xml.etree.ElementTree as ET
 import hashlib
 import sae.kvdb
 
+count = 0
+
 KV = sae.kvdb.KVClient()
 
 debug(True)
@@ -22,15 +24,22 @@ def _help():
     - 3 想看你输入的所有历史笔记 请输入 hist
     '''
 
-"""
-# test setting url in wechat API
-@APP.get('/echo')
-@APP.get('/echo/')
-def echo_wechat():
-    print request.query.keys()
-    print request.query.echostr
-    return request.query.echostr
-"""
+def _save_note(userid, note):
+    global count
+    count += 1
+
+    notekey = 'note' + str(count)       # 不同时刻笔记 set 字典中的key one by one
+    usr = KV.get(userid)
+    usr[notekey] = note
+    KV.replace(userid, usr)
+
+def _hist_note(userid):
+    result = []
+    usr = KV.get(userid)        # 返回字典是无序的
+    for k, v in usr.iteritems():
+        result.append(v)
+    result_str = "\n".join(result)
+    return result_str
 
 # message wechat
 @APP.post('/echo/')
@@ -61,12 +70,11 @@ def wechat_post():
             uid = hashlib.sha1(toUser).hexdigest()      # add security
             print uid
             usr = KV.get(uid)
-            print usr
+            print type(usr)
             if None == usr:
                 # 首次应答,没有建立档案
                 KV.set(uid, {'tag':'null', 'note':'null'})
                 content = "建立档案\n输入你的标签如\n tag:心情"
-                pass
             else: # have usr doc
                 if "tag" in usr.keys():
                     # have usr email
@@ -89,16 +97,16 @@ def wechat_post():
             return CFG.TPL_TEXT% locals()
         elif "n" in __Content.split(":"):
             uid = hashlib.sha1(toUser).hexdigest()
-            usr = KV.get(uid)
-            usr['note'] = __Content[2:]
-            KV.replace(uid, usr)
+            note_str = __Content[2:]
+
+            _save_note(uid, note_str)
             content = "已经存入:-)"
-            print CFG.TPL_TEXT% locals()
             return CFG.TPL_TEXT% locals()
         elif "hist" == __Content:
             uid = hashlib.sha1(toUser).hexdigest()
-            usr = KV.get(uid)
-            content = usr['note']
+
+            content = _hist_note(uid)
+
             return CFG.TPL_TEXT% locals()
     return None
 
