@@ -153,9 +153,9 @@ SAE 和微信公众号 对接完成后 恩 用户发送信息 公众号没有结
 
 首先在sae 文件目录下 使用
 	
-	dev_server.py # 本地运行 然后
+	dev_server.py # 本地运行 就是服务端
 
-	curl -d '[XML请求字串 http://localhost:8080/api/echo/ # XML请求字串 参考 日志中心 debug可以取得
+	curl -d '[XML请求字串 http://localhost:8080/api/echo/ # 恩 这相当与微信端 XML请求字串 参考 日志中心 debug可以取得 
 
 ![本地测试](http://dn-jeremiahzhang.qbox.me/6wd000test.jpg) 
 
@@ -226,12 +226,28 @@ SAE 和微信公众号 对接完成后 恩 用户发送信息 公众号没有结
 
 ### 3 微信公众版 日志交互
 
+- 0 写入帮助文档 h 可以返回帮助文档 
+- 1 一行一行输入 然后 在微信端可以使用 **n:这是日志** 输入日志并保存 **hist** 参看日志 但是只是最近一次输入的 [代码迭代](https://github.com/JeremiahZhang/OMOOC2py/commit/8dfc42f983cb8ff8c0e86437b523d9b1d8a3662b) 
+- 2 需要将历次的笔记都返回给微信用户 恩 尝试理解
+	- 官方文档 查看字典的使用
+	- 使用 "".join() 函数 将 list 转化为 str
+	- [迭代](https://github.com/JeremiahZhang/OMOOC2py/commit/bc8830e77a1ae3e8d3f46cf847d2703c9543b71f) 
+	- 输入的历史记录是无序的 就需要排序了 
+- 3 解决 usr 字典 排序问题
+	- 恩 直接sort 根据 自己定义的 key 来排序
+	- 这里是代码[迭代](https://github.com/JeremiahZhang/OMOOC2py/commit/8f3790cc05486c7054b3edf581585c472797e4e4) 
+- 4 简单修补一些 help
+	- [代码](https://github.com/JeremiahZhang/OMOOC2py/commit/81d2b2b185acdf22191ba8e98a220d783741a136) 
+
+本地测试好 就push了 后再微信测试发现 
+
+- 历史日志 还是无时间排序 恩 准备添加时间排序
+- 还有就是 不会打印所有的日志 这个猜测是KVDB的问题 在前面的学习中也存在 没有解决 会一直留存到现在恩 的解决
 
 Thursday, 19. November 2015 10:04PM 大概理解任务内容 和简单分解 形成框架 0 初探微信接入 1.5h [github ci](https://github.com/JeremiahZhang/OMOOC2py/commit/65ab07f9eb8e77615c16ebcdcf113f45fe1131f3)    
 Friday, 20. November 2015 09:48PM  到验证错误 等待实名审核中 1h     
 Saturday, 21. November 2015 10:47PM  1.5h 0.2 SAE与微信对接   
 Sunday, 22. November 2015 11:13PM  2h 输入 h 自动回复消息 后修改 本地测试部分  
 Tuesday, 24. November 2015 12:54AM  2h 第二部分 做事要专心 专心
-
-
+Wednesday, 25. November 2015 12:14AM 总2.5h 第3部分
 
