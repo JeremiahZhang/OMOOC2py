@@ -36,7 +36,9 @@ def _save_note(userid, note):
 def _hist_note(userid):
     result = []
     usr = KV.get(userid)        # 返回字典是无序的
-    for k, v in usr.iteritems():
+    sorted_usr = sorted(usr)  # sorted  is list en
+    for key in sorted_usr:
+        v = usr[key]
         result.append(v)
     result_str = "\n".join(result)
     return result_str
