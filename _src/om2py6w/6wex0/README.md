@@ -4,7 +4,7 @@
 
 - [代码](https://github.com/JeremiahZhang/OMOOC2py/tree/master/_src/om2py6w/6wex0/sae)
 	- 将下载sae文件 部署到 SinaSAE 
-	- 安装笔记 完成对接
+	- 可按照 笔记 完成对接
 - [笔记](https://jeremiahzhang.gitbooks.io/omooc2py/content/2nDev/week06_wechat.html)
 
 ## 微信公众号
