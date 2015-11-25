@@ -5,6 +5,8 @@
 *.log
 *.wsgic
 
+mykv.db
+
 # 
 _book/*
 node_modules/*
