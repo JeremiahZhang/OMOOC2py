@@ -1,7 +1,19 @@
 # 日志交互 wechat 版本
 
-- SAE应用 和 微信对接
-- 后台消息处理
+开发环境
+
+- 系统: Ubuntu14.04 LTS
+- shell: zsh
+- SublimeText3 （ST3）
+- Python 2.7.10
+- Sina SAE
+- 一个微信公众号
+
+总纲
+
+- [X]SAE应用 和 微信对接
+- [X]后台消息处理
+- []CLI
 
 ## 0 初探 微信接入
 
@@ -265,3 +277,7 @@ Wednesday, 25. November 2015 12:14AM 总2.5h 第3部分
 Wednesday, 25. November 2015 10:29PM 2h 第3部分 恩
 
 总 12.5h 恩 时间整理以下 发现 一次只做一件事情 恩 只做一件
+
+## 贝雅书屋
+
+![二维码](http://dn-jeremiahzhang.qbox.me/wechatbeiya.jpg)
