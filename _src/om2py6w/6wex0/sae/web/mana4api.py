@@ -19,7 +19,8 @@ def _help():
     - 0 查看俺 输入 h
     - 1 想输入笔记 按这样的格式 {n:这是我的笔记}
     注意 不包括{}
-    - 2 想看你输入的所有历史笔记 请输入 hist'''
+    - 2 想看你输入的所有历史笔记 请输入 hist
+    - 3 想清除你的所有数据? 请输入 del '''
 
 def _save_note(userid, note, timestamp):
 
@@ -81,6 +82,11 @@ def wechat_post():
         elif "hist" == __Content:
             uid = hashlib.sha1(toUser).hexdigest()
             content = _hist_note(uid)
+            return CFG.TPL_TEXT% locals()
+        elif "del" == __Content:
+            uid = hashlib.sha1(toUser).hexdigest()
+            KV.delete(uid)
+            content = "已经清除 所有数据\n想要重新记录?\n输入 n:这里添加你的笔记试试"
             return CFG.TPL_TEXT% locals()
         else:
             content = _help.__doc__
