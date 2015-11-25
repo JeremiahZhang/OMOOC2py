@@ -241,8 +241,18 @@ SAE 和微信公众号 对接完成后 恩 用户发送信息 公众号没有结
 
 本地测试好 就push了 后再微信测试发现 
 
-- 历史日志 还是无时间排序 恩 准备添加时间排序
-- 还有就是 不会打印所有的日志 这个猜测是KVDB的问题 在前面的学习中也存在 没有解决 会一直留存到现在恩 的解决
+### 日志+时间+排序
+
+- [x] 历史日志 还是无时间排序 恩 准备添加时间排序
+	- 恩 查看 微信发送过来的XML数据包 本来就有时间戳 那么 直接将这个时间戳转化为localtime 好了 迭代添加时间戳 但历史日志没有加入该时间 [迭代代码](https://github.com/JeremiahZhang/OMOOC2py/commit/a0512a84f70e33b0ced117308a16dafba9442880) 
+	- 在历史日志中加入输入日志的时间 [迭代代码](https://github.com/JeremiahZhang/OMOOC2py/commit/986b0816646f236816f459262bd07413be7cefc8) 
+- [x] 添加删除用户日志数据 功能 [迭代代码](https://github.com/JeremiahZhang/OMOOC2py/commit/fde49ec4353a93f70226dd0fa54f187704126130) 
+- [x] 还有就是 不会打印所有的日志 这个猜测是KVDB的问题 在前面的学习中也存在 没有解决 会一直留存到现在恩 的解决
+	- 后来删除日志数据 好像正常了 后续留待观察 恩
+
+## 4 微信版日志 CLI
+
+程序员 都要用 CLI 来调控 这才符合黑客条件嘛 dive in
 
 Thursday, 19. November 2015 10:04PM 大概理解任务内容 和简单分解 形成框架 0 初探微信接入 1.5h [github ci](https://github.com/JeremiahZhang/OMOOC2py/commit/65ab07f9eb8e77615c16ebcdcf113f45fe1131f3)    
 Friday, 20. November 2015 09:48PM  到验证错误 等待实名审核中 1h     
