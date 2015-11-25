@@ -252,12 +252,16 @@ SAE 和微信公众号 对接完成后 恩 用户发送信息 公众号没有结
 
 ## 4 微信版日志 CLI
 
-程序员 都要用 CLI 来调控 这才符合黑客条件嘛 dive in
+程序员 都要用 CLI 来调控 这才符合黑客条件嘛 dive in 得参考下 这个[CLI执行](https://chaonet.gitbooks.io/pythoncamp0/content/Chapter-2/%E6%9C%AC%E5%9C%B0%E7%8E%AF%E5%A2%83%E6%B5%8B%E8%AF%95%E5%91%BD%E4%BB%A4%E8%87%AA%E5%8A%A8%E7%BC%96%E8%BE%91&%E6%89%A7%E8%A1%8C.html) 
+
+## time log
 
 Thursday, 19. November 2015 10:04PM 大概理解任务内容 和简单分解 形成框架 0 初探微信接入 1.5h [github ci](https://github.com/JeremiahZhang/OMOOC2py/commit/65ab07f9eb8e77615c16ebcdcf113f45fe1131f3)    
 Friday, 20. November 2015 09:48PM  到验证错误 等待实名审核中 1h     
 Saturday, 21. November 2015 10:47PM  1.5h 0.2 SAE与微信对接   
 Sunday, 22. November 2015 11:13PM  2h 输入 h 自动回复消息 后修改 本地测试部分  
 Tuesday, 24. November 2015 12:54AM  2h 第二部分 做事要专心 专心
-Wednesday, 25. November 2015 12:14AM 总2.5h 第3部分
+Wednesday, 25. November 2015 12:14AM 总2.5h 第3部分   
+Wednesday, 25. November 2015 10:29PM 2h 第3部分 恩
 
+总 12.5h 恩 时间整理以下 发现 一次只做一件事情 恩 只做一件
