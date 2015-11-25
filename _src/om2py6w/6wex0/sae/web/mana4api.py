@@ -24,16 +24,17 @@ def _help():
 def _save_note(userid, note, timestamp):
 
     notekey = timestamp         # 不同时刻笔记 set 字典中的key one by one
+    note_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(int(timestamp)))
     usr = KV.get(userid)
-    usr[notekey] = note
+    usr[note_time] = note
     KV.replace(userid, usr)
 
 def _hist_note(userid):
     result = []
     usr = KV.get(userid)        # 返回字典是无序的
-    sorted_usr = sorted(usr)  # sorted  is list en
-    for key in sorted_usr:
-        v = usr[key]
+    sorted_usr = sorted(usr)  # sorted  is list then
+    for key in sorted_usr:        # key is the time key in kvdb
+        v = key + "\n" + usr[key]
         result.append(v)
     result_str = "\n".join(result)
     return result_str
