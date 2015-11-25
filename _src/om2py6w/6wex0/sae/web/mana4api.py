@@ -9,8 +9,6 @@ import xml.etree.ElementTree as ET
 import hashlib
 import sae.kvdb
 
-count = 0
-
 KV = sae.kvdb.KVClient()
 
 debug(True)
@@ -23,11 +21,9 @@ def _help():
     注意 不包括{}
     - 2 想看你输入的所有历史笔记 请输入 hist'''
 
-def _save_note(userid, note):
-    global count
-    count += 1
+def _save_note(userid, note, timestamp):
 
-    notekey = 'note' + str(count)       # 不同时刻笔记 set 字典中的key one by one
+    notekey = timestamp         # 不同时刻笔记 set 字典中的key one by one
     usr = KV.get(userid)
     usr[notekey] = note
     KV.replace(userid, usr)
@@ -51,7 +47,9 @@ def wechat_post():
     toUser = xml.findtext("FromUserName")
     __MsgTpye = xml.findtext("MsgType")
     __Content = xml.findtext("Content")
-    tStamp = time.time()
+    tStamp = xml.findtext("CreateTime") # str timestampe convert to strtime need to int(tStamp)
+    print type(tStamp)
+    print tStamp
 
     if "text" == __MsgTpye:
         if "h" == __Content:
@@ -69,15 +67,19 @@ def wechat_post():
             return CFG.TPL_TEXT% locals()
         elif "n" in __Content.split(":"):
             uid = hashlib.sha1(toUser).hexdigest()
-            note_str = __Content[2:]
-            _save_note(uid, note_str)
+            usr = KV.get(uid)
+            if None == usr:
+                KV.set(uid, {})
+                note_str = __Content[2:]
+                _save_note(uid, note_str, tStamp)
+            else:
+                note_str = __Content[2:]
+                _save_note(uid, note_str, tStamp)
             content = "已经存入:-)"
             return CFG.TPL_TEXT% locals()
         elif "hist" == __Content:
             uid = hashlib.sha1(toUser).hexdigest()
-
             content = _hist_note(uid)
-
             return CFG.TPL_TEXT% locals()
         else:
             content = _help.__doc__
