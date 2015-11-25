@@ -18,7 +18,7 @@ def _help():
     ''' 是也乎, 俺是 极简日志交互 帮助文档:
     - 0 查看俺 输入 h
     - 1 想输入笔记 按这样的格式 {n:这是我的笔记}
-    注意 不包括{}
+    注意 不包括{} & :是英文冒号 是也乎
     - 2 想看你输入的所有历史笔记 请输入 hist
     - 3 想清除你的所有数据? 请输入 del '''
 
@@ -77,7 +77,7 @@ def wechat_post():
             else:
                 note_str = __Content[2:]
                 _save_note(uid, note_str, tStamp)
-            content = "已经存入:-)"
+            content = "已经存入:-)\n还有很多idea?\n是也乎-继续输入:-)"
             return CFG.TPL_TEXT% locals()
         elif "hist" == __Content:
             uid = hashlib.sha1(toUser).hexdigest()
