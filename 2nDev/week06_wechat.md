@@ -75,24 +75,24 @@ code here [代码](https://github.com/JeremiahZhang/OMOOC2py/commit/60b21f27c09f
 
 更改并新增文件: 结构目录
 
-/path/2/my/saewechat/
-  +- config.yaml    应用配置
-  +- config.py      全局配置
-  +- index.wsgi     应用根
-  +- module/        模块
-  |     +-  utility.py
-  +- static/        静态文件 
-  |     +-  js/ 	# 暂时未加 以下 
-  |     +-  css/
-  |     +-  img/
-  +- templates/     模板文件 
-  |     +-  base.html  # 暂时未加 以下
-  |     +-  404.html
-  |     +-  ...
-  +- web/           应用代码
-        +-  __init__.py
-        +-  mana4cli.py # 未加 恩
-        `-  mana4api.py 
+	/path/2/my/saewechat/
+	  +- config.yaml    应用配置
+	  +- config.py      全局配置
+	  +- index.wsgi     应用根
+	  +- module/        模块
+	  |     +-  utility.py
+	  +- static/        静态文件 
+	  |     +-  js/ 	# 暂时未加 以下 
+	  |     +-  css/
+	  |     +-  img/
+	  +- templates/     模板文件 
+	  |     +-  base.html  # 暂时未加 以下
+	  |     +-  404.html
+	  |     +-  ...
+	  +- web/           应用代码
+	        +-  __init__.py
+	        +-  mana4cli.py # 未加 恩
+	        `-  mana4api.py 
 
 [代码这里](https://github.com/JeremiahZhang/OMOOC2py/commit/f4cfdab72e5cc9fcd09f5a2b773a1d264f1add0e) 
 
