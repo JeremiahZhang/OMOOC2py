@@ -100,5 +100,8 @@
 
 恩 密码什么的有提示 默认为 admin
 
+恩 被打断了 明天继续
+
 Friday, 27. November 2015 10:14PM  初探+笔记 2h 未达到心流状态 恩 反省过程中被打断 得手机断开 ok
+Saturday, 28. November 2015 11:22PM   1.5h 分解任务于 ssh部分浅尝
 
