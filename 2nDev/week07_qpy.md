@@ -1,6 +1,6 @@
 # 日记交互 移动版
 
-## 初探
+## 0 初探
 
 主要是看资料 了解相关资讯 来分解任务 一步步完成
 
@@ -17,7 +17,9 @@
 			- kivy 图形模式
 			- webapp模式
 
-### 浅尝 Qpyhon
+***
+
+## 1 浅尝 Qpyhon
 
 - 得下载 Qpython
 	- Google play 是么办法了 可以 腾讯应用宝 我用的刷机精灵
@@ -41,7 +43,25 @@
 		- 本地调试
 		- 得探索[fabric](http://www.fabfile.org/) 
 
-好了 如何进行 待明日 KO
+***
+
+## 2 分解任务
+
+- [] 探索 [QPython 开发 WEB APP](http://wiki.qpython.org/zh/webapp/sample/) 嗯 这是在手机上的 现在是要在 Local 编程开发
+- [] 探索 本地 push 到 Qpython 移动端
+- [] 如何进行本地调试 最小反馈时间 minimize Check out time
+- [] 极简日志交互系统
+	- [] 移动端
+	- [] CLI 命令行
+	- [] 和微信接通  
+
+***
+
+## 3 Qpython 探索
+
+- 目标
+	- 如何进行 本地web app 开发
+	- 如何 push 到 qpython 移动端
 
 Friday, 27. November 2015 10:14PM  初探+笔记 2h 未达到心流状态 恩 反省过程中被打断 得手机断开 ok
 
