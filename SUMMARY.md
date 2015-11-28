@@ -46,6 +46,7 @@
 	- [Star 从行动开始](4Learn/4wd5_renewminding.md)
 	- [Star Upgrade](4Learn/5wd4_upgrade.md)
 		- [Mind Trek](4Learn/5wd4_mindtrek.md)
+	- [Star 去除心障](4Learn/6wd4_brokenthewall.md)
 - [代码 (_src)](_src/README.md)
 - [素材 (draft)](draft/README.md)
   + [教程该怎么写](draft/how2tutorial.md)
