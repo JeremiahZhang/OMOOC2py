@@ -63,6 +63,42 @@
 	- 如何进行 本地web app 开发
 	- 如何 push 到 qpython 移动端
 		- 发现可以将代码直接转化为[QRcode](http://qpython.com/#qrcode) 二维码 用Qpython 扫描即可 恩 这个方法也不错 但现在这个方法还是没有 本地直接推送简单 恩 转回 Push
+- 主要参考
+	- [如何自在的折腾Qpython](http://codelab.qpython.org/pythonic/init-my-qpy-env.html) 
+
+### push or 上传
+
+- 使用什么
+	- SSH
+- 上传到 哪儿
+	- 这里得使用 BusyBox
+
+#### SSH 
+
+- 参考 [SSHDroid](http://www.upubuntu.com/2012/05/access-your-android-files-and-folders.html) 
+去应用市场下载SSHDroid [google play](https://play.google.com/store/apps/details?id=berserker.android.apps.sshdroid&hl=en) 并简单了解
+
+那么怎么和PC链接 恩 上面 Google play 中有这样的介绍
+
+> Linux users:
+	- File Transfer: natively supported by most file managers (like Nautilus or Dolphin), just enter the sftp address displayed as "Location".
+	- Remote Shell: run 'ssh' from the terminal.
+
+因为我使用Ubuntu 所以关注的是这个 还有 win 和 mac 平台的
+
+恩 所以我要使用 ssh 怎么用呢?
+
+- [1 直接使用 ubuntu 的 file](http://www.upubuntu.com/2012/05/access-your-android-files-and-folders.html) 不行 不适合我的14.04
+
+既然都提示要使用终端使用 ssh 了 那么 就 ssh 参考
+
+- [sshdroid via terminal ](https://www.youtube.com/watch?v=uA9GCw7Nw5w) 
+
+原来这么就这么简单 刚开始看 ssh 提示 没懂
+
+图片001
+
+恩 密码什么的有提示 默认为 admin
 
 Friday, 27. November 2015 10:14PM  初探+笔记 2h 未达到心流状态 恩 反省过程中被打断 得手机断开 ok
 
