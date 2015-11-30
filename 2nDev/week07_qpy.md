@@ -48,7 +48,7 @@
 ## 2 分解任务
 
 - [] 探索 [QPython 开发 WEB APP](http://wiki.qpython.org/zh/webapp/sample/) 嗯 这是在手机上的 现在是要在 Local 编程开发
-- [] 探索 本地 push 到 Qpython 移动端
+- [x] 探索 本地 push 到 Qpython 移动端
 - [] 如何进行本地调试 最小反馈时间 minimize Check out time
 - [] 极简日志交互系统
 	- [] 移动端
@@ -57,21 +57,28 @@
 
 ***
 
-## 3 Qpython 探索
+## 3 探索
 
-- 目标
-	- 如何进行 本地web app 开发
-	- 如何 push 到 qpython 移动端
-		- 发现可以将代码直接转化为[QRcode](http://qpython.com/#qrcode) 二维码 用Qpython 扫描即可 恩 这个方法也不错 但现在这个方法还是没有 本地直接推送简单 恩 转回 Push
+目标
+
+- [x] 如何进行 本地web app 开发
+	- 已经明白 将本地代码push到Qpython
+	- 然后直接在本地 使用 python 命令
+	- ssh与收集联通 
+	- 参见 **运行** 部分 如
+		# cd /storage/sdcard0/com.hipipal.qpyplus/scripts
+		# /data/data/com.hipipal.qpyplus/files/bin/python transhello.py
+
+- [x]如何 push 到 qpython 移动端
+	- 发现可以将代码直接转化为[QRcode](http://qpython.com/#qrcode) 二维码 用Qpython 扫描即可 恩 这个方法也不错 但现在这个方法还是没有 本地直接推送简单 恩 转回 Push
 - 主要参考
 	- [如何自在的折腾Qpython](http://codelab.qpython.org/pythonic/init-my-qpy-env.html) 
 
 ### push or 上传
 
-- 使用什么
-	- SSH
-- 上传到 哪儿
-	- 这里得使用 BusyBox
+- [x]使用什么? SSH
+- [x] 上传到 哪儿
+- [x] 这里得使用 BusyBox 手机也可以像shell一样了
 
 #### SSH 
 
@@ -127,7 +134,122 @@
     		    +- snippets 
 		    +- .run        恩 运行 相关
 
+那么知道文件目录 那么就使用 [using SCP](http://support.suso.com/supki/SSH_Tutorial_for_Linux) SCP吧
+
+> SCP is basically a program that uses the SSH protocol to send files between hosts over and encrypted connection. You can transfer files from your local computer to a remote host or vice versa or even from a remote host to another remote host. 
+
+尝试 可以使用
+
+	scp ~/OMOOC2py/_src/om2py7w/7wex0/hello0.py root@192.168.2.100:/storage/sdcard0/com.hipipal.qpyplus/transhello.py
+
+将本地文件 ~/OMOOC2py/_src/om2py7w/7wex0/hello0.py 传输到手机Qpython的可写资源起点 并且更名为transhello.py 不过每次都要输入密码 admin 有点麻烦 效果如图 
+
+![scp ssh传输文件](http://dn-jeremiahzhang.qbox.me/qpy02.jpg) 
+
+现在我将其推送到 /storage/sdcard0/com.hipipal.qpyplus/scripts 目录中 使用以下代码就可以了
+
+	scp ~/OMOOC2py/_src/om2py7w/7wex0/hello0.py root@192.168.2.100:/storage/sdcard0/com.hipipal.qpyplus/scripts/transhello.py
+
+本地hello0.py的代码如下
+
+	# -*-  coding: utf-8 -*-
+	import androidhelper
+	droid = androidhelper.Android()
+	droid.makeToast('Hello, Jeremiah :-) !')
+
+传递过去之后 可以直接在Qpython运行脚本了 并且成功
+
+#### busybox
+
+dama 吼道：
+
+> 等等! SSH 上来后,各种不适应,这什么 shell 环境哪,连 less, tail, vi 都没有 好意思说自个儿是 Linux 嘛?!
+搜索才知道,这货叫 ash
+
+> 躲在 /system/bin/sh 基本上什么也不会作
+    所以,程序猿有 [BusyBox](http://www.busybox.net/FAQ.html#getting_started)
+    一安装,批量将大堆习惯的工具,灌到 system/xbin/
+
+OK 手机下载 BusyBox 恩安装好之后 就可以使用 less tail vi 等命令了 可以直接对手机里面文件如同在PC本地机一样操作了 恩
+
+#### 运行
+
+dama吼:
+
+> 好了,进入下一个阶段: 怎么让 QPyhon 如系统命令一样在 ash 环境中调用我们的脚本?
+
+- 使用 [gen_qpy_env.py](https://gist.github.com/ZoomQuiet/8642464)
+	- 推送到Qpython scripts 目录中 并使用Qpython 用脚本形式跑起来
+
+> 肿么,让 shell 环境每次都能自动加载上这堆配置?
+
+按照dama而言 直接使用其代码:(恩 是进入ssh 与手机连接后 的 shell 下)
+
+	# mount -o remount,rw /dev/block/mtdblock3 /system
+	# ln -s /storage/sdcard0/com.hipipal.qpyplus/projects/qpy_profile /etc/profile
+	# mount -o remount,ro /dev/block/mtdblock3 /system
+
+手机重启 SSHDroid 远程ssh登入 测试
+
+![shell自动加载](http://dn-jeremiahzhang.qbox.me/qpy03.jpg) 
+	
+然后 远程人工使用 shell 调用 我scripts 文件下刚刚从本地传输过去的 transhello.py 文件
+
+	# cd /storage/sdcard0/com.hipipal.qpyplus/scripts
+	# /data/data/com.hipipal.qpyplus/files/bin/python transhello.py
+
+不论手机在什么界面下 会跳出 **transhello.py** 运行结果
+
+#### 自动
+
+> 好了,进入最后一个阶段: 怎么让所有的上传->配置->运行->日志收集 全部自动化一键完成?
+
+
+    自动上传?!(怎么通过公匙的部署,来达到无口令远程登录手机?)
+    自动运行手机端的脚本?!
+    自动收集日志?
+
+- 探索 使用 [pexpect](http://www.noah.org/python/pexpect/)  查看doc 文档 另 [Pexpect V4](https://pexpect.readthedocs.org/en/stable/) 
+
+恩 DAMA 那部分没读懂 
+
+> 先将本地公匙用口令登录的方式推上手机
+
+发现好像有点远 暂时回来 直接fabirc先
+
+#### Fabric
+
+- 本地安装Fabric
+- 直接使用Dama的 fabfile.py文件 放到本周开发目录中
+	- 简单修改参数 就可以
+	- 本地进行代码编写
+	- **fab qpy:script=当前调试脚本.py** 一键上传到手机 并自动运行
+	- 在手机上真实操作 好自动化
+
+此处 我将自己的文件 放入 qpython projects中的chaos项目中 并命名为 **hello.py**
+
+然后直接 在本周任务目录下 使用
+
+	fab qpy:script=hello.py 
+
+OK 直接推送 因为没有设置上一步的自动 所以还要输入几次密码
+
+- admin
+- 本机管理员密钥
+- damin
+
+感觉每一次这样 还是有点重复 恩 没办法了 先这样
+
+日志的运行 暂且不查看了
+
+***
+
+## 4 Qpython Web 本周日志开发
+
+以上只是为了checktime少 经历了这么多时间
+
 
 Friday, 27. November 2015 10:14PM  初探+笔记 2h 未达到心流状态 恩 反省过程中被打断 得手机断开 ok
-Saturday, 28. November 2015 11:22PM   1.5h 分解任务于 ssh部分浅尝
+Saturday, 28. November 2015 11:22PM   1.5h 分解任务于 ssh部分浅尝  
+Monday, 30. November 2015 11:24PM 3h ssh登录 并传输 自动busybox + 自动 + fabric
 
