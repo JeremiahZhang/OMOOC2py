@@ -96,11 +96,37 @@
 
 原来这么就这么简单 刚开始看 ssh 提示 没懂
 
-图片001
+![ssh使用](http://dn-jeremiahzhang.qbox.me/qpy01.jpg) 
 
-恩 密码什么的有提示 默认为 admin
-
+恩 密码什么的有提示 默认为 admin  
 恩 被打断了 明天继续
+
+#### 到底怎么使用SSH
+
+既然知道要用SSH 进入home之后 到底如何操作呢？明白路径 上传到哪儿
+
+- SSHDroid 其实根目录为  
+
+		/data/data/berserker.android.apps.sshdroid/home/
+
+	类似Ubuntu中的终端中使用 ~ 回到的目录
+
+- 要放到Qpython可读的文件目录中吧
+
+>  QPython 环境分:  
+
+> - 只读执行文件起点 /data/data/com.hipipal.qpyplus/files/bin/
+
+> - 可写资源起点以及目录意义:
+
+		/storage/sdcard0/com.hipipal.qpyplus/
+		    +- cache         
+		    +- lib        各Python版本的库安装入口 
+		    +- projects   俺的QPy 项目入口
+		    +- scripts    俺的QPy 脚本入口
+    		    +- snippets 
+		    +- .run        恩 运行 相关
+
 
 Friday, 27. November 2015 10:14PM  初探+笔记 2h 未达到心流状态 恩 反省过程中被打断 得手机断开 ok
 Saturday, 28. November 2015 11:22PM   1.5h 分解任务于 ssh部分浅尝
