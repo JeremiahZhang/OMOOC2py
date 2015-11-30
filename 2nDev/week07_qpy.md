@@ -242,6 +242,8 @@ OK 直接推送 因为没有设置上一步的自动 所以还要输入几次密
 
 日志的运行 暂且不查看了
 
+[ci 代码 copy dama](https://github.com/JeremiahZhang/OMOOC2py/commit/a61bd4ecb1dfd8b7418f85f1388d32306ea8ecb8) 
+
 ***
 
 ## 4 Qpython Web 本周日志开发
