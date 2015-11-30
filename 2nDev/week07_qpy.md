@@ -249,7 +249,7 @@ OK 直接推送 因为没有设置上一步的自动 所以还要输入几次密
 以上只是为了checktime少 经历了这么多时间
 
 
-Friday, 27. November 2015 10:14PM  初探+笔记 2h 未达到心流状态 恩 反省过程中被打断 得手机断开 ok
+Friday, 27. November 2015 10:14PM  2h 初探+笔记  未达到心流状态 恩 反省过程中被打断 得手机断开 ok
 Saturday, 28. November 2015 11:22PM   1.5h 分解任务于 ssh部分浅尝  
-Monday, 30. November 2015 11:24PM 3h ssh登录 并传输 自动busybox + 自动 + fabric
+Tuesday, 01. December 2015 12:02AM  3h ssh登录 并传输 自动busybox + 自动 + fabric
 
