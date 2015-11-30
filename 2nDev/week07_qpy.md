@@ -66,8 +66,9 @@
 	- 然后直接在本地 使用 python 命令
 	- ssh与收集联通 
 	- 参见 **运行** 部分 如
-		# cd /storage/sdcard0/com.hipipal.qpyplus/scripts
-		# /data/data/com.hipipal.qpyplus/files/bin/python transhello.py
+
+			# cd /storage/sdcard0/com.hipipal.qpyplus/scripts
+			# /data/data/com.hipipal.qpyplus/files/bin/python transhello.py
 
 - [x]如何 push 到 qpython 移动端
 	- 发现可以将代码直接转化为[QRcode](http://qpython.com/#qrcode) 二维码 用Qpython 扫描即可 恩 这个方法也不错 但现在这个方法还是没有 本地直接推送简单 恩 转回 Push
