@@ -273,10 +273,20 @@ OK 直接推送并run hello.py 代码 因为没有设置上一步的自动 所�
 
 修改还是不对原来是 变成了这个 **192.168.2.103** 修改后 成功 绕了一下 :-)
 
+提交Qpython的代码 直接运行后 可行
+
+### 4.2 极简日志交互
+
+目测 需要和 公网版orWeb版 类似 需要
+
+简单 search 找到 [Python Programming with QPython](http://www.pinoyden.com.ph/index.php?topic=289814.0)  里面有较多教程可以学习 恩
+
 
 
 
 Friday, 27. November 2015 10:14PM  2h 初探+笔记  未达到心流状态 恩 反省过程中被打断 得手机断开 ok
 Saturday, 28. November 2015 11:22PM   1.5h 分解任务于 ssh部分浅尝  
 Tuesday, 01. December 2015 12:02AM  3h ssh登录 并传输 自动busybox + 自动 + fabric
+Tuesday, 01. December 2015 10:46PM  2h 4.1 部分
+
 
