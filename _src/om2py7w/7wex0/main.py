@@ -48,8 +48,8 @@ def index():
 
 def hello():
     location = Droid.getLastKnownLocation().result
-    location = location.get('network', location.get('gps'))
-    #location = {"latitude":"116.387884","longitude":"39.929986"}
+    location = location.get('network', location.get('gps')) # you should open gps in your phone or it will NoneType
+    # location = {"latitude":"116.387884","longitude":"39.929986"}
     return template(root+'/baidu.tpl',lat=location['latitude'],lng=location['longitude'])
 
 if __name__ == '__main__':
