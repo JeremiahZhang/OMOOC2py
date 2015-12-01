@@ -253,6 +253,8 @@ OK 直接推送并run hello.py 代码 因为没有设置上一步的自动 所�
 
 ### 4.1 初探 Qpython Web APP
 
+[Qpython 开发 WEB APP](http://wiki.qpython.org/zh/webapp/sample/#_1) 
+
 - WEB APP 框架
 - 使用SL4A 接口获取地理位置信息
 - 调用安卓体系内其他 APP 的公开接口的方法
@@ -269,10 +271,9 @@ OK 直接推送并run hello.py 代码 因为没有设置上一步的自动 所�
 
 	sed -i -e ’36d’ ~/.ssh/known_hosts
 
-修改还是不对原来是 变成了这个 **192.168.2.103** 修改
+修改还是不对原来是 变成了这个 **192.168.2.103** 修改后 成功 绕了一下 :-)
 
 
-[Qpython 开发 WEB APP](http://wiki.qpython.org/zh/webapp/sample/#_1) 
 
 
 Friday, 27. November 2015 10:14PM  2h 初探+笔记  未达到心流状态 恩 反省过程中被打断 得手机断开 ok
