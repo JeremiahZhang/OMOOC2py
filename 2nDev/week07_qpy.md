@@ -233,7 +233,7 @@ dama吼:
 
 	fab qpy:script=hello.py 
 
-OK 直接推送 因为没有设置上一步的自动 所以还要输入几次密码
+OK 直接推送并run hello.py 代码 因为没有设置上一步的自动 所以还要输入几次密码
 
 - admin
 - 本机管理员密钥
@@ -256,6 +256,21 @@ OK 直接推送 因为没有设置上一步的自动 所以还要输入几次密
 - WEB APP 框架
 - 使用SL4A 接口获取地理位置信息
 - 调用安卓体系内其他 APP 的公开接口的方法
+
+完成代码 main.py 在此目录下使用 
+
+	fab qpy:script=main.py 
+
+发现 warning
+
+	Warning: Permanently added '192.168.2.103' (RSA) to the list of known hosts
+
+恩 想到 dama 那会也遇到类似
+
+	sed -i -e ’36d’ ~/.ssh/known_hosts
+
+修改还是不对原来是 变成了这个 **192.168.2.103** 修改
+
 
 [Qpython 开发 WEB APP](http://wiki.qpython.org/zh/webapp/sample/#_1) 
 
