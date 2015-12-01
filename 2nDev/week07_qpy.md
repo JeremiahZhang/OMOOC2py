@@ -253,6 +253,10 @@ OK 直接推送 因为没有设置上一步的自动 所以还要输入几次密
 
 ### 4.1 初探 Qpython Web APP
 
+- WEB APP 框架
+- 使用SL4A 接口获取地理位置信息
+- 调用安卓体系内其他 APP 的公开接口的方法
+
 [Qpython 开发 WEB APP](http://wiki.qpython.org/zh/webapp/sample/#_1) 
 
 
