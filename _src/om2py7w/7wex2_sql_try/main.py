@@ -26,6 +26,8 @@ purchases = [('2015-12-03', 'BUY', 'IBM', 1000, 45.00),
                       ]
 
 c.executemany('INSERT INTO stocks VALUES (?,?,?,?,?)', purchases)
+conn.commit()
+
 print '*'*10
 print c.fetchall()
 # close
