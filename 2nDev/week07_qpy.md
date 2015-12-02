@@ -281,12 +281,20 @@ OK 直接推送并run hello.py 代码 因为没有设置上一步的自动 所�
 
 简单 search 找到 [Python Programming with QPython](http://www.pinoyden.com.ph/index.php?topic=289814.0)  里面有较多教程可以学习 恩
 
+简单一个home页面 出错。。。
 
+[ci 代码](https://github.com/JeremiahZhang/OMOOC2py/commit/8c7e5b750fe91c2a8f95078f1ced6c79c90cb04a)
+
+	web app launch timeout(10)
+
+恩 再议
 
 
 Friday, 27. November 2015 10:14PM  2h 初探+笔记  未达到心流状态 恩 反省过程中被打断 得手机断开 ok
 Saturday, 28. November 2015 11:22PM   1.5h 分解任务于 ssh部分浅尝  
 Tuesday, 01. December 2015 12:02AM  3h ssh登录 并传输 自动busybox + 自动 + fabric
 Tuesday, 01. December 2015 10:46PM  2h 4.1 部分
+Wednesday, 02. December 2015 11:37PM  2.5h home 页面部分 but error
+
 
 
