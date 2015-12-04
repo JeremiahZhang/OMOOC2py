@@ -302,9 +302,20 @@ OK 直接推送并run hello.py 代码 因为没有设置上一步的自动 所�
 
 [ci 代码](ht) 
 
-#### write 文字保存
+#### write 文字保存 打印日志
 
+思路是这样
 
+- 将html中的内容抓取过来(第4w已经过了)
+- 保存入sql数据文件中([sqlite3 文档](https://docs.python.org/2.7/library/sqlite3.html) )
+
+恩 中文有输入影响么 目测有 实际输入真的有 因为在html 加入了utf-8 出现错误提示 恩 直接将中文tag和 content内容加 decode('utf-8') 解码
+
+[ci 代码 GET 和POST 导致耽误时间了](https://github.com/JeremiahZhang/OMOOC2py/commit/2e45a7731397b092337eeed55413dd639e7fb845)    
+[ci 代码 打印日志](https://github.com/JeremiahZhang/OMOOC2py/commit/d1d92774ba99dbb5e4d604b48b399d5a0b2ec660) 
+
+效果:  
+![交互日志 效果](http://dn-jeremiahzhang.qbox.me/qpy04.png) 
 
 
 Friday, 27. November 2015 10:14PM  2h 初探+笔记  未达到心流状态 恩 反省过程中被打断 得手机断开 ok
@@ -312,6 +323,8 @@ Saturday, 28. November 2015 11:22PM   1.5h 分解任务于 ssh部分浅尝
 Tuesday, 01. December 2015 12:02AM  3h ssh登录 并传输 自动busybox + 自动 + fabric
 Tuesday, 01. December 2015 10:46PM  2h 4.1 部分
 Wednesday, 02. December 2015 11:37PM  2.5h home 页面部分 but error
+Friday, 04. December 2015 04:58PM 4h 4.2 home 和 write debug
+
 
 
 
