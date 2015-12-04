@@ -281,6 +281,8 @@ OK 直接推送并run hello.py 代码 因为没有设置上一步的自动 所�
 
 简单 search 找到 [Python Programming with QPython](http://www.pinoyden.com.ph/index.php?topic=289814.0)  里面有较多教程可以学习 恩
 
+#### home 页面
+
 简单一个home页面 出错。。。
 
 [ci 代码](https://github.com/JeremiahZhang/OMOOC2py/commit/8c7e5b750fe91c2a8f95078f1ced6c79c90cb04a)
@@ -288,6 +290,18 @@ OK 直接推送并run hello.py 代码 因为没有设置上一步的自动 所�
 	web app launch timeout(10)
 
 恩 再议
+
+测试发现 原来主要是
+
+- 路径目录没有设置 ROOT 
+- app.route('/', method='GET')(home) method = POST
+的 改为 GET 就OK了
+
+[ci 代码](ht) 
+
+#### write 文字保存
+
+
 
 
 Friday, 27. November 2015 10:14PM  2h 初探+笔记  未达到心流状态 恩 反省过程中被打断 得手机断开 ok
