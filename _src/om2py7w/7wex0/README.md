@@ -11,6 +11,7 @@
 - 将本目录下 放入 Qpython项目文件下
 	- qpymain.py
 	- creatdb.py
+	- home.html
 - 执行
 	- 首先运行 creatdb.py 生成mydiary.db数据文件
 	- 然后点击qpymain.py 运行 进行日志交互
