@@ -53,7 +53,7 @@
 	- [x] 探索 [QPython 开发 WEB APP](http://wiki.qpython.org/zh/webapp/sample/) 嗯 这是在手机上的 现在是要在 Local 编程开发
 	- [x] 移动端
 	- [] CLI 命令行
-	- [] 和微信接通  
+	- [] 和微信接通 
 
 ***
 
