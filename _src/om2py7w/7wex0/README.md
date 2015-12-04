@@ -8,6 +8,10 @@
 
 - 下载Qpython
 	- 安装 sqlite3 包
-- 将本目录下
+- 将本目录下 放入 Qpython项目文件下
 	- qpymain.py
 	- creatdb.py
+- 执行
+	- 首先运行 creatdb.py 生成mydiary.db数据文件
+	- 然后点击qpymain.py 运行 进行日志交互
+
