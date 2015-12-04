@@ -1,5 +1,12 @@
 # 日记交互 移动版
 
+开发环境
+
+- Ubuntu 14.04LTS
+- Qpython CN 1.2.2
+- ST3
+- Android手机：KONKA V976 Android版本4.2.1
+
 ## 0 初探
 
 主要是看资料 了解相关资讯 来分解任务 一步步完成
