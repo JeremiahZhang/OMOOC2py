@@ -296,6 +296,9 @@ OK 直接推送并run hello.py 代码 因为没有设置上一步的自动 所�
 - 路径目录没有设置 ROOT 
 - app.route('/', method='GET')(home) method = POST
 的 改为 GET 就OK了
+- 注意 这里我直接将 数据文件mydiary.db放入了Qpython的项目目录中 
+	- 尝试 直接使用在 home 中添加自动新建db文件 发现 会造成不必要的麻烦 暂时不考虑 直接将db文件放入项目目录中
+	- 可以尝试 自己建一个脚本 如果要新建数据db文件 就执行 恩
 
 [ci 代码](ht) 
 

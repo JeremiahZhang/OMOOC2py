@@ -55,11 +55,15 @@ def __ping():
 # diary function
 def home():
     return template(ROOT+'/home.html')
+
+def write():
+
+
 # webapp routers
 app = Bottle()
 
 app.route('/', method='GET')(home)
-#app.route('/write', method='POST')(write)
+app.route('/write', method='GET')(write)
 app.route('/__exit', method=['GET', 'HEAD'])(__exit)
 app.route('/__ping', method=['GET', 'HEAD'])(__ping)
 try:
