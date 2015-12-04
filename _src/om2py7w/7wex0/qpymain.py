@@ -68,7 +68,7 @@ def hist_diary():
     content = c.fetchall()
     db_conn.close()
 
-    str_content = "\n".join("(%s,%s,%s)" % tup for tup in content) # unicode format
+    str_content = "\n".join("%s,%s,%s" % tup for tup in content) # unicode format
     return str_content
 
 # webapp routers
