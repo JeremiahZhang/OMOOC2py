@@ -61,7 +61,7 @@ def _save_diary(data):
     db_conn.commit()
     db_conn.close()
 
-def hist_diary():
+def _hist_diary():
     db_conn = sqlite3.connect(ROOT + '/mydiary.db')
     c = db_conn.cursor()
     c.execute('SELECT * FROM diarys ORDER BY diary_date')
@@ -86,10 +86,10 @@ def write():
         diary_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(timestamp))
         data= (diary_tag.decode('utf-8'), diary_date, diary_content.decode('utf-8'))
         _save_diary(data)
-        history = hist_diary()
+        history = _hist_diary()
         return template(ROOT + '/home.html', log_content=history)
     else:
-        history = hist_diary()
+        history = _hist_diary()
         return template(ROOT + '/home.html', log_content=history)
 
 app.route('/__exit', method=['GET', 'HEAD'])(__exit)
