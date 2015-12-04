@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #qpy:2
 #qpy:webapp:Mydiary APP
-#qpy://127.0.0.2:8000/
+#qpy://127.0.0.1:8081/
 '''
 Qpython webapp: Diary APP of @Jeremiah Zhang
 Email: zhangleisuda@gmail.com
@@ -12,6 +12,9 @@ import os
 import sqlite3
 from bottle import Bottle, ServerAdapter
 from bottle import route, run, template, request, debug
+
+### 常量定义 ###
+ROOT = os.path.dirname(os.path.abspath(__file__))
 
 """
 由于默认的 bottle 在处理退出时比较难出来，
@@ -51,20 +54,16 @@ def __ping():
 
 # diary function
 def home():
-    conn = sqlite3.connect('mydiary.db')
-    c = conn.cursor()
-    c.execute("CREATE TABLE diarys(diarytag text, diary_date text, diary_content text)")
-    conn.commit
-    c.close()
     return template(ROOT+'/home.html')
 # webapp routers
 app = Bottle()
-app.route('/', method='POST')(home)
+
+app.route('/', method='GET')(home)
 #app.route('/write', method='POST')(write)
 app.route('/__exit', method=['GET', 'HEAD'])(__exit)
 app.route('/__ping', method=['GET', 'HEAD'])(__ping)
 try:
-    server = MyWSGIRefServer(host="127.0.0.2", port="8000")
+    server = MyWSGIRefServer(host="127.0.0.1", port="8081")
     app.run(server=server, reloader=False, debug=True)
 except Exception,ex:
     print "Exception: %s" % repr(ex)
