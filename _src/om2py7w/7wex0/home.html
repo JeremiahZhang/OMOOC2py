@@ -8,10 +8,12 @@
 </head>
 <body>
     <p>welcome to your diary WebAPP:</p>
-    <form action="/" method="POST">
-    <input type="text" id="tag" placeholder="input tag">
-    <input type="text" id="content" placeholder="write here">
+    <form action="/home" method="get">
+    <input type="text" name="tag" placeholder="input tag" autofocus>
+    <input type="text" name="content" placeholder="write here">
     <input type="submit" name="save" value="save">
     </form>
+    <p>  Darling!Here is your diary content!</p>
+    <textarea rows="30" cols="30">{{ log_content }}</textarea>
 </body>
 </html>>

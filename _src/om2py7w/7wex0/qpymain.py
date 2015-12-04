@@ -12,6 +12,7 @@ import os
 import sqlite3
 from bottle import Bottle, ServerAdapter
 from bottle import route, run, template, request, debug
+import time
 
 ### 常量定义 ###
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -52,22 +53,49 @@ def __exit():
 def __ping():
     return "ok"
 
-# diary function
-def home():
-    return template(ROOT+'/home.html')
+def _save_diary(data):
+    # save into db
+    db_conn = sqlite3.connect(ROOT + '/mydiary.db')
+    c = db_conn.cursor()
+    c.execute('INSERT INTO diarys VALUES (?,?,?)', data)
+    db_conn.commit()
+    db_conn.close()
 
-def write():
+def hist_diary():
+    db_conn = sqlite3.connect(ROOT + '/mydiary.db')
+    c = db_conn.cursor()
+    c.execute('SELECT * FROM diarys ORDER BY diary_date')
+    content = c.fetchall()
+    db_conn.close()
 
+    str_content = "\n".join("(%s,%s,%s)" % tup for tup in content) # unicode format
+    return str_content
 
 # webapp routers
 app = Bottle()
 
-app.route('/', method='GET')(home)
-app.route('/write', method='GET')(write)
+@app.route('/')
+@app.route('/home', method="GET")
+def write():
+
+    if request.GET.get('save','').strip():
+        diary_tag = request.GET.get('tag')
+        diary_content = request.GET.get('content')
+        t = time.time()
+        timestamp = int(t)
+        diary_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(timestamp))
+        data= (diary_tag.decode('utf-8'), diary_date, diary_content.decode('utf-8'))
+        _save_diary(data)
+        history = hist_diary()
+        return template(ROOT + '/home.html', log_content=history)
+    else:
+        history = hist_diary()
+        return template(ROOT + '/home.html', log_content=history)
+
 app.route('/__exit', method=['GET', 'HEAD'])(__exit)
 app.route('/__ping', method=['GET', 'HEAD'])(__ping)
 try:
     server = MyWSGIRefServer(host="127.0.0.1", port="8081")
-    app.run(server=server, reloader=False, debug=True)
+    app.run(server=server, reloader=True, debug=True)
 except Exception,ex:
     print "Exception: %s" % repr(ex)
