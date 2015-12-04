@@ -323,7 +323,7 @@ Saturday, 28. November 2015 11:22PM   1.5h 分解任务于 ssh部分浅尝
 Tuesday, 01. December 2015 12:02AM  3h ssh登录 并传输 自动busybox + 自动 + fabric
 Tuesday, 01. December 2015 10:46PM  2h 4.1 部分
 Wednesday, 02. December 2015 11:37PM  2.5h home 页面部分 but error
-Friday, 04. December 2015 04:58PM 4h 4.2 home 和 write debug
+Friday, 04. December 2015 04:58PM 4h 4.2 home 和 write debug 这一段陷入一个醉点 以前做过的 现在还出现问题 说明以前的还不够明白呢
 
 
 
