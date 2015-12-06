@@ -5,7 +5,7 @@ env.shell = "/system/bin/sh -c"
 #
 # Remote server configuration
 PY = '/data/data/com.hipipal.qpyplus/files/bin/python'
-PYQ = 'root@192.168.2.101'
+PYQ = 'root@192.168.2.100'
 env.hosts= [PYQ]
 env.user = "root"
 PYQ_ROOT = '/storage/sdcard0/com.hipipal.qpyplus/projects'
@@ -14,7 +14,7 @@ CRT_PROJ = "%(PYQ_ROOT)s/%(PROJ_NAME)s"% locals()
 SCP_UP = "scp *.py %(PYQ)s:%(CRT_PROJ)s/ "% locals()
 
 # Actions define.
-#def pushproj(ports='22', name='chaos'):
+#def pushproj(ports='22', name='imatch'):
 def pushproj():
     '''scp all .py into Android QPython projects dir
     '''
@@ -48,7 +48,7 @@ def qpy(script="hello.py"):
     '''main develop tools, auto upload and running in Android
     '''
     pushproj()
-    qpy_run_it(script)
+    #qpy_run_it(script)
     env()
 
 def uname():

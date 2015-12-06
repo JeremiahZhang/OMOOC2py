@@ -11,7 +11,7 @@ Version 1.0
 import os
 
 from bottle import Bottle, ServerAdapter
-from bottle import route, run, template, request, debug
+from bottle import route, run, debug, template, error
 
 ### 常量定义 ###
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -56,8 +56,8 @@ def __ping():
 app = Bottle()
 
 @app.route('/')
-@app.route('/home', method="GET")
 def home():
+    return template('<h1>Hello Imatch</h1>')
 
 app.route('/__exit', method=['GET', 'HEAD'])(__exit)
 app.route('/__ping', method=['GET', 'HEAD'])(__ping)
