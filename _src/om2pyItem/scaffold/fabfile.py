@@ -9,7 +9,7 @@ PYQ = 'root@192.168.2.101'
 env.hosts= [PYQ]
 env.user = "root"
 PYQ_ROOT = '/storage/sdcard0/com.hipipal.qpyplus/projects'
-PROJ_NAME = 'chaos'
+PROJ_NAME = 'imatch'
 CRT_PROJ = "%(PYQ_ROOT)s/%(PROJ_NAME)s"% locals()
 SCP_UP = "scp *.py %(PYQ)s:%(CRT_PROJ)s/ "% locals()
 
