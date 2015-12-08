@@ -43,6 +43,8 @@
 ## 迭代进行
 
 - 8wd0 目标初步分解 Qpython webapp 开发框架确定
+- 8wd2 图片上载
+	- 参考 [google keywords  search](https://www.google.com.sg/search?client=ubuntu&channel=fs&q=python+bottle+image+upload&ie=utf-8&oe=utf-8&gfe_rd=cr&ei=ZItmVprZD-yW8QeR84TwBg) 
 
 ## 8-10w
 
