@@ -32,7 +32,7 @@
 
 - [x]Qpython 基本框架
 - [] APP web 设置
-    - [] 上载图片 use bottle
+    	- [x] 上载图片 use bottle
 	- [] 页面的html
 	- [] 添加图片
 	- [] 实现图片添加功能
@@ -46,6 +46,7 @@
 - 8wd2 图片上载
 	- 参考 [google keywords  search](https://www.google.com.sg/search?client=ubuntu&channel=fs&q=python+bottle+image+upload&ie=utf-8&oe=utf-8&gfe_rd=cr&ei=ZItmVprZD-yW8QeR84TwBg) 
 	- [bottle simple example](https://gist.github.com/Arthraim/994641)
+	- succeed **host and port should be noted**
 
 ## 8-10w
 
