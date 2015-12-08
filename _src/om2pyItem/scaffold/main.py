@@ -3,7 +3,7 @@
 #qpy:webapp:Imatch APP
 #qpy://127.0.0.1:8080/
 '''
-Qpython webapp: Imatch
+Qpython webapp: iMatch
 Email: zhangleisuda@gmail.com
 Version 1.0
 '''
@@ -12,6 +12,7 @@ import os
 
 from bottle import Bottle, ServerAdapter
 from bottle import route, run, debug, template, error
+from bottle import get, post, request
 
 ### 常量定义 ###
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -56,8 +57,30 @@ def __ping():
 app = Bottle()
 
 @app.route('/')
-def home():
-    return template('<h1>Hello Imatch</h1>')
+@app.route('/upload', method='GET') # or @route('/upload')
+def upload_view():
+    return template("""
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      Category:     <input type="text" name="category" />
+      Select a file: <input type="file" name="upload" />
+      <input type="submit" value="Start upload" />
+    </form>""")
+
+@app.route('/upload', method='POST')
+def do_upload():
+    category = request.forms.get('category')
+    upload = request.files.get('upload')
+    name, ext = os.path.splitext(upload.filename)
+    if ext not in ('.png', '.jpg', '.jpeg'):
+        return "File extension not allowed!"
+
+    save_path = ROOT + "/{category}".format(category=category)
+    if not os.path.exists(save_path):
+        os.makedirs(save_path)
+
+    file_path = "{path}/{file}".format(path=save_path, file=upload.filename)
+    upload.save(file_path)
+    return "File successfully saved to '{0}'.".format(save_path)
 
 app.route('/__exit', method=['GET', 'HEAD'])(__exit)
 app.route('/__ping', method=['GET', 'HEAD'])(__ping)

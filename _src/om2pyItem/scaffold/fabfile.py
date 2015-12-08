@@ -5,7 +5,7 @@ env.shell = "/system/bin/sh -c"
 #
 # Remote server configuration
 PY = '/data/data/com.hipipal.qpyplus/files/bin/python'
-PYQ = 'root@192.168.2.100'
+PYQ = 'root@192.168.2.103'
 env.hosts= [PYQ]
 env.user = "root"
 PYQ_ROOT = '/storage/sdcard0/com.hipipal.qpyplus/projects'
