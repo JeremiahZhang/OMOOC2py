@@ -59,12 +59,7 @@ app = Bottle()
 @app.route('/')
 @app.route('/upload', method='GET') # or @route('/upload')
 def upload_view():
-    return template("""
-    <form action="/upload" method="post" enctype="multipart/form-data">
-      Category:     <input type="text" name="category" />
-      Select a file: <input type="file" name="upload" />
-      <input type="submit" value="Start upload" />
-    </form>""")
+    return template(ROOT + '/upload.html')
 
 @app.route('/upload', method='POST')
 def do_upload():

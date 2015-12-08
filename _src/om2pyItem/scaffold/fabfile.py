@@ -12,6 +12,7 @@ PYQ_ROOT = '/storage/sdcard0/com.hipipal.qpyplus/projects'
 PROJ_NAME = 'imatch'
 CRT_PROJ = "%(PYQ_ROOT)s/%(PROJ_NAME)s"% locals()
 SCP_UP = "scp *.py %(PYQ)s:%(CRT_PROJ)s/ "% locals()
+HTML_UP = "scp *.html %(PYQ)s:%(CRT_PROJ)s/ "% locals()
 
 # Actions define.
 #def pushproj(ports='22', name='imatch'):
@@ -20,6 +21,12 @@ def pushproj():
     '''
     print SCP_UP
     local(SCP_UP)
+
+def pushhtml():
+    '''scp all .html into Android QPython projects dir
+    '''
+    print HTML_UP
+    local(HTML_UP)
 
 def qpy_run_it(script="hello.py"):
     '''fab qpy_run_it:script=MY.py
@@ -49,6 +56,12 @@ def qpy(script="hello.py"):
     '''
     pushproj()
     #qpy_run_it(script)
+    env()
+
+def html(script="home.html"):
+    """upload html file to Android
+    """
+    pushhtml()
     env()
 
 def uname():
