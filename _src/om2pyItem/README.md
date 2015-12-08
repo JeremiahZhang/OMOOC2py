@@ -31,7 +31,8 @@
 ## 任务分解
 
 - [x]Qpython 基本框架
-- [] APP web 设置 
+- [] APP web 设置
+    - [] 上载图片 use bottle
 	- [] 页面的html
 	- [] 添加图片
 	- [] 实现图片添加功能
