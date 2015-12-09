@@ -54,7 +54,8 @@
 	- [x] 构思如何行
 		- 使用button来link多个template
 	- [x][android app layout](http://www.idangero.us/framework7/docs/app-layout.html#basic-android-material-app-layout)
-	- [][Web Fundamentals](https://developers.google.com/web/fundamentals/?hl=en)
+	- [][Web Fundamentals](https://developers.google.com/web/fundamentals/?hl=en) this need to dive in
+		- [x]forms
 
 ## 8-10w
 
