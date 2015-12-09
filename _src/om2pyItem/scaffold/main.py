@@ -59,7 +59,7 @@ app = Bottle()
 @app.route('/')
 @app.route('/upload', method='GET') # or @route('/upload')
 def upload_view():
-    return template(ROOT + '/upload.html')
+    return template(ROOT + '/templates/basiclayout.html')
 
 @app.route('/upload', method='POST')
 def do_upload():

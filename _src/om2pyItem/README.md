@@ -53,7 +53,8 @@
 - 8wd3
 	- [x] 构思如何行
 		- 使用button来link多个template
-	- [][android app layout](http://www.idangero.us/framework7/docs/app-layout.html#basic-android-material-app-layout)
+	- [x][android app layout](http://www.idangero.us/framework7/docs/app-layout.html#basic-android-material-app-layout)
+	- [][Web Fundamentals](https://developers.google.com/web/fundamentals/?hl=en)
 
 ## 8-10w
 
