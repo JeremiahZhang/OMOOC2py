@@ -31,7 +31,7 @@
 ## 任务分解
 
 - [x]Qpython 基本框架
-- [] APP web 设置
+- [] APP web 设置  
     	- [x] 上载图片 use bottle
 	- [] 页面的html
 	- [] 添加图片
@@ -49,6 +49,11 @@
 		- [bottle simple example](https://gist.github.com/Arthraim/994641)
 		- succeed **host and port should be noted**
 	- [html forms](http://www.w3schools.com/html/html_forms.asp)
+		- [div](http://www.w3schools.com/html/html_classes.asp)
+- 8wd3
+	- [x] 构思如何行
+		- 使用button来link多个template
+	- [][android app layout](http://www.idangero.us/framework7/docs/app-layout.html#basic-android-material-app-layout)
 
 ## 8-10w
 

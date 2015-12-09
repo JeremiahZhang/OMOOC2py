@@ -7,9 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
+    <p><a href="#" class="button">+</a></p>
+    <p><a href="#" class="button">+</a></p>
     <form action="/upload" method="post" enctype="multipart/form-data">
       Category:     <input type="text" name="category" /><br>
-      Select a file: <input type="file" name="upload" /><br>
+      Pic1: <img id="pic1" src="default.jpg" width="150px" height="150px">
+      upload: <input type="file" name="upload" /><br>
+      Pic2: <input type="file" name="upload" /><br>
+      Pic3: <input type="file" name="upload" /><br>
       <input type="submit" value="Start upload" />
     </form>
 </body>
