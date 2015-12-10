@@ -31,8 +31,8 @@
 ## 任务分解
 
 - [x] Qpython 基本框架
-- [] APP web 设置  
-    	- [x] 上载图片 use bottle
+- [] APP web 设置
+	- [x] 上载图片 use bottle
 	- [] 主要功能
 		- [x] 页面的 layout html
 		- [x] 添加图片
@@ -70,8 +70,13 @@
 	- [] 问题：
 		- [] 在主index 页面 显示图片 template 中 src = {{ item }} need to be solved
 		- [] 已经存在的图片 需要添加识别 不在存入本地 目录中 直接显示
+- 8wd5
+	- [] 深入理解 bottle route 的 redirect 
+	- [] static file
 
 ## 8-10w
 
 - 作品测试
 - 集成调试
+
+

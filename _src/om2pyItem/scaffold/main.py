@@ -62,11 +62,11 @@ app = Bottle()
 def index():
     return jinja2_template('index.html')
 
-@app.route('/pic1')
+@app.route('/pic1') # first + to add image
 def pic1():
     return jinja2_template('upload1.html')
 
-@app.route('/upload1', method='POST')
+@app.route('/upload1', method='POST') # upload the image
 def do_upload_pic1():
     category = "image"
     upload = request.files.get('upload')
@@ -80,8 +80,8 @@ def do_upload_pic1():
 
     file_path = "{path}/{file}".format(path=save_path, file=upload.filename)
     upload.save(file_path)
-    return static_file(upload.filename, root=save_path)
-    # return jinja2_template('showpic1.html', picture=file_path)
+    static_file(upload.filename, root=save_path)
+    return jinja2_template('showpic1.html', picture=upload.filename)
 
 app.route('/__exit', method=['GET', 'HEAD'])(__exit)
 app.route('/__ping', method=['GET', 'HEAD'])(__ping)
