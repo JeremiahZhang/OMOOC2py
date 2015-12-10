@@ -58,9 +58,9 @@ def __ping():
 app = Bottle()
 
 @app.route('/')
-@app.route('/upload', method='GET') # or @route('/upload')
-def button1():
-    return jinja2_template('button1.html')
+@app.route('/index') # or @route('/upload')
+def index():
+    return jinja2_template('index.html')
 
 @app.route('/upload', method='POST')
 def do_upload():
