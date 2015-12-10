@@ -12,7 +12,7 @@ import os
 
 from bottle import Bottle, ServerAdapter
 from bottle import route, run, debug, template, error
-from bottle import get, post, request
+from bottle import get, post, request, static_file
 from bottle import jinja2_template
 
 ### 常量定义 ###
@@ -80,7 +80,8 @@ def do_upload_pic1():
 
     file_path = "{path}/{file}".format(path=save_path, file=upload.filename)
     upload.save(file_path)
-    return file_path
+    return static_file(upload.filename, root=save_path)
+    # return jinja2_template('showpic1.html', picture=file_path)
 
 app.route('/__exit', method=['GET', 'HEAD'])(__exit)
 app.route('/__ping', method=['GET', 'HEAD'])(__ping)
