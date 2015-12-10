@@ -13,6 +13,7 @@ import os
 from bottle import Bottle, ServerAdapter
 from bottle import route, run, debug, template, error
 from bottle import get, post, request
+from bottle import jinja2_template
 
 ### 常量定义 ###
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -58,8 +59,8 @@ app = Bottle()
 
 @app.route('/')
 @app.route('/upload', method='GET') # or @route('/upload')
-def upload_view():
-    return template(ROOT + '/upload.html')
+def button1():
+    return jinja2_template('button1.html')
 
 @app.route('/upload', method='POST')
 def do_upload():
