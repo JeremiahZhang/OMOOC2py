@@ -51,6 +51,7 @@
 
 ## 迭代进行
 
+### 8w
 - 8wd0 目标初步分解 Qpython webapp 开发框架确定
 - 8wd2 
 	- [x] 图片上载
@@ -65,15 +66,25 @@
 	- [x] [android app layout](http://www.idangero.us/framework7/docs/app-layout.html#basic-android-material-app-layout)
 	- [x] [Web Fundamentals](https://developers.google.com/web/fundamentals/?hl=en) this need to dive in
 		- [x]forms
-- 8wd4
+- 8wd4 
 	- [x] 可以成功添加图片
-	- [] 问题：
+	- ![添加图片成功](http://dn-jeremiahzhang.qbox.me/imatch_index.png) 
+	- [x] 问题：8wd5 解决 在 local 浏览器显示成功 
 		- [x] 在主index 页面 显示图片 template 中 src = {{ item }} need to be solved (use route static file)
-		- [] 已经存在的图片 需要添加识别 不在存入本地 目录中 直接显示
-- 8wd5
-	- [] 深入理解 bottle route 的 redirect 
-	- [x] static file 解决添加后一张图片显示问题
-	- [] 添加2-3 多张后 同时显示添加的图片该如何处理呢
+		- [x] 已经存在的图片 需要添加识别 不在存入本地 目录中 直接显示
+- 8wd5 显示图片成功 每添加一张就可以显示 使用图片存储在了本地
+	- [x] 深入理解 bottle route 的 dynamic route
+	- [x]  static file 解决添加后一张图片显示问题
+	- [x]  添加2-3 多张后 同时显示添加的图片该如何处理呢
+		- [x] dynaimc route [request-routing](http://bottlepy.org/docs/dev/routing.html#request-routing) 
+>			- /action/<name:filter:config>
+>			- /action/<name:filter>
+>			- /<action>
+		- [x] [filter can be this! wildcard](http://bottlepy.org/docs/dev/routing.html#wildcard-filters) 
+			- 可以自己添加 filter
+			- 自己对 router 进行配置 [Explicit routing configuration](http://bottlepy.org/docs/dev/routing.html#explicit-routing-configuration)
+		- [x] use python loop in template
+	- 效果![显示图片成功](http://dn-jeremiahzhang.qbox.me/imatch_showimg.png)
 
 ## 8-10w
 

@@ -17,6 +17,7 @@ from bottle import jinja2_template
 
 ### 常量定义 ###
 ROOT = os.path.dirname(os.path.abspath(__file__))
+images = {1:None, 2:None, 3:None}
 
 """
 由于默认的 bottle 在处理退出时比较难出来，
@@ -57,26 +58,24 @@ def __ping():
 # webapp routers
 app = Bottle()
 
-@app.route('/static/<filepath:path>') # Route static files such as images or CSS files
+# Route static files such as images or CSS files then you can got it use <img>
+@app.route('/static/<filepath:path>')
 def serve_static(filepath):
     img_path = ROOT + "/image"
     return static_file(filepath, root=img_path)
 
+# index route
 @app.route('/')
-@app.route('/index') # or @route('/upload')
+@app.route('/index')
 def index():
     return jinja2_template('index.html')
 
-@app.route('/pic1') # first + to add image
-def pic1():
-    return jinja2_template('upload1.html')
+@app.route('/addimage/<id:int>') # first + to add image
+def add_image(id):
+    return jinja2_template('upload.html', id_item=id)
 
-@app.route('/pic2')
-def pic2():
-    return jinja2_template('upload2.html')
-
-@app.route('/upload1', method='POST') # upload the image
-def do_upload_pic1():
+@app.route('/upload/<id:int>', method='POST') # upload the image
+def do_upload_img(id):
     category = "image"
     upload = request.files.get('upload')
     name, ext = os.path.splitext(upload.filename)
@@ -88,28 +87,18 @@ def do_upload_pic1():
         os.makedirs(save_path)
 
     file_path = "{path}/{file}".format(path=save_path, file=upload.filename)
-    upload.save(file_path)
-    return jinja2_template('showpic1.html', pic_item=upload.filename)
+    if not os.path.exists(file_path):
+        upload.save(file_path)
 
-@app.route('/upload2', method='POST') # upload the image
-def do_upload_pic2():
-    category = "image"
-    upload = request.files.get('upload')
-    name, ext = os.path.splitext(upload.filename)
-    if ext not in ('.png', '.jpg', '.jpeg'):
-        return "File extension not allowed!"
+    global images
+    images[id] = upload.filename
+    return jinja2_template('showimg.html', img_dict=images)
 
-    save_path = ROOT + "/{category}".format(category=category)
-    if not os.path.exists(save_path):
-        os.makedirs(save_path)
-
-    file_path = "{path}/{file}".format(path=save_path, file=upload.filename)
-    upload.save(file_path)
-    return jinja2_template('showpic2.html', pic_item=upload.filename)
-
-
+### Qpy exit and monitor ###
 app.route('/__exit', method=['GET', 'HEAD'])(__exit)
 app.route('/__ping', method=['GET', 'HEAD'])(__ping)
+
+### run server ###
 try:
     server = MyWSGIRefServer(host="127.0.0.1", port="8080")
     app.run(server=server, reloader=True, debug=True)
