@@ -57,6 +57,11 @@ def __ping():
 # webapp routers
 app = Bottle()
 
+@app.route('/static/<filepath:path>') # Route static files such as images or CSS files
+def serve_static(filepath):
+    img_path = ROOT + "/image"
+    return static_file(filepath, root=img_path)
+
 @app.route('/')
 @app.route('/index') # or @route('/upload')
 def index():
@@ -80,8 +85,7 @@ def do_upload_pic1():
 
     file_path = "{path}/{file}".format(path=save_path, file=upload.filename)
     upload.save(file_path)
-    static_file(upload.filename, root=save_path)
-    return jinja2_template('showpic1.html', picture=upload.filename)
+    return jinja2_template('showpic1.html', pic_item=upload.filename)
 
 app.route('/__exit', method=['GET', 'HEAD'])(__exit)
 app.route('/__ping', method=['GET', 'HEAD'])(__ping)
