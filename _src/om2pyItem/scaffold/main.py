@@ -14,10 +14,12 @@ from bottle import Bottle, ServerAdapter
 from bottle import route, run, debug, template, error
 from bottle import get, post, request, static_file
 from bottle import jinja2_template
+from bottle import TEMPLATE_PATH
 
 ### 常量定义 ###
 ROOT = os.path.dirname(os.path.abspath(__file__))
 images = {1:None, 2:None, 3:None}
+TEMPLATE_PATH.insert(0, ROOT+"/templates/") # template path setting
 
 """
 由于默认的 bottle 在处理退出时比较难出来，
