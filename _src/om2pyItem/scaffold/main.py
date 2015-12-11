@@ -71,6 +71,10 @@ def index():
 def pic1():
     return jinja2_template('upload1.html')
 
+@app.route('/pic2')
+def pic2():
+    return jinja2_template('upload2.html')
+
 @app.route('/upload1', method='POST') # upload the image
 def do_upload_pic1():
     category = "image"
@@ -86,6 +90,23 @@ def do_upload_pic1():
     file_path = "{path}/{file}".format(path=save_path, file=upload.filename)
     upload.save(file_path)
     return jinja2_template('showpic1.html', pic_item=upload.filename)
+
+@app.route('/upload2', method='POST') # upload the image
+def do_upload_pic2():
+    category = "image"
+    upload = request.files.get('upload')
+    name, ext = os.path.splitext(upload.filename)
+    if ext not in ('.png', '.jpg', '.jpeg'):
+        return "File extension not allowed!"
+
+    save_path = ROOT + "/{category}".format(category=category)
+    if not os.path.exists(save_path):
+        os.makedirs(save_path)
+
+    file_path = "{path}/{file}".format(path=save_path, file=upload.filename)
+    upload.save(file_path)
+    return jinja2_template('showpic2.html', pic_item=upload.filename)
+
 
 app.route('/__exit', method=['GET', 'HEAD'])(__exit)
 app.route('/__ping', method=['GET', 'HEAD'])(__ping)
