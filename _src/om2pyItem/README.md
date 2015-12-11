@@ -89,7 +89,10 @@
 		- [x] 问题 bottle 没有 jinja2 模块
 			- bottle 推到Qpython 项目文件目录下 未果
 			- qpython pip install jinja2
+- 8wd6
+	- [] HTML 和 CSS 美化 这个可以挪到最后 恩	
 	- [] 退出和保存
+	- [] 保存截图
 
 ## 8-10w
 
