@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 #qpy:2
 #qpy:webapp:iMatch APP
+#qpy:fullscreen
 #qpy://127.0.0.1:8080/
 '''
 Qpython webapp: iMatch

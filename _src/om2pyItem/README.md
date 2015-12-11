@@ -85,6 +85,10 @@
 			- 自己对 router 进行配置 [Explicit routing configuration](http://bottlepy.org/docs/dev/routing.html#explicit-routing-configuration)
 		- [x] use python loop in template
 	- 效果![显示图片成功](http://dn-jeremiahzhang.qbox.me/imatch_showimg.png)
+	- **Qpython**
+		- [] 问题 bottle 没有 jinja2 模块
+			- qpython pip install jinja2
+			- 添加 import jinja2
 
 ## 8-10w
 
