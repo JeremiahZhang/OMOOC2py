@@ -68,11 +68,12 @@
 - 8wd4
 	- [x] 可以成功添加图片
 	- [] 问题：
-		- [] 在主index 页面 显示图片 template 中 src = {{ item }} need to be solved
+		- [x] 在主index 页面 显示图片 template 中 src = {{ item }} need to be solved (use route static file)
 		- [] 已经存在的图片 需要添加识别 不在存入本地 目录中 直接显示
 - 8wd5
 	- [] 深入理解 bottle route 的 redirect 
-	- [] static file
+	- [x] static file 解决添加后一张图片显示问题
+	- [] 添加2-3 多张后 同时显示添加的图片该如何处理呢
 
 ## 8-10w
 
