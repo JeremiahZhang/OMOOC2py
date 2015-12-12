@@ -37,7 +37,7 @@
 		- [x] 页面的 layout html
 		- [x] 添加图片
 		- [x] 实现图片添加功能
-		- [] 添加图片的显示
+		- [x] 添加图片的显示
 		- [] 保存功能 截图
 > 这里面思路是 使用jinja2 使用父模板和子模板 来实现
 现在 就是在攻克这个问题:（在这里卡壳了 技术还不够）
@@ -93,6 +93,10 @@
 	- [] HTML 和 CSS 美化 这个可以挪到最后 恩	
 	- [] 退出和保存
 	- [] 保存截图
+		- [X] 确定 [PILLOW](https://pillow.readthedocs.org/en/3.0.x/handbook/tutorial.html)
+		- [] 功能实现
+			- [] layout save button
+			- [] 截图 route 并返回 index html 页面
 
 ## 8-10w
 
